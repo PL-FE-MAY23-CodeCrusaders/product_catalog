@@ -4,7 +4,9 @@ import cart from '../../images/cart.png';
 import favourites from '../../images/favourites.png';
 import logo from '../../images/logo.png';
 import menu from '../../images/menu.png';
+import close from '../../images/close.png';
 import './Header.scss';
+import BurgerMenu from '../burgerMenu/BurgerMenu';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -91,13 +93,17 @@ function Header() {
           </div>
           <div className="header-icon-box">
             <a onClick={handleMenuToggle} href="#menu">
-              <img src={menu} className="header-icon-img" alt="Menu" />
+              {menuOpen ? (
+                <img src={close} className="header-icon-img" alt="Menu" />
+              ) : (
+                <img src={menu} className="header-icon-img" alt="Close menu" />
+              )}
             </a>
           </div>
         </div>
       </header>
 
-      {/* {menuOpen && <BurgerMenu />} */}
+      {menuOpen && <BurgerMenu />}
     </div>
   );
 }
