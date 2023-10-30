@@ -97,6 +97,11 @@
             font-size: 12px;
             font-style: normal;
             font-weight: 500;
+            transition: font-weight .35s ease-in;
+
+            &:hover {
+                font-weight: bold;
+            }
         }
 
         &--icon {
