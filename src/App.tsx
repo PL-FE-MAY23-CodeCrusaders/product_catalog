@@ -1,22 +1,11 @@
 import {
   NavLink, Route, Routes,
 } from 'react-router-dom';
-
-function Home() {
-  return <div>Home Page Content</div>;
-}
-
-function Phones() {
-  return <div>Phones Page Content</div>;
-}
-
-function Tablets() {
-  return <div>Tablets Page Content</div>;
-}
-
-function Accessories() {
-  return <div>Accessories Page Content</div>;
-}
+import { Home } from './Components/PageHome/PageHome';
+import { Phones } from './Components/PagePhones/PagePhones';
+import { Tablets } from './Components/PageTablets/PageTablets';
+import { Accessories } from './Components/PageAccesories/PageAccessories';
+import { Favourites } from './Components/Favourites/Favourites';
 
 function App() {
   return (
@@ -36,14 +25,21 @@ function App() {
             <li>
               <NavLink to="/accessories">ACCESSORIES</NavLink>
             </li>
+            <li>
+              <NavLink to="/favourites">FAVOURITES</NavLink>
+            </li>
           </ul>
         </nav>
       </header>
+
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/phones" element={<Phones />} />
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/accessories" element={<Accessories />} />
+        <Route path="/favourites" element={<Favourites />} />
+
       </Routes>
 
     </>

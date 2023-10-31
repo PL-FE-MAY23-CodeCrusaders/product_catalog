@@ -1,13 +1,13 @@
 import React from 'react';
 import './PageHome.scss';
 
-export const PageHome = () => {
+export const Home = () => {
   return (
-    <main>
-      <section className="sectionWelcome" />
-      <section className="sectionNewModels" />
-      <section className="sectionCategory" />
-      <section className="sectionHotPrice" />
+    <main className="Home_main">
+      <section className="Home_sectionWelcome" />
+      <section className="Home_sectionNewModels" />
+      <section className="Home_sectionCategory" />
+      <section className="Home_sectionHotPrice" />
     </main>
   );
 };

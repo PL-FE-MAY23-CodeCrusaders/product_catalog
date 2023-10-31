@@ -1,4 +1,4 @@
-main {  
+.Tablets_main {  
   width: 100%;
   min-height: 100vh;
   display: grid;
@@ -23,7 +23,7 @@ main {
       }
 }
 
-.map {
+.Tablets_map {
   background-color: blue;
   height: 100%;
   box-sizing: border-box;
@@ -40,7 +40,7 @@ main {
 
 
 
-.title {
+.Tablets_title {
   background-color: red;
   height: 100%;
   box-sizing: border-box;
@@ -55,7 +55,7 @@ main {
   }
   }
 
-.modelsCount {
+.Tablets_modelsCount {
   background-color: green;
   height: 100%;
   box-sizing: border-box;
@@ -70,7 +70,7 @@ main {
   }
 }
 
-.sortByField {
+.Tablets_sortByField {
   background-color: rgb(243, 15, 133);
   height: 100%;
   box-sizing: border-box;
@@ -85,7 +85,7 @@ main {
   }
 }
 
-.itemsOnPageField {
+.Tablets_itemsOnPageField {
   background-color: rgb(231, 19, 213);
   height: 100%;
   box-sizing: border-box;
@@ -100,7 +100,7 @@ main {
   }
 }
 
-.itemList {
+.Tablets_itemList {
   background-color: rgb(22, 21, 22);
   height: 100%;
   box-sizing: border-box;
@@ -115,7 +115,7 @@ main {
   }
 }
 
-.pageBar {
+.Tablets_pageBar {
   background-color: rgb(181, 72, 127);
   height: 100%;
   box-sizing: border-box;

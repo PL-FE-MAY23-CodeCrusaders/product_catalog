@@ -1,16 +1,16 @@
 import React from 'react';
 import './PageTablets.scss';
 
-export const PageTablets = () => {
+export const Tablets = () => {
   return (
-    <main>
-      <div className="map" />
-      <div className="title" />
-      <div className="modelsCount" />
-      <div className="sortByField" />
-      <div className="itemsOnPageField" />
-      <div className="itemList" />
-      <div className="pageBar" />
+    <main className="Tablets_main">
+      <div className="Tablets_map" />
+      <div className="Tablets_title" />
+      <div className="Tablets_modelsCount" />
+      <div className="Tablets_sortByField" />
+      <div className="Tablets_itemsOnPageField" />
+      <div className="Tablets_itemList" />
+      <div className="Tablets_pageBar" />
     </main>
   );
 };

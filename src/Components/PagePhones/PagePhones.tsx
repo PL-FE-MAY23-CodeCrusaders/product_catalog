@@ -1,16 +1,16 @@
 import React from 'react';
 import './PagePhones.scss';
 
-export const PagePhones = () => {
+export const Phones = () => {
   return (
-    <main>
-      <div className="map" />
-      <div className="title" />
-      <div className="modelsCount" />
-      <div className="sortByField" />
-      <div className="itemsOnPageField" />
-      <div className="itemList" />
-      <div className="pageBar" />
+    <main className="Phones_main">
+      <div className="Phones_map" />
+      <div className="Phones_title" />
+      <div className="Phones_modelsCount" />
+      <div className="Phones_sortByField" />
+      <div className="Phones_itemsOnPageField" />
+      <div className="Phones_itemList" />
+      <div className="Phones_pageBar" />
     </main>
   );
 };
