@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Pagination from './Pagination/Pagination';
 
 function Home() {
   return <h1>Home Page</h1>;
@@ -42,7 +43,7 @@ function App() {
             </ul>
           </nav>
         </header>
-
+        <Pagination />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/phones" element={<Phones />} />
