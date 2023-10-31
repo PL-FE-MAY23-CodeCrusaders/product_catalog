@@ -1,0 +1,9 @@
+@import '../../../../utils/variables.scss';
+
+.headerH2{
+font-size: $desktop-h2-size;
+line-height: $desktop-h2-line-height;
+letter-spacing: $desktop-h2-letter-spacing;
+grid-column: span 2 ;
+
+}
