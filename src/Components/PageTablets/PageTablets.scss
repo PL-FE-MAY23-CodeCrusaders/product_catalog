@@ -7,19 +7,20 @@
   grid-auto-flow: column; 
   column-gap: 16px;
   justify-content: center;
+  box-sizing: border-box;
 
-  padding: 24px 0 64px;
+  padding: 24px 16px 64px;
 
   @media (min-width: 640px) {
       grid-template-columns: repeat(12, 1fr); 
       grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
-      padding: 24px 0 64px;
+      padding: 24px 24px 64px;
       }
   
     @media (min-width: 1200px) {
       grid-template-columns: repeat(24, 32px); 
       grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
-      padding: 24px 0 80px;
+      padding: 24px 32px 80px;
       }
 }
 
