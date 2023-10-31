@@ -1,7 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
+import {
+  NavLink, Route, Routes,
+} from 'react-router-dom';
 
 function Home() {
   return <div>Home Page Content</div>;
@@ -21,37 +20,33 @@ function Accessories() {
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">HOME</Link>
-              </li>
-              <li>
-                <Link to="/phones">PHONES</Link>
-              </li>
-              <li>
-                <Link to="/tablets">TABLETS</Link>
-              </li>
-              <li>
-                <Link to="/accessories">ACCESSORIES</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
+    <>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/">HOME</NavLink>
+            </li>
+            <li>
+              <NavLink to="/phones">PHONES</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tablets">TABLETS</NavLink>
+            </li>
+            <li>
+              <NavLink to="/accessories">ACCESSORIES</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/phones" element={<Phones />} />
+        <Route path="/tablets" element={<Tablets />} />
+        <Route path="/accessories" element={<Accessories />} />
+      </Routes>
 
-        <Route path="/" exact component={Home} />
-        <Route path="/phones" component={Phones} />
-        <Route path="/tablets" component={Tablets} />
-        <Route path="/accessories" component={Accessories} />
-      </Router>
-    </div>
+    </>
   );
 }
 
