@@ -1,6 +1,9 @@
 import {
   NavLink, Route, Routes,
 } from 'react-router-dom';
+import
+{ ProductDetailsPage }
+  from './features/productDetailsPage/ProductDetailsPage';
 
 function Home() {
   return <div>Home Page Content</div>;
@@ -44,6 +47,7 @@ function App() {
         <Route path="/phones" element={<Phones />} />
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/accessories" element={<Accessories />} />
+        <Route path="/phones/1" element={<ProductDetailsPage />} />
       </Routes>
 
     </>
