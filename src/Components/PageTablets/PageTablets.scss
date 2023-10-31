@@ -1,0 +1,131 @@
+main {  
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat( 4, 1fr) ;
+  grid-template-rows: 16px 24px 41px 8px 21px 32px 59px 24px 1fr 24px 32px;
+  grid-auto-flow: column; 
+  column-gap: 16px;
+  justify-content: center;
+
+  padding: 24px 0 64px;
+
+  @media (min-width: 640px) {
+      grid-template-columns: repeat(12, 1fr); 
+      grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+      padding: 24px 0 64px;
+      }
+  
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(24, 32px); 
+      grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+      padding: 24px 0 80px;
+      }
+}
+
+.map {
+  background-color: blue;
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 1/1/2/4;
+
+  @media (min-width: 640px) {
+    grid-area: 1/1/2/4;
+  }
+
+  @media (min-width: 1200px) {
+    grid-area: 1/1/2/4;
+  }
+}
+
+
+
+.title {
+  background-color: red;
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 3/1/4/5;
+  
+  @media (min-width: 640px) {
+    grid-area: 3/1/4/13;
+  }
+  
+  @media (min-width: 1200px) {
+    grid-area: 3/1/4/25;
+  }
+  }
+
+.modelsCount {
+  background-color: green;
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 5/1/6/5;
+
+  @media (min-width: 640px) {
+    grid-area: 5/1/6/13;
+  }
+
+  @media (min-width: 1200px) {
+    grid-area: 5/1/6/25;
+  }
+}
+
+.sortByField {
+  background-color: rgb(243, 15, 133);
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 7/1/8/3;
+  
+  @media (min-width: 640px) {
+    grid-area: 7/1/8/5;
+  }
+  
+  @media (min-width: 1200px) {
+    grid-area: 7/1/8/5;
+  }
+}
+
+.itemsOnPageField {
+  background-color: rgb(231, 19, 213);
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 7/3/8/5;
+  
+  @media (min-width: 640px) {
+    grid-area: 7/5/8/8;
+  }
+  
+  @media (min-width: 1200px) {
+    grid-area: 7/5/8/8;
+  }
+}
+
+.itemList {
+  background-color: rgb(22, 21, 22);
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 9/1/10/5;
+  
+  @media (min-width: 640px) {
+    grid-area: 9/1/10/13;
+  }
+  
+  @media (min-width: 1200px) {
+    grid-area: 9/1/10/25;
+  }
+}
+
+.pageBar {
+  background-color: rgb(181, 72, 127);
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 10/1/11/5;
+  
+  @media (min-width: 640px) {
+    grid-area: 10/1/11/13;
+  }
+  
+  @media (min-width: 1200px) {
+    grid-area: 10/1/11/25;
+  }
+}
