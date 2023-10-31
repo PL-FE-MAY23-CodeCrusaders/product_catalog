@@ -1,30 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function Home() {
-  return <div>Home Page Content</div>;
+  return <h1>Home Page</h1>;
 }
 
 function Phones() {
-  return <div>Phones Page Content</div>;
+  return <h1>Phones Page</h1>;
 }
 
 function Tablets() {
-  return <div>Tablets Page Content</div>;
+  return <h1>Tablets Page</h1>;
 }
 
 function Accessories() {
-  return <div>Accessories Page Content</div>;
+  return <h1>Accessories Page</h1>;
 }
 
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
@@ -46,12 +43,14 @@ function App() {
           </nav>
         </header>
 
-        <Route path="/" exact component={Home} />
-        <Route path="/phones" component={Phones} />
-        <Route path="/tablets" component={Tablets} />
-        <Route path="/accessories" component={Accessories} />
-      </Router>
-    </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/phones" element={<Phones />} />
+          <Route path="/tablets" element={<Tablets />} />
+          <Route path="/accessories" element={<Accessories />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
