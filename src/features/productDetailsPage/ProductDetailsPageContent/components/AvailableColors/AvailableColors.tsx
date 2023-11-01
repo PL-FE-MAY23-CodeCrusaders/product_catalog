@@ -5,10 +5,11 @@ import { ReactComponent as ColorAvailable } from './colors.svg';
 import { useProductDetailsPageContext } from '../../../context/ProductDetailsPageContext';
 
 export const AvailableColors = () => {
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-
   const { phoneData } = useProductDetailsPageContext();
   const availableColors = phoneData?.colorsAvailable || [];
+
+  const [selectedColor, setSelectedColor]
+  = useState<string | null>(phoneData?.color || null);
 
   const handleColorChange = (color: string | null) => {
     setSelectedColor(color);

@@ -1,8 +1,3 @@
-export type PhoneCapacity = '64GB' | '128GB' | '256GB';
-export type PhoneColor =
-'black' | 'green' | 'yellow' | 'white' | 'purple' | 'red';
-export type CellType = 'GPRS' | 'EDGE' | 'WCDMA' | 'UMTS' | 'HSPA' | 'LTE';
-
 export type DescriptionSection = {
   title: string;
   text: string[];
@@ -12,12 +7,12 @@ export type Phone = {
   id: string;
   namespaceId: string;
   name: string;
-  capacityAvailable: PhoneCapacity[];
-  capacity: PhoneCapacity;
+  capacityAvailable: string[];
+  capacity: string;
   priceRegular: number;
   priceDiscount: number;
-  colorsAvailable: PhoneColor[];
-  color: PhoneColor;
+  colorsAvailable: string[];
+  color: string;
   images: string[];
   description: DescriptionSection[];
   screen: string;
@@ -26,7 +21,7 @@ export type Phone = {
   ram: string;
   camera: string;
   zoom: string;
-  cell: CellType[];
+  cell: string[];
 };
 
 export interface ProductDetailsPageContextType {

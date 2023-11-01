@@ -37,6 +37,9 @@ function App() {
             <li>
               <NavLink to="/accessories">ACCESSORIES</NavLink>
             </li>
+            <li>
+              <NavLink to="/phones/1">moje</NavLink>
+            </li>
           </ul>
         </nav>
       </header>

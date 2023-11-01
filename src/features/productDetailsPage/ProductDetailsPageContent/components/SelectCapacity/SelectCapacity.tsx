@@ -5,10 +5,11 @@ import {
 } from '../../../context/ProductDetailsPageContext';
 
 export const SelectCapacity = () => {
-  const [selectedCapacity, setSelectedCapaity] = useState<string | null>(null);
-
   const { phoneData } = useProductDetailsPageContext();
   const availableCapacities = phoneData?.capacityAvailable || [];
+
+  const [selectedCapacity, setSelectedCapaity]
+  = useState<string | null>(phoneData?.capacity || null);
 
   const handleCapacityChange = (capacity: string | null) => {
     setSelectedCapaity(capacity);

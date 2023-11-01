@@ -3,8 +3,8 @@ import { BigPhoto } from './BigPhoto/BigPhoto';
 import { Gallery } from './Gallery';
 
 export const PhotoPreview = () => (
-  <div className="photosPreview">
+  <section className="photosPreview">
     <Gallery />
     <BigPhoto />
-  </div>
+  </section>
 );
