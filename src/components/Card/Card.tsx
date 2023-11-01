@@ -3,6 +3,8 @@ import ReactImageMagnify from 'react-image-magnify';
 import './Card.scss';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
+import phoneImg1 from '../../images/phoneImg1.png';
+import phoneImg1xl from '../../images/phoneImg1xl.png';
 
 export const Card: React.FC = () => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
@@ -16,32 +18,32 @@ export const Card: React.FC = () => {
     setIsFavourite(!isFavourite);
   };
 
-  const watchImg300 = '../../images/phone_img_1.png';
-  const watchImg1200 = '../../images/phone_img_1xl.png';
+  const watchImg300 = '../../images/phoneImg1.png';
+  const watchImg1200 = '../../images/phoneImg1xl.png';
 
   return (
     <div className="container">
       <div className="card">
         <div className="card__img">
-          <img
+          {/* <img
             className="img"
             src={require('../../images/phone_img_1.png')}
             alt="Apple iPhone 14 Pro 128GB Silver (MQ023)"
-          />
-          {/* <ReactImageMagnify
+          /> */}
+          <ReactImageMagnify
             {...{
               smallImage: {
-                alt: 'Wristwatch by Ted Baker London',
+                alt: 'Apple iPhone 14 Pro 128GB Silver (MQ023)',
                 isFluidWidth: true,
-                src: watchImg300,
+                src: phoneImg1,
               },
               largeImage: {
-                src: watchImg1200,
-                width: 1200,
-                height: 1800,
+                src: phoneImg1xl,
+                width: 600,
+                height: 640,
               },
             }}
-          /> */}
+          />
         </div>
         <div className="card__title">
           <h4>Apple iPhone 14 Pro 128GB Silver (MQ023)</h4>
