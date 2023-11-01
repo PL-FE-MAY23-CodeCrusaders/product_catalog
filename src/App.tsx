@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.scss';
 
 import { Footer } from './components/Footer/index';
+import { Card } from './components/Card/index';
 
 function Home() {
   return <div>Home Page Content</div>;
@@ -49,6 +50,7 @@ function App() {
           <Route path="/accessories" element={<Accessories />} />
         </Routes>
       </Router>
+      <Card />
       <Footer />
     </div>
   );
