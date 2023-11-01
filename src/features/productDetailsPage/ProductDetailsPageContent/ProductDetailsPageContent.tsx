@@ -9,12 +9,14 @@ import { HeaderH3 } from './components/HeaderH3';
 import { HeaderH4 } from './components/HeaderH4';
 import { Paragraph } from './components/Paragraph';
 import { TechSepc } from './components/TechSpec';
+import { Loader } from './Loader';
+import { AvailableColors } from './components/AvailableColors';
 
 export const ProductDetailsPageConetnt = () => {
   const { isLoading, error, phoneData } = useProductDetailsPageContext();
 
   if (isLoading) {
-    return <HeaderH2 header2="Wait a moment" />;
+    return <Loader />;
   }
 
   if (error) {
@@ -28,10 +30,12 @@ export const ProductDetailsPageConetnt = () => {
         <section>
           <PhotoPreview />
         </section>
-        <section>opcje</section>
+        <section className="main__section-option">
+          <AvailableColors />
+        </section>
         <section>
           <HeaderH3 header3="About" />
-          <div className="main-line" />
+          <div className="main__line" />
           <div>
             <HeaderH4 header4={phoneData.description[0].title} />
             <Paragraph text={phoneData.description[0].text} />
@@ -47,7 +51,7 @@ export const ProductDetailsPageConetnt = () => {
         </section>
         <section>
           <HeaderH3 header3="Tech specs" />
-          <div className="main-line" />
+          <div className="main__line" />
           <div>
             <TechSepc />
           </div>

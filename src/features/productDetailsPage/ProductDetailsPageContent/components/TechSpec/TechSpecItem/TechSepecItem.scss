@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 8px;
-  &-name {
+  &__name {
     margin: 0;
     color: $secondary-color;
     font-weight: 500;
@@ -13,7 +13,7 @@
     letter-spacing: $desktop-body-text-letter-spacing;
   }
 
-  &-value {
+  &__value {
     margin: 0;
     color: $primary-color;
     font-weight: 600;

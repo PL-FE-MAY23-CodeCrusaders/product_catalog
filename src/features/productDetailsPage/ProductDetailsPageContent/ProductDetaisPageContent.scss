@@ -7,8 +7,12 @@
   grid-template-columns: 1fr 1fr;
   gap: 64px;
 
-  &-line{
+  &__line{
     border-top: solid 1px $elements-color;
     margin-bottom: 26px;
   };
+
+  &__section-option{
+    max-width: 320px;
+  }
 }

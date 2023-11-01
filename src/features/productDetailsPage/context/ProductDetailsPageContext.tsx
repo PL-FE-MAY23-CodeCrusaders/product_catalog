@@ -29,13 +29,15 @@ export const ProductDetailsPageProvider = ({ children }: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      try {
-        const data = await getData();
+      const data = await getData();
 
-        setPhoneData(data);
+      setPhoneData(data);
+      try {
+        setTimeout(async () => {
+          setIsLoading(false);
+        }, 1000);
       } catch (e) {
         setError(true);
-      } finally {
         setIsLoading(false);
       }
     };
@@ -45,7 +47,7 @@ export const ProductDetailsPageProvider = ({ children }: Props) => {
 
   const changePhoto = (path: string) => setPhotoPath(path);
 
-  const isActivePhoto = (path:string) => path === photoPath;
+  const isActivePhoto = (path: string) => path === photoPath;
 
   return (
     <ProductDetailsPageContext.Provider

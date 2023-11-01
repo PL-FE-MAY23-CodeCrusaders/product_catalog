@@ -1,0 +1,31 @@
+@import '../../../../../utils/variables.scss';
+
+.color {
+  &__paragraph{
+    color: $secondary-color;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 12px;
+  }
+
+  &__button {
+    background-color: white;
+    width: 36px;
+    height: 36px;
+    padding: 1px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+  }
+  &__button--selected {
+    border: solid 1px black;
+  }
+}

@@ -7,7 +7,7 @@ type Props = {
 
 export const TechSpecItem = ({ name, value }: Props) => (
   <div className="techSpecItem">
-    <p className="techSpecItem-name">{name}</p>
-    <p className="techSpecItem-value">{value}</p>
+    <p className="techSpecItem__name">{name}</p>
+    <p className="techSpecItem__value">{value}</p>
   </div>
 );
