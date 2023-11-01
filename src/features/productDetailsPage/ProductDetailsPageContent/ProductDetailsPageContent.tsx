@@ -8,6 +8,7 @@ import { PhotoPreview } from './components/PhotoPreview';
 import { HeaderH3 } from './components/HeaderH3';
 import { HeaderH4 } from './components/HeaderH4';
 import { Paragraph } from './components/Paragraph';
+import { TechSepc } from './components/TechSpec';
 
 export const ProductDetailsPageConetnt = () => {
   const { isLoading, error, phoneData } = useProductDetailsPageContext();
@@ -30,6 +31,7 @@ export const ProductDetailsPageConetnt = () => {
         <section>opcje</section>
         <section>
           <HeaderH3 header3="About" />
+          <div className="main-line" />
           <div>
             <HeaderH4 header4={phoneData.description[0].title} />
             <Paragraph text={phoneData.description[0].text} />
@@ -45,7 +47,10 @@ export const ProductDetailsPageConetnt = () => {
         </section>
         <section>
           <HeaderH3 header3="Tech specs" />
-
+          <div className="main-line" />
+          <div>
+            <TechSepc />
+          </div>
         </section>
         <section>
           <HeaderH2 header2="You may also like" />

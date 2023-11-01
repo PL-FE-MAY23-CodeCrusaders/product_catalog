@@ -1,4 +1,6 @@
 /* eslint-disable react/no-array-index-key */
+import './Paragraph.scss';
+
 type Props = {
   text: string[];
 };
@@ -6,7 +8,7 @@ type Props = {
 export const Paragraph = ({ text }: Props): JSX.Element => (
   <div>
     {text.map((p, index) => (
-      <p key={index}>{p}</p>
+      <p className="paragraph" key={index}>{p}</p>
     ))}
   </div>
 );

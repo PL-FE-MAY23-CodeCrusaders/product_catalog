@@ -1,0 +1,27 @@
+@import '../../../../../../utils/variables.scss';
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  &-button {
+    width: 80px;
+    height: 80px;
+    border: 1px solid $elements-color;
+    border-radius: 8px;
+    background-color: $hoverBG-color;
+  }
+  &-button.active {
+    border-color: $primary-color;
+  }
+
+
+  &-photo {
+    max-height: 100%;
+    max-width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

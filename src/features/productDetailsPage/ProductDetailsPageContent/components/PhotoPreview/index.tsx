@@ -1,1 +1,1 @@
-export * from './PhotoPrewiev';
+export * from './PhotoPreview';
