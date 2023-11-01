@@ -11,6 +11,8 @@ import { Paragraph } from './components/Paragraph';
 import { TechSepc } from './components/TechSpec';
 import { Loader } from './Loader';
 import { AvailableColors } from './components/AvailableColors';
+import { SelectCapacity } from './components/SelectCapacity';
+import { SmallTechSepc } from './components/SmallTechSpecs';
 
 export const ProductDetailsPageConetnt = () => {
   const { isLoading, error, phoneData } = useProductDetailsPageContext();
@@ -32,10 +34,16 @@ export const ProductDetailsPageConetnt = () => {
         </section>
         <section className="main__section-option">
           <AvailableColors />
+          <div className="main__line main__line--small" />
+          <SelectCapacity />
+          <div className="main__line main__line--small" />
+          <p>price</p>
+          <p>button add</p>
+          <SmallTechSepc />
         </section>
         <section>
           <HeaderH3 header3="About" />
-          <div className="main__line" />
+          <div className="main__line " />
           <div>
             <HeaderH4 header4={phoneData.description[0].title} />
             <Paragraph text={phoneData.description[0].text} />

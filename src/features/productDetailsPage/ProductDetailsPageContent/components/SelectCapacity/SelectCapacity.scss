@@ -1,0 +1,41 @@
+@import '../../../../../utils/variables.scss';
+
+.capacity {
+  &__paragraph {
+    color: $secondary-color;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 12px;
+  }
+
+  &__button {
+    background: transparent;
+    border-radius: 4px;
+    border: 1px solid $ocons-color;
+  }
+
+  &__button--selected{
+    background-color: $primary-color;
+  }
+
+  &__button-text {
+    font-family: 'Montserrat', sans-serif;
+    color: $primary-color;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    margin: 4px;
+  }
+
+  &__button-text--selected{
+    color: $white-color;
+  }
+}
