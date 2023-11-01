@@ -1,137 +1,152 @@
-.Accessories_main {  
+@import './components/__map';
+@import './components/__itemList';
+@import './components/__pagination';
+@import './components/__title';
+
+.Accessories__main {  
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat( 4, 1fr) ;
+  grid-template-rows: 16px 24px 41px 8px 21px 32px 59px 24px 1fr 24px 32px;
+  grid-auto-flow: column; 
+  column-gap: 16px;
+  justify-content: center;
+  row-gap: 0;
+  box-sizing: border-box;
+
+  padding: 24px 16px 64px;
+
+  @media (min-width: 640px) {
+      grid-template-columns: repeat(12, 1fr); 
+      grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+      padding: 24px 24px 64px;
+      }
+  
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(24, 32px); 
+      grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+      padding: 24px 32px 80px;
+      }
+}
+
+
+.Accessories__title {
+  
+  height: 100%;
+  box-sizing: border-box;
+  color: #0F0F11;
+  justify-content: center;
+  
+  font-family: 'Mont';
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  text-align: left;
+
+  grid-area: 3/1/4/5;
+  
+  @media (min-width: 640px) {
+    grid-area: 3/1/4/13;
+    font-family: Mont;
+    font-size: 48px;
+
+    line-height: 56px;
+    letter-spacing: -0.01em;
+
+
+  }
+  
+  @media (min-width: 1200px) {
+    grid-area: 3/1/4/25;
+    
+    font-family: Mont;
+    font-size: 48px;
+
+
+    letter-spacing: -0.01em;
+
+
+  }
+}
+
+
+.Accessories__modelsCount {
+  
+  height: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  display:flex;
+  grid-area: 5/1/6/5;
+
+ color: #89939A;
+font-family: Mont;
+font-size: 14px;
+font-weight: 600;
+line-height: 21px;
+letter-spacing: 0em;
+text-align: left;
+
+
+  @media (min-width: 640px) {
+    grid-area: 5/1/6/13;
+  }
+
+  @media (min-width: 1200px) {
+    grid-area: 5/1/6/25;
+
+  }
+}
+
+
+.Accessories__sortByField {
+  background-color: yellow;
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 7/1/8/3;
+  
+  @media (min-width: 640px) {
+    grid-area: 7/1/8/5;
+  }
+  
+  @media (min-width: 1200px) {
+    grid-area: 7/1/8/5;
+  }
+
+  &-input {
     width: 100%;
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat( 4, 1fr) ;
-    grid-template-rows: 16px 24px 41px 8px 21px 32px 59px 24px 1fr 24px 32px;
-    grid-auto-flow: column; 
-    column-gap: 16px;
-    justify-content: center;
-    row-gap: 0;
-    box-sizing: border-box;
-    
-    
+    height: 40px;
+    border-radius: 8px;
+    border:1px solid #B4BDC3;
+    padding:10px 12px 12px 9px;  
+   
+  }
+}
+
+.Accessories__itemsOnPageField {
+  background-color: rgb(231, 19, 213);
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 7/3/8/5;
   
-    padding: 24px 16px 64px;
-  
-    @media (min-width: 640px) {
-        grid-template-columns: repeat(12, 1fr); 
-        grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
-        padding: 24px 24px 64px;
-        }
-    
-      @media (min-width: 1200px) {
-        grid-template-columns: repeat(24, 32px); 
-        grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
-        padding: 24px 32px 80px;
-        }
+  @media (min-width: 640px) {
+    grid-area: 7/5/8/8;
   }
   
-  .Accessories_map {
-    background-color: blue;
-    height: 100%;
-    box-sizing: border-box;
-    grid-area: 1/1/2/4;
-  
-    @media (min-width: 640px) {
-      grid-area: 1/1/2/4;
-    }
-  
-    @media (min-width: 1200px) {
-      grid-area: 1/1/2/4;
-    }
+  @media (min-width: 1200px) {
+    grid-area: 7/5/8/8;
   }
-  
-  
-  
-  .Accessories_title {
-    background-color: rgb(242, 255, 0);
-    height: 100%;
-    box-sizing: border-box;
-    grid-area: 3/1/4/5;
-    
-    @media (min-width: 640px) {
-      grid-area: 3/1/4/13;
-    }
-    
-    @media (min-width: 1200px) {
-      grid-area: 3/1/4/25;
-    }
-    }
-  
-  .Accessories_modelsCount {
-    background-color: green;
-    height: 100%;
-    box-sizing: border-box;
-    grid-area: 5/1/6/5;
-  
-    @media (min-width: 640px) {
-      grid-area: 5/1/6/13;
-    }
-  
-    @media (min-width: 1200px) {
-      grid-area: 5/1/6/25;
-    }
-  }
-  
-  .Accessories_sortByField {
-    background-color: rgb(243, 15, 133);
-    height: 100%;
-    box-sizing: border-box;
-    grid-area: 7/1/8/3;
-    
-    @media (min-width: 640px) {
-      grid-area: 7/1/8/5;
-    }
-    
-    @media (min-width: 1200px) {
-      grid-area: 7/1/8/5;
-    }
-    }
-  
-    .Accessories_itemsOnPageField {
-      background-color: rgb(231, 19, 213);
-      height: 100%;
-      box-sizing: border-box;
-      grid-area: 7/3/8/5;
-      
-      @media (min-width: 640px) {
-        grid-area: 7/5/8/8;
-      }
-      
-      @media (min-width: 1200px) {
-        grid-area: 7/5/8/8;
-      }
-    }
-  
-    .Accessories_itemList {
-      background-color: rgb(22, 21, 22);
-      height: 100%;
-      box-sizing: border-box;
-      grid-area: 9/1/10/5;
-      
-      @media (min-width: 640px) {
-        grid-area: 9/1/10/13;
-      }
-      
-      @media (min-width: 1200px) {
-        grid-area: 9/1/10/25;
-      }
-    }
-  
-    .Accessories_pageBar {
-      background-color: rgb(181, 72, 127);
-      height: 100%;
-      box-sizing: border-box;
-      grid-area: 10/1/11/5;
-      
-      @media (min-width: 640px) {
-        grid-area: 10/1/11/13;
-      }
-      
-      @media (min-width: 1200px) {
-        grid-area: 10/1/11/25;
-      }
-    }
+}
+
+
+
+
+
+
+
+
+
+
 
 

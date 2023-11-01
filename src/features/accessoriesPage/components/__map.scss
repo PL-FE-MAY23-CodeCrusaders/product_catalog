@@ -1,0 +1,55 @@
+.Accessories__map {
+  
+    height: 100%;
+    box-sizing: border-box;
+    grid-area: 1/1/2/4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+  
+    @media (min-width: 640px) {
+      grid-area: 1/1/2/6;
+    }
+  
+    @media (min-width: 1200px) {
+      grid-area: 1/1/2/6;
+    }
+  
+    &-homeIcon {
+    
+      width: 16px;
+      height: 16px;
+      background-image: url("../../../images/Home.svg");
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    
+    }
+    
+    &-arrowIcon {
+      
+      width: 16px;
+      height: 16px;
+      background-image: url("../../../images/phonepage__arrow.svg");
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  
+    &-label {
+      font-family: 'Mont';
+      color: #89939A;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 15px;
+      letter-spacing: 0em;
+      text-align: left;
+  
+      &:hover {
+        cursor: pointer;
+        color: #0F0F11;
+      }
+  
+    }
+  }
