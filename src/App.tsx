@@ -1,11 +1,11 @@
 import {
   NavLink, Route, Routes,
 } from 'react-router-dom';
-import { Home } from './Components/PageHome/PageHome';
-import { Phones } from './Components/PagePhones/PagePhones';
-import { Tablets } from './Components/PageTablets/PageTablets';
-import { Accessories } from './Components/PageAccesories/PageAccessories';
-import { Favourites } from './Components/Favourites/Favourites';
+import { Home } from './features/homePage/homePage';
+import { Phones } from './features/phonesPage/phonesPage';
+import { Tablets } from './features/tabletsPage/tabletsPage';
+import { Accessories } from './features/accessoriesPage/accessoriesPage';
+import { Favourites } from './features/favouritesPage/favouritesPage';
 
 function App() {
   return (

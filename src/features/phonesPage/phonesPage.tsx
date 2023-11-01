@@ -1,5 +1,5 @@
 import React from 'react';
-import './PagePhones.scss';
+import './phonesPage.scss';
 
 export const Phones = () => {
   return (

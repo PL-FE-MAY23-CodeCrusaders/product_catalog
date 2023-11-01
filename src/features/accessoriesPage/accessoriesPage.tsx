@@ -1,5 +1,5 @@
 import React from 'react';
-import './PageAccessories.scss';
+import './accessoriesPage.scss';
 
 export const Accessories = () => {
   return (

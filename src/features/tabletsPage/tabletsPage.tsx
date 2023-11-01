@@ -1,5 +1,5 @@
 import React from 'react';
-import './PageTablets.scss';
+import './tabletsPage.scss';
 
 export const Tablets = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Favourites.scss';
+import './favouritesPage.scss';
 
 export const Favourites = () => {
   return (
