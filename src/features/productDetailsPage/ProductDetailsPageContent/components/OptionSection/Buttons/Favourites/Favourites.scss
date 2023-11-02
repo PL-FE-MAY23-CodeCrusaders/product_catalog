@@ -1,0 +1,21 @@
+@import '../../../../../../../utils/variables.scss';
+
+.favourites-button {
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border-radius: 40px;
+  border: 1px solid $ocons-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:active .favourites-button__heart {
+    fill: $accent-secondary-color;
+  }
+
+  &:hover {
+    border: 1px solid $primary-color;
+  }
+}

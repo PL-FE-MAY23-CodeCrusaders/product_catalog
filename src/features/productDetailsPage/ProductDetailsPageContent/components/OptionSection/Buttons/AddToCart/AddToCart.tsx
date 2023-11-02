@@ -1,5 +1,5 @@
 import './AddToCart.scss';
 
 export const AddToCart = () => (
-  <button type="button"> Add</button>
+  <button type="button" className="add-button">Add to cart</button>
 );
