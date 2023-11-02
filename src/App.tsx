@@ -3,21 +3,11 @@ import {
 } from 'react-router-dom';
 import PageNotFound from './pageNotFound';
 
-function Home() {
-  return <div>Home Page Content</div>;
-}
-
-function Phones() {
-  return <div>Phones Page Content</div>;
-}
-
-function Tablets() {
-  return <div>Tablets Page Content</div>;
-}
-
-function Accessories() {
-  return <div>Accessories Page Content</div>;
-}
+import { Home } from './features/homePage/HomePage';
+import { Phones } from './features/phonesPage/PhonesPage';
+import { Tablets } from './features/tabletsPage/TabletsPage';
+import { Accessories } from './features/accessoriesPage/AccessoriesPage';
+import { Favourites } from './features/favouritesPage/FavouritesPage';
 
 function App() {
   return (
@@ -37,15 +27,22 @@ function App() {
             <li>
               <NavLink to="/accessories">ACCESSORIES</NavLink>
             </li>
+            <li>
+              <NavLink to="/favourites">FAVOURITES</NavLink>
+            </li>
           </ul>
         </nav>
       </header>
+
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/phones" element={<Phones />} />
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/accessories" element={<Accessories />} />
+        <Route path="/favourites" element={<Favourites />} />
         <Route path="*" element={<PageNotFound />} />
+
       </Routes>
 
     </>
