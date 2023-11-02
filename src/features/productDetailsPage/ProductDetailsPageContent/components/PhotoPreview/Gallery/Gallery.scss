@@ -11,10 +11,15 @@
     border: 1px solid $elements-color;
     border-radius: 8px;
     background-color: $hoverBG-color;
+    transition: 1s;
+
+    &:hover  {
+      transform: scale(1.1);
+    }
+
     @media (max-width: 850px){
       max-width: 60px;
-      max-height: 60px;
-  
+      max-height: 60px; 
   
   }
   }
