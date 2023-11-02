@@ -1,0 +1,15 @@
+@import './variables.scss';
+
+* {
+    box-sizing: border-box;
+  }
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: $hoverBG-color;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
