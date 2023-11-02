@@ -3,6 +3,7 @@ import { AvailableColors } from './AvailableColors';
 import './OptionSection.scss';
 import { SelectCapacity } from './SelectCapacity';
 import { Price } from './Price/Price';
+import { Buttons } from './Buttons';
 
 export const OptionSection = () => (
   <section className="option__section">
@@ -11,7 +12,7 @@ export const OptionSection = () => (
     <SelectCapacity />
     <div className="option__line" />
     <Price />
-    <p>button add</p>
+    <Buttons />
     <SmallTechSepc />
   </section>
 );

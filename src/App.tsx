@@ -6,6 +6,9 @@ import { Phones } from './features/phonesPage/PhonesPage';
 import { Tablets } from './features/tabletsPage/TabletsPage';
 import { Accessories } from './features/accessoriesPage/AccessoriesPage';
 import { Favourites } from './features/favouritesPage/FavouritesPage';
+import {
+  ProductDetailsPage,
+} from './features/productDetailsPage/ProductDetailsPage';
 
 function App() {
   return (
