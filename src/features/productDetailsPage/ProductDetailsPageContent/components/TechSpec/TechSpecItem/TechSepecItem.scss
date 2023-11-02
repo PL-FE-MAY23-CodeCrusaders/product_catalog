@@ -2,6 +2,7 @@
 
 .techSpecItem {
   display: flex;
+  gap: 8px;
   justify-content: space-between;
   padding-bottom: 8px;
   &__name {
@@ -15,6 +16,7 @@
 
   &__value {
     margin: 0;
+    text-align: right;
     color: $primary-color;
     font-weight: 600;
     font-size: $desktop-body-text-size;

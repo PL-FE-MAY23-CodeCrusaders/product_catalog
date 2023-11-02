@@ -9,5 +9,8 @@
 
   &__section {
     max-width: 320px;
+    @media (max-width: 700px) {
+      max-width: 100%;
+    }
   }
 }

@@ -1,11 +1,11 @@
 /* BigPhoto.scss */
 
 .bigPhoto {
-  width: 442px;
-  height: 442px;
+  max-width: 442px;
+  max-height: 442px;
   display: flex;
   justify-content: center; /* Wyśrodkowanie w poziomie */
-  align-items: center; /* Wyśrodkowanie w pionie */
+  align-items: flex-start; /* Wyśrodkowanie w pionie */
   &-img {
     max-height: 100%;
     max-width: 100%;

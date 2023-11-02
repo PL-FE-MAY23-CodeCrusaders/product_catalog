@@ -1,8 +1,7 @@
 import './ProductDetaisPageContent.scss';
 
-import {
-  useProductDetailsPageContext,
-} from '../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext }
+  from '../context/ProductDetailsPageContext';
 import { HeaderH2 } from './components/HeaderH2';
 import { PhotoPreview } from './components/PhotoPreview';
 import { TechSpec } from './components/TechSpec';
@@ -28,8 +27,14 @@ export const ProductDetailsPageContent = () => {
   return (
     <main className="main">
       <HeaderH2 header2={phoneData?.name || ''} />
-      <PhotoPreview />
-      <OptionSection />
+      <div className="main__option-container">
+        <PhotoPreview />
+        <OptionSection />
+      </div>
+      <div className="main__text-container">
+        <About />
+        <TechSpec />
+      </div>
       <About />
       <TechSpec />
       <section>
