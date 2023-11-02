@@ -25,11 +25,6 @@ export const Card: React.FC = () => {
     <div className="container">
       <div className="card">
         <div className="card__img">
-          {/* <img
-            className="img"
-            src={require('../../images/phone_img_1.png')}
-            alt="Apple iPhone 14 Pro 128GB Silver (MQ023)"
-          /> */}
           <ReactImageMagnify
             {...{
               smallImage: {
