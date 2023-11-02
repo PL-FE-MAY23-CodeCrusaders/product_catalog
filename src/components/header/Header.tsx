@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import BurgerMenu from './BurgerMenu';
 import cart from '../../images/cart.png';
 import favourites from '../../images/favourites.png';
 import logo from '../../images/logo.png';
@@ -22,18 +21,18 @@ function Header() {
 
   return (
     <div>
-      <header className="header-home">
-        <div className="header-home-logoBox">
+      <header className="header">
+        <div className="header__logo-box">
           <a href="#home">
-            <img src={logo} className="header-home-logo" alt="logo" />
+            <img src={logo} className="header__logo" alt="logo" />
           </a>
         </div>
         <nav className="nav">
-          <ul className="nav-list">
-            <li className="nav-item">
+          <ul className="nav__list">
+            <li className="nav__item">
               <a
                 href="#home"
-                className={`nav-link ${
+                className={`nav__link ${
                   activeNav === 'home' ? 'is-active' : ''
                 }`}
                 onClick={() => handleNavClick('home')}
@@ -41,10 +40,10 @@ function Header() {
                 Home
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav__item">
               <a
                 href="#phones"
-                className={`nav-link ${
+                className={`nav__link ${
                   activeNav === 'phones' ? 'is-active' : ''
                 }`}
                 onClick={() => handleNavClick('phones')}
@@ -52,10 +51,10 @@ function Header() {
                 Phones
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav__item">
               <a
                 href="#tablets"
-                className={`nav-link ${
+                className={`nav__link ${
                   activeNav === 'tablets' ? 'is-active' : ''
                 }`}
                 onClick={() => handleNavClick('tablets')}
@@ -63,10 +62,10 @@ function Header() {
                 Tablets
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav__item">
               <a
                 href="#accessories"
-                className={`nav-link ${
+                className={`nav__link ${
                   activeNav === 'accessories' ? 'is-active' : ''
                 }`}
                 onClick={() => handleNavClick('accessories')}
@@ -76,27 +75,27 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <div className="header-icon">
-          <div className="header-icon-box">
+        <div className="header__icon">
+          <div className="header__icon-box">
             <a href="#fav">
               <img
                 src={favourites}
-                className="header-icon-img"
+                className="header__icon-img"
                 alt="wishlist icon"
               />
             </a>
           </div>
-          <div className="header-icon-box">
+          <div className="header__icon-box">
             <a href="#cart">
-              <img src={cart} className="header-icon-img" alt="Cart" />
+              <img src={cart} className="header__icon-img" alt="Cart" />
             </a>
           </div>
-          <div className="header-icon-box">
+          <div className="header__icon-box">
             <a onClick={handleMenuToggle} href="#menu">
               {menuOpen ? (
-                <img src={close} className="header-icon-img" alt="Menu" />
+                <img src={close} className="header__icon-img" alt="Menu" />
               ) : (
-                <img src={menu} className="header-icon-img" alt="Close menu" />
+                <img src={menu} className="header__icon-img" alt="Close menu" />
               )}
             </a>
           </div>
