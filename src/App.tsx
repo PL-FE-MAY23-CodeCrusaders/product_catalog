@@ -1,4 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
+import PageNotFound from './pageNotFound';
 import {
   ProductDetailsPage,
 } from './features/productDetailsPage/ProductDetailsPage';
@@ -49,6 +50,7 @@ function App() {
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/phones/1" element={<ProductDetailsPage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
