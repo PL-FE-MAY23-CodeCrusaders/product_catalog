@@ -1,6 +1,7 @@
 import {
   NavLink, Route, Routes,
 } from 'react-router-dom';
+import PageNotFound from './pageNotFound';
 
 function Home() {
   return <div>Home Page Content</div>;
@@ -44,6 +45,7 @@ function App() {
         <Route path="/phones" element={<Phones />} />
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/accessories" element={<Accessories />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
 
     </>
