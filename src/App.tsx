@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   NavLink, Route, Routes,
 } from 'react-router-dom';
@@ -35,13 +34,6 @@ function App() {
 
     </>
   );
-=======
-import React from 'react';
-import Header from './components/header/Header';
-
-function App() {
-  return <Header />;
->>>>>>> 4b83b0b2c2076aeeaa70ec986908aa01fdb04fb1
 }
 
 export default App;
