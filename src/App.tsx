@@ -1,58 +1,51 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import './App.scss';
+import {
+  NavLink, Route, Routes,
+} from 'react-router-dom';
+import PageNotFound from './pageNotFound';
 
-import { Footer } from './components/Footer/index';
-import { Card } from './components/Card/index';
-
-function Home() {
-  return <div>Home Page Content</div>;
-}
-
-function Phones() {
-  return <div>Phones Page Content</div>;
-}
-
-function Tablets() {
-  return <div>Tablets Page Content</div>;
-}
-
-function Accessories() {
-  return <div>Accessories Page Content</div>;
-}
+import { Home } from './features/homePage/HomePage';
+import { Phones } from './features/phonesPage/PhonesPage';
+import { Tablets } from './features/tabletsPage/TabletsPage';
+import { Accessories } from './features/accessoriesPage/AccessoriesPage';
+import { Favourites } from './features/favouritesPage/FavouritesPage';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <header className="App-header">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">HOME</Link>
-              </li>
-              <li>
-                <Link to="/phones">PHONES</Link>
-              </li>
-              <li>
-                <Link to="/tablets">TABLETS</Link>
-              </li>
-              <li>
-                <Link to="/accessories">ACCESSORIES</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/phones" element={<Phones />} />
-          <Route path="/tablets" element={<Tablets />} />
-          <Route path="/accessories" element={<Accessories />} />
-        </Routes>
-      </Router>
-      <Card />
-      <Footer />
-    </div>
+    <>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/">HOME</NavLink>
+            </li>
+            <li>
+              <NavLink to="/phones">PHONES</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tablets">TABLETS</NavLink>
+            </li>
+            <li>
+              <NavLink to="/accessories">ACCESSORIES</NavLink>
+            </li>
+            <li>
+              <NavLink to="/favourites">FAVOURITES</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+        <Route path="/phones" element={<Phones />} />
+        <Route path="/tablets" element={<Tablets />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/favourites" element={<Favourites />} />
+        <Route path="*" element={<PageNotFound />} />
+
+      </Routes>
+
+    </>
   );
 }
 
