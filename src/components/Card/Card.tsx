@@ -18,9 +18,6 @@ export const Card: React.FC = () => {
     setIsFavourite(!isFavourite);
   };
 
-  const watchImg300 = '../../images/phoneImg1.png';
-  const watchImg1200 = '../../images/phoneImg1xl.png';
-
   return (
     <div className="container">
       <div className="card">
