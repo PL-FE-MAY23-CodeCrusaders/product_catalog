@@ -21,7 +21,11 @@
     border: 1px solid $ocons-color;
   }
 
-  &__button--selected{
+  &__button:hover {
+    border: solid 1px $primary-color;
+  }
+
+  &__button--selected {
     background-color: $primary-color;
   }
 
@@ -35,7 +39,7 @@
     margin: 4px;
   }
 
-  &__button-text--selected{
+  &__button-text--selected {
     color: $white-color;
   }
 }

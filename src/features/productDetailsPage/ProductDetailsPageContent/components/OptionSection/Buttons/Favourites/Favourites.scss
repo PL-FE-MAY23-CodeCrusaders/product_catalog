@@ -11,10 +11,6 @@
   align-items: center;
   cursor: pointer;
 
-  &:active .favourites-button__heart {
-    fill: $accent-secondary-color;
-  }
-
   &:hover {
     border: 1px solid $primary-color;
   }
