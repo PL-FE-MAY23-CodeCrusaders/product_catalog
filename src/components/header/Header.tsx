@@ -125,7 +125,6 @@ function Header() {
           </div>
         </div>
       </header>
-
       {menuOpen && <BurgerMenu />}
     </div>
   );
