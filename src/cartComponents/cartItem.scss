@@ -1,0 +1,85 @@
+.cart-card {
+    height: 128px;
+    width: 752px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center; /* Wyśrodkowanie wertykalne */
+    border: 1px solid #B4BDC3;
+    border-radius: 16px;
+  }
+  
+  .cart-card-iconBox {
+    width: 16px;
+    height: 16px;
+    margin: 0 24px;
+  }
+  
+  .cart-card-icon {
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+  }
+  
+  .cart-card-photoBox {
+    height: 80px;
+    width: 80px;
+    margin-right: 24px;
+  }
+  
+  .cart-card-photo {
+    height: 66px;
+    width: 66px;
+    margin: 7px;
+  }
+  
+  .cart-card-name {
+    width: 336px;
+    list-style: none;
+    line-height: 21px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0F0F11;
+    margin: 0; /* Usunięcie margin-top i margin-bottom */
+  }
+  
+  .cart-card-amount {
+    display: flex;
+    align-items: center; /* Wyśrodkowanie wertykalne */
+    width: 96px;
+    height: 32px;
+    margin: 48px 0; /* Usunięcie margin-top i margin-bottom */
+  }
+  
+  .cart-card-amount-iconBox {
+    width: 32px;
+    height: 32px;
+    border: solid 1px #B4BDC3;
+    border-radius: 48px;
+  }
+  
+  .cart-card-amount-icon {
+    width: 16px;
+    height: 16px;
+    margin: 8px;
+  }
+  
+  .cart-card-amount-num {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    margin: 7px 0 4px 13px; /* Poprawiony margin */
+  }
+  
+  .cart-card-priceBox {
+    width: 80px;
+    height: 31px;
+    margin: 0 48.5px; /* Usunięcie przecinka w wartości margin */
+  }
+  
+  .cart-card-price {
+    font-weight: 800;
+    font-size: 22px;
+    justify-self: end;
+    line-height: 31px;
+  }
+  
