@@ -1,6 +1,7 @@
 import {
   NavLink, Route, Routes,
 } from 'react-router-dom';
+import Header from './components/Header/Header';
 
 function Home() {
   return <div>Home Page Content</div>;
@@ -22,22 +23,7 @@ function App() {
   return (
     <>
       <header>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/">HOME</NavLink>
-            </li>
-            <li>
-              <NavLink to="/phones">PHONES</NavLink>
-            </li>
-            <li>
-              <NavLink to="/tablets">TABLETS</NavLink>
-            </li>
-            <li>
-              <NavLink to="/accessories">ACCESSORIES</NavLink>
-            </li>
-          </ul>
-        </nav>
+        <Header />
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
