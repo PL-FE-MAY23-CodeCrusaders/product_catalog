@@ -4,7 +4,6 @@ import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
 import phoneImg1 from '../../images/phoneImg1.png';
 import phoneImg1xl from '../../images/phoneImg1xl.png';
-import phoneData from '../../../public/api/phones.json'; // import pliku JSON
 import './Card.scss';
 
 interface PhoneData {
@@ -28,17 +27,35 @@ export const Card: React.FC = () => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<boolean>(false);
+
+  const getData = async () => {
+    const response = await fetch('/public/api/phones.json');
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    return response.json();
+  };
 
   useEffect(() => {
-    if (phoneData) {
-      setPhoneData(phoneData); // Ustaw dane telefonu
-      setIsLoading(false);
-    } else {
-      console.error(
-        'Błąd pobierania danych: Dane telefonu są nieprawidłowe lub puste.'
-      );
-      setIsLoading(false);
-    }
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const data = await getData();
+
+        setPhoneData(data);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      } catch (e) {
+        setError(true);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const handleAddToCartClick = () => {
@@ -51,6 +68,10 @@ export const Card: React.FC = () => {
 
   if (isLoading) {
     return <div>Ładowanie danych z api (jakiś loader tutaj) ...</div>;
+  }
+
+  if (error || !phoneData) {
+    return <div>Błąd podczas pobierania danych</div>;
   }
 
   return (
@@ -83,10 +104,14 @@ export const Card: React.FC = () => {
           {phoneData ? (
             <h3 className="card__price--title">
               <span className="card__price--title-actual">
-                &#36;{phoneData.price}
+                &#36;
+                {phoneData.price}
               </span>
               <span className="card__price--title-previous">
-                <s>&#36;{phoneData.fullPrice}</s>
+                <s>
+                  &#36;
+                  {phoneData.fullPrice}
+                </s>
               </span>
             </h3>
           ) : (
@@ -119,6 +144,7 @@ export const Card: React.FC = () => {
           </div>
         </div>
         <div className="card__buttons">
+          {/* eslint-disable-next-line */}
           <button
             className={`card__buttons-left ${
               isAddedToCart ? 'added-to-cart' : ''
@@ -127,6 +153,7 @@ export const Card: React.FC = () => {
           >
             {isAddedToCart ? 'Added to cart' : 'Add to cart'}
           </button>
+          {/* eslint-disable-next-line */}
           <button
             className={`card__buttons-right ${
               isFavourite ? 'added-to-favourites' : ''

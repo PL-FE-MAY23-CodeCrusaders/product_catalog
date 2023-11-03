@@ -58,7 +58,7 @@ $border-clr: #E2E6E9;
         }
 
         @include for-desktop() {
-            flex-direction: unset;
+            flex-direction: row;
             align-items: center;
             gap: 100px;
             justify-content: space-between;
