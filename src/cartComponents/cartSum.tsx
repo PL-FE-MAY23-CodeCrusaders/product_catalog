@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { Phone } from '../Phone';
+import './cartSum.scss';
 
 interface SumItemProps {
   cartState: Phone[]; // Assuming Phone[] is the correct type
@@ -29,21 +30,23 @@ const CartSum: React.FC<SumItemProps> = ({
     }
 
     setSumOfPrice(totalPriceSum);
-  }, [cartState]); // Corrected the dependency array
+  }, [cartState]);
 
   return (
     <>
-      <h1 className="cart__sum-price">
-        $
-        {sumOfPrice}
-      </h1>
-      <h3 className="cart__sum-num">
-        Total for
-        {' '}
-        {numOfItems}
-        {' '}
-        items
-      </h3>
+      <div className="cart__sum">
+        <h1 className="cart__sum-price">
+          $
+          {sumOfPrice}
+        </h1>
+        <h3 className="cart__sum-num">
+          Total for
+          {' '}
+          {numOfItems}
+          {' '}
+          items
+        </h3>
+      </div>
     </>
   );
 };

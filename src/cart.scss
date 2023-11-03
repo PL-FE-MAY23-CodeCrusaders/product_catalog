@@ -61,7 +61,7 @@ body {
     width: 368px;
     height: 206px;
     border-radius: 16px;
-    border: 1px solid    #E2E6E9;
+    border: 1px solid    #B4BDC3;
 }
 
 .cart-sumBox {
@@ -84,6 +84,25 @@ body {
     color: #FFFFFF;
     font-weight: 700;
 }
+
+.cart-message {
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    border: #27AE60;
+    background-color: #27AE60;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+    font-weight: 700;
+    display: none;
+}
+
+.message-active {
+    display: block;
+}
+
 
 @media screen and (min-width: 641px) and (max-width: 1199px) {
     .cart {

@@ -7,6 +7,7 @@ interface CartContextProps {
   cartState: Phone[];
   addToCart: (product: Phone) => void;
   removeFromCart: (phoneId: string) => void;
+  clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
@@ -53,12 +54,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const removeFromCart = (phoneId: string) => {
     // Implement your removeFromCart logic here
     setCartState(
-      cartState.filter((product: Phone) => product.phoneId !== phoneId),
+      cartState.filter((product: Phone) => product.itemId !== phoneId),
     );
   };
 
+  const clearCart = () => {
+    setCartState([]);
+  };
+
   return (
-    <CartContext.Provider value={{ cartState, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{
+      cartState,
+      addToCart,
+      removeFromCart,
+      clearCart,
+    }}
+    >
       {children}
     </CartContext.Provider>
   );

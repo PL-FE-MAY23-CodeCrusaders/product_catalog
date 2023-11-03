@@ -7,11 +7,18 @@ import { useCartContext } from './cartContext';
 // import { Phone } from './Phone';
 
 export const Cart = () => {
-  const { cartState, removeFromCart } = useCartContext();
+  const { cartState, removeFromCart, clearCart } = useCartContext();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [checkedout, setCheckedout] = useState(false);
   const [numOfItems, setNumOfItems] = useState(0);
   const [sumOfPrice, setSumOfPrice] = useState(0);
+
+  const handleCheckOut = () => {
+    clearCart();
+    setCheckedout(true);
+    setNumOfItems(0);
+    setSumOfPrice(0);
+  };
 
   return (
     <div className="cart">
@@ -46,12 +53,19 @@ export const Cart = () => {
           <button
             type="submit"
             className="cart-checkout-button"
-            onClick={() => setCheckedout(true)}
+            onClick={handleCheckOut}
           >
             Checkout
           </button>
         </div>
       </div>
+      <button
+        type="submit"
+        className={`cart-message ${checkedout ? 'message-active' : ''}`}
+        onClick={() => setCheckedout(false)}
+      >
+        Checkout is not implemented yet.
+      </button>
     </div>
   );
 };
