@@ -26,6 +26,7 @@ const testValue: Phone[] = [
     ram: '4GB',
     year: 2022,
     image: 'iphone13.jpg',
+    quantity: 1,
   },
   {
     category: 'Smartphone',
@@ -40,6 +41,7 @@ const testValue: Phone[] = [
     ram: '8GB',
     year: 2021,
     image: 'samsungs21.jpg',
+    quantity: 3,
   },
 ];
 

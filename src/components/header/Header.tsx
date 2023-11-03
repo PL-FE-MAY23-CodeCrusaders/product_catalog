@@ -3,7 +3,7 @@ import cart from '../../images/cart.png';
 import favourites from '../../images/favourites.png';
 import logo from '../../images/logo.png';
 import menu from '../../images/menu.png';
-import close from '../../images/close.png';
+import close from '../../images/Close.png';
 import './Header.scss';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 

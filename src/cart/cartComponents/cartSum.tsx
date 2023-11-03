@@ -1,14 +1,14 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import { Phone } from '../Phone';
+import { Phone } from '../../Phone';
 import './cartSum.scss';
 
 interface SumItemProps {
   cartState: Phone[]; // Assuming Phone[] is the correct type
   setSumOfPrice: (value: number) => void;
   setNumOfItems: (value: number) => void;
-  sumOfPrice: number; // Fixed the syntax
+  sumOfPrice: number;
   numOfItems: number;
 }
 
@@ -20,13 +20,21 @@ const CartSum: React.FC<SumItemProps> = ({
   numOfItems,
 }) => {
   useEffect(() => {
-    const sum = cartState.length;
+    let sum = 0;
+
+    for (const item of cartState) {
+      if (item.quantity) {
+        sum += item.quantity;
+      }
+    }
 
     setNumOfItems(sum);
     let totalPriceSum = 0;
 
     for (const item of cartState) {
-      totalPriceSum += item.fullPrice;
+      if (item.quantity) {
+        totalPriceSum += item.price * item.quantity;
+      }
     }
 
     setSumOfPrice(totalPriceSum);

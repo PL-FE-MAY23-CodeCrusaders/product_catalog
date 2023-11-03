@@ -1,9 +1,9 @@
 import React from 'react';
 import CartItem from './cartItem';
-import { Phone } from '../Phone';
+import { Phone } from '../../Phone';
 
 interface CartProductListProps {
-  cartState: Phone[]; // Assuming Phone[] is the correct type
+  cartState: Phone[];
   removeFromCart: (phoneId: string) => void;
 }
 

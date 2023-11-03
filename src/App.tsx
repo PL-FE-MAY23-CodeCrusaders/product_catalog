@@ -1,9 +1,9 @@
 import {
-  NavLink, Route, Routes,
+  Route, Routes,
 } from 'react-router-dom';
-import Header from './components/Header/Header';
+import Header from './components/header/Header';
 import PageNotFound from './pageNotFound';
-import { Cart } from './cart';
+import { Cart } from './cart/cart';
 import { CartProvider } from './cartContext';
 
 import { Home } from './features/homePage/HomePage';
@@ -16,7 +16,8 @@ function App() {
   return (
     <>
       <CartProvider>
-        <header>
+        <Header />
+        {/* <header>
           <nav>
             <ul>
               <li>
@@ -39,7 +40,7 @@ function App() {
               </li>
             </ul>
           </nav>
-        </header>
+        </header> */}
 
         <Routes>
 
