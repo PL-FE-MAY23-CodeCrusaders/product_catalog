@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './BurgerMenu.scss';
 import cart from '../../../images/cart.png';
 import favourites from '../../../images/favourites.png';
@@ -15,77 +16,61 @@ function BurgerMenu() {
       <nav className="burger-nav">
         <ul className="burger-nav__list">
           <li className="burger-nav__item">
-            <a
-              href="#home"
-              className={`burger-nav__link ${
-                activeNav === 'home' ? 'is-active' : ''
-              }`}
+            <NavLink
+              to="/"
+              className={`burger-nav__link ${activeNav === 'home' ? 'is-active' : ''}`}
               onClick={() => handleNavClick('home')}
             >
               Home
-            </a>
+            </NavLink>
           </li>
           <li className="burger-nav__item">
-            <a
-              href="#phones"
-              className={`burger-nav__link ${
-                activeNav === 'phones' ? 'is-active' : ''
-              }`}
+            <NavLink
+              to="/phones"
+              className={`burger-nav__link ${activeNav === 'phones' ? 'is-active' : ''}`}
               onClick={() => handleNavClick('phones')}
             >
               Phones
-            </a>
+            </NavLink>
           </li>
           <li className="burger-nav__item">
-            <a
-              href="#tablets"
-              className={`burger-nav__link ${
-                activeNav === 'tablets' ? 'is-active' : ''
-              }`}
+            <NavLink
+              to="/tablets"
+              className={`burger-nav__link ${activeNav === 'tablets' ? 'is-active' : ''}`}
               onClick={() => handleNavClick('tablets')}
             >
               Tablets
-            </a>
+            </NavLink>
           </li>
           <li className="burger-nav__item">
-            <a
-              href="#accessories"
-              className={`burger-nav__link ${
-                activeNav === 'accessories' ? 'is-active' : ''
-              }`}
+            <NavLink
+              to="/accessories"
+              className={`burger-nav__link ${activeNav === 'accessories' ? 'is-active' : ''}`}
               onClick={() => handleNavClick('accessories')}
             >
               Accessories
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
       <div className="burger-icon">
         <div
-          className={`burger-icon__box ${
-            activeNav === 'fav' ? 'box-Active' : ''
-          }`}
+          className={`burger-icon__box ${activeNav === 'fav' ? 'box-Active' : ''}`}
         >
-          <a href="#fav" onClick={() => handleNavClick('fav')}>
+          <NavLink to="/fav" onClick={() => handleNavClick('fav')}>
             <img
               src={favourites}
               className="burger-icon__img"
               alt="wishlist icon"
             />
-          </a>
+          </NavLink>
         </div>
         <div
-          className={`burger-icon__box ${
-            activeNav === 'cart' ? 'box-Active' : ''
-          }`}
+          className={`burger-icon__box ${activeNav === 'cart' ? 'box-Active' : ''}`}
         >
-          <a href="#cart" onClick={() => handleNavClick('cart')}>
-            <img
-              src={cart}
-              className="burger-icon__img"
-              alt="Cart"
-            />
-          </a>
+          <NavLink to="/cart" onClick={() => handleNavClick('cart')}>
+            <img src={cart} className="burger-icon__img" alt="Cart" />
+          </NavLink>
         </div>
       </div>
     </div>

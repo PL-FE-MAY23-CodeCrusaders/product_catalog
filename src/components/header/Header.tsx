@@ -1,4 +1,9 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import cart from '../../images/cart.png';
 import favourites from '../../images/favourites.png';
 import logo from '../../images/logo.png';
@@ -23,91 +28,72 @@ function Header() {
     <div>
       <header className="header">
         <div className="header__logo-box">
-          <a href="#home">
+          <NavLink to="/">
             <img src={logo} className="header__logo" alt="logo" />
-          </a>
+          </NavLink>
         </div>
         <nav className="nav">
           <ul className="nav__list">
             <li className="nav__item">
-              <a
-                href="#home"
-                className={`nav__link ${
-                  activeNav === 'home' ? 'is-active' : ''
-                }`}
+              <NavLink
+                to="/"
+                className={`nav__link ${activeNav === 'home' ? 'is-active' : ''}`}
                 onClick={() => handleNavClick('home')}
               >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <a
-                href="#phones"
-                className={`nav__link ${
-                  activeNav === 'phones' ? 'is-active' : ''
-                }`}
+              <NavLink
+                to="/phones"
+                className={`nav__link ${activeNav === 'phones' ? 'is-active' : ''}`}
                 onClick={() => handleNavClick('phones')}
               >
                 Phones
-              </a>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <a
-                href="#tablets"
-                className={`nav__link ${
-                  activeNav === 'tablets' ? 'is-active' : ''
-                }`}
+              <NavLink
+                to="/tablets"
+                className={`nav__link ${activeNav === 'tablets' ? 'is-active' : ''}`}
                 onClick={() => handleNavClick('tablets')}
               >
                 Tablets
-              </a>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <a
-                href="#accessories"
-                className={`nav__link ${
-                  activeNav === 'accessories' ? 'is-active' : ''
-                }`}
+              <NavLink
+                to="/accessories"
+                className={`nav__link ${activeNav === 'accessories' ? 'is-active' : ''}`}
                 onClick={() => handleNavClick('accessories')}
               >
                 Accessories
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>
         <div className="header__icon">
-          <div className={`header__icon-box ${
-            activeNav === 'fav' ? 'active-icon' : ''
-          }`}
-          >
-            <a
+          <div className={`header__icon-box ${activeNav === 'fav' ? 'active-icon' : ''}`}>
+            <NavLink
+              to="/fav"
               onClick={() => handleNavClick('fav')}
-              href="#fav"
             >
               <img
                 src={favourites}
                 alt="wishlist"
                 className="header__icon-img"
               />
-            </a>
+            </NavLink>
           </div>
-          <div className={`header__icon-box ${
-            activeNav === 'cart' ? 'active-icon' : ''
-          }`}
-          >
-            <a
-              onClick={() => handleNavClick('cart')}
-              href="#cart"
+          <div className={`header__icon-box ${activeNav === 'cart' ? 'active-icon' : ''}`}>
+            <NavLink
+              to="/cart"
             >
-              <img
-                src={cart}
-                alt="Cart"
-                className="header__icon-img"
-              />
-            </a>
+              <img src={cart} alt="Cart" className="header__icon-img" />
+            </NavLink>
           </div>
           <div className="header__icon-box">
-            <a onClick={handleMenuToggle} href="#menu">
+            <a onClick={handleMenuToggle}>
               {menuOpen ? (
                 <img
                   src={close}
@@ -115,11 +101,7 @@ function Header() {
                   alt="Close menu"
                 />
               ) : (
-                <img
-                  src={menu}
-                  className="header__icon-img"
-                  alt="menu"
-                />
+                <img src={menu} className="header__icon-img" alt="menu" />
               )}
             </a>
           </div>
