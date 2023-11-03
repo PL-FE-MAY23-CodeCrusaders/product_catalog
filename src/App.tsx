@@ -1,6 +1,4 @@
-import {
-  NavLink, Route, Routes,
-} from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import PageNotFound from './pageNotFound';
 
 import { Home } from './features/homePage/HomePage';
@@ -8,6 +6,9 @@ import { Phones } from './features/phonesPage/PhonesPage';
 import { Tablets } from './features/tabletsPage/TabletsPage';
 import { Accessories } from './features/accessoriesPage/AccessoriesPage';
 import { Favourites } from './features/favouritesPage/FavouritesPage';
+import {
+  ProductDetailsPage,
+} from './features/productDetailsPage/ProductDetailsPage';
 
 function App() {
   return (
@@ -19,16 +20,19 @@ function App() {
               <NavLink to="/">HOME</NavLink>
             </li>
             <li>
-              <NavLink to="/phones">PHONES</NavLink>
+              <NavLink to="/Phones">PHONES</NavLink>
             </li>
             <li>
-              <NavLink to="/tablets">TABLETS</NavLink>
+              <NavLink to="/Tablets">TABLETS</NavLink>
             </li>
             <li>
-              <NavLink to="/accessories">ACCESSORIES</NavLink>
+              <NavLink to="/Accessories">ACCESSORIES</NavLink>
             </li>
             <li>
-              <NavLink to="/favourites">FAVOURITES</NavLink>
+              <NavLink to="/Phones/1">moje</NavLink>
+            </li>
+            <li>
+              <NavLink to="/Favourites">FAVOURITES</NavLink>
             </li>
           </ul>
         </nav>
@@ -40,11 +44,11 @@ function App() {
         <Route path="/phones" element={<Phones />} />
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/accessories" element={<Accessories />} />
+        <Route path="/phones/1" element={<ProductDetailsPage />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="*" element={<PageNotFound />} />
 
       </Routes>
-
     </>
   );
 }

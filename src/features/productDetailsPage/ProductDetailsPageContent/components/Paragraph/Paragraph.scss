@@ -1,0 +1,10 @@
+@import '../../../../../utils/variables.scss';
+
+.paragraph{
+    margin-top: 0;
+    color: $secondary-color;
+    font-weight: 500;
+    font-size: $desktop-body-text-size;
+    line-height: $desktop-body-text-line-height;
+    letter-spacing: $desktop-body-text-letter-spacing;
+}
