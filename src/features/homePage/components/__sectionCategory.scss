@@ -1,0 +1,215 @@
+.Home_sectionCategories {
+    height: 100%;
+    box-sizing: border-box;
+    grid-area: 3/1/4/5;
+
+    
+  
+    @media (min-width: 640px) {
+      grid-area: 3/1/4/14;
+      
+      
+    }
+  
+    @media (min-width: 1200px) {
+      grid-area: 3/1/4/25;
+      
+    }
+
+    &-title {
+        font-family: Mont;
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 31px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+}
+
+.Home__categories_container {
+    gap: 32px;
+    display: grid;
+    border:1px solid yellow;
+    height: 100%;
+    
+
+    @media (min-width: 640px) {
+        gap: 15px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    
+    @media (min-width: 1200px) {
+        gap: 16px;
+    }
+}
+
+
+
+/* #region Category Mobile Phones */
+
+
+
+
+
+.Home__categories__mobilePhones{
+    height: 100%;
+    border: 1px solid red;
+
+    
+    display: flex;
+    flex-direction: column;
+    
+
+    @media (min-width: 640px) {
+       //height: 443px;
+      }
+    
+    @media (min-width: 1200px) {
+        
+    }
+
+};
+
+ .categories__mobilePhones-picture{
+    
+    background-color: black;
+    aspect-ratio: 1/1;
+    margin-bottom: 24px;
+    
+    
+    
+
+    @media (min-width: 640px) {
+        
+       }
+     
+     @media (min-width: 1200px) {
+         
+     }
+};
+
+.categories__mobilePhones-title{
+    align-self: flex-start;
+    margin:0 0 8px;
+};
+
+.categories__mobilePhones-modelsCount{
+    margin:0;
+};
+
+/* #endregion */
+
+
+
+
+/* #region Category Tablets */
+
+
+
+
+.Home__categories__tablets{
+    height: 100%;
+    border: 1px solid red;
+    max-height: 100%;
+
+    
+    display: flex;
+    flex-direction: column;
+    
+
+    @media (min-width: 640px) {
+       //height: 443px;
+      }
+    
+    @media (min-width: 1200px) {
+        
+    }
+
+};
+
+ .categories__tablets-picture{
+    
+    background-color: black;
+    aspect-ratio: 1/1;
+    margin-bottom: 24px;
+    
+    
+    
+
+    @media (min-width: 640px) {
+        
+       }
+     
+     @media (min-width: 1200px) {
+         
+     }
+};
+
+.categories__tablets-title{
+    align-self: flex-start;
+    margin:0 0 8px;
+};
+
+.categories__tablets-modelsCount{
+    margin:0;
+};
+
+/* #endregion */
+
+
+
+
+/* #region Category Accesories */
+
+
+
+
+.Home__categories__accessories{
+    height: 100%;
+    border: 1px solid red;
+
+    
+    display: flex;
+    flex-direction: column;
+    
+
+    @media (min-width: 640px) {
+       //height: 443px;
+      }
+    
+    @media (min-width: 1200px) {
+        
+    }
+
+};
+
+ .categories__accessories-picture{
+    
+    background-color: black;
+    aspect-ratio: 1/1;
+    margin-bottom: 24px;
+    
+    
+    
+
+    @media (min-width: 640px) {
+        
+       }
+     
+     @media (min-width: 1200px) {
+         
+     }
+};
+
+.categories__accessories-title{
+    align-self: flex-start;
+    margin:0 0 8px;
+};
+
+.categories__accessories-modelsCount{
+    margin:0;
+};
+
+/* #endregion */
+
