@@ -21,6 +21,7 @@ export const Gallery = () => {
               }`}
               key={img}
               onClick={() => changePhoto(`product_catalog/${path}`)}
+              aria-label="Change photo"
             >
               <img
                 className="gallery-photo"

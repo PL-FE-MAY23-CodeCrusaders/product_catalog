@@ -1,0 +1,16 @@
+@import '../../../../../utils/variables.scss';
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &__text {
+    color: $secondary-color;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}

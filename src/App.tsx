@@ -20,19 +20,19 @@ function App() {
               <NavLink to="/">HOME</NavLink>
             </li>
             <li>
-              <NavLink to="/phones">PHONES</NavLink>
+              <NavLink to="/Phones">PHONES</NavLink>
             </li>
             <li>
-              <NavLink to="/tablets">TABLETS</NavLink>
+              <NavLink to="/Tablets">TABLETS</NavLink>
             </li>
             <li>
-              <NavLink to="/accessories">ACCESSORIES</NavLink>
+              <NavLink to="/Accessories">ACCESSORIES</NavLink>
             </li>
             <li>
-              <NavLink to="/phones/1">moje</NavLink>
+              <NavLink to="/Phones/1">moje</NavLink>
             </li>
             <li>
-              <NavLink to="/favourites">FAVOURITES</NavLink>
+              <NavLink to="/Favourites">FAVOURITES</NavLink>
             </li>
           </ul>
         </nav>
