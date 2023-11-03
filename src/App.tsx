@@ -9,6 +9,7 @@ import { Favourites } from './features/favouritesPage/FavouritesPage';
 import {
   ProductDetailsPage,
 } from './features/productDetailsPage/ProductDetailsPage';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -37,9 +38,7 @@ function App() {
           </ul>
         </nav>
       </header>
-
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/phones" element={<Phones />} />
         <Route path="/tablets" element={<Tablets />} />
@@ -47,9 +46,11 @@ function App() {
         <Route path="/phones/1" element={<ProductDetailsPage />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="*" element={<PageNotFound />} />
-
       </Routes>
+      <Footer />
+
     </>
+
   );
 }
 
