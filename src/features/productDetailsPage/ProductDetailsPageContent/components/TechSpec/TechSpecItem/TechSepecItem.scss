@@ -1,0 +1,26 @@
+@import '../../../../../../utils/variables.scss';
+
+.techSpecItem {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  &__name {
+    margin: 0;
+    color: $secondary-color;
+    font-weight: 500;
+    font-size: $desktop-body-text-size;
+    line-height: $desktop-body-text-line-height;
+    letter-spacing: $desktop-body-text-letter-spacing;
+  }
+
+  &__value {
+    margin: 0;
+    text-align: right;
+    color: $primary-color;
+    font-weight: 600;
+    font-size: $desktop-body-text-size;
+    line-height: $desktop-body-text-line-height;
+    letter-spacing: $desktop-body-text-letter-spacing;
+  }
+}
