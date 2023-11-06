@@ -10,10 +10,7 @@ export const Tablets = () => {
       </div>
 
       <div className="Tablets__titleWrapper">
-        <h1 className="Tablets__title">
-          Tablets
-        </h1>
-
+        <h1 className="Tablets__title">Tablets</h1>
       </div>
 
       <div className="Tablets__modelsCount">
@@ -39,11 +36,21 @@ export const Tablets = () => {
         >
           <div className="Tablets__pagination-leftButton" />
         </button>
-        <button type="button" className="Tablets__pagination-button">1</button>
-        <button type="button" className="Tablets__pagination-button">2</button>
-        <button type="button" className="Tablets__pagination-button">3</button>
-        <button type="button" className="Tablets__pagination-button">4</button>
-        <button type="button" className="Tablets__pagination-button">5</button>
+        <button type="button" className="Tablets__pagination-button">
+          1
+        </button>
+        <button type="button" className="Tablets__pagination-button">
+          2
+        </button>
+        <button type="button" className="Tablets__pagination-button">
+          3
+        </button>
+        <button type="button" className="Tablets__pagination-button">
+          4
+        </button>
+        <button type="button" className="Tablets__pagination-button">
+          5
+        </button>
         <button
           type="button"
           className="Tablets__pagination-buttonR"

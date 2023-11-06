@@ -1,6 +1,4 @@
-import {
-  useProductDetailsPageContext,
-} from '../../../../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../../../../context/ProductDetailsPageContext';
 import './Price.scss';
 import { DiscountPrice } from './DiscountPrice';
 import { OldPrice } from './OldPrice';

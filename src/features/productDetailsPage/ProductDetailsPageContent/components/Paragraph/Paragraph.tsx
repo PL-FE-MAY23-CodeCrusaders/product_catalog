@@ -8,7 +8,9 @@ type Props = {
 export const Paragraph = ({ text }: Props): JSX.Element => (
   <div>
     {text.map((p, index) => (
-      <p className="paragraph" key={index}>{p}</p>
+      <p className="paragraph" key={index}>
+        {p}
+      </p>
     ))}
   </div>
 );

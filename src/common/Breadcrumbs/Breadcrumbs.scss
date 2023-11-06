@@ -1,25 +1,24 @@
 @import '../../utils/variables.scss';
 
 .breadcrumbs {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 28px;
 
-    &__arrow{
-        margin-left: 8px;
-        margin-right: 8px;;
-    }
+  &__arrow {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
 
-    &__link{
-        text-decoration: none;
-        color: $primary-color;
-        font-size: 12px;
-        font-weight: 700;
+  &__link {
+    text-decoration: none;
+    color: $primary-color;
+    font-size: 12px;
+    font-weight: 700;
+  }
 
-    }
-
-    &__home{
-        padding-top: 4px;
-    }
+  &__home {
+    padding-top: 4px;
+  }
 }

@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import './SelectCapacity.scss';
-import {
-  useProductDetailsPageContext,
-} from '../../../../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../../../../context/ProductDetailsPageContext';
 
 export const SelectCapacity = () => {
   const { phoneData } = useProductDetailsPageContext();
   const availableCapacities = phoneData?.capacityAvailable || [];
 
   const [selectedCapacity, setSelectedCapaity] = useState<string | null>(
-    phoneData?.capacity || null,
+    phoneData?.capacity || null
   );
 
   const handleCapacityChange = (capacity: string | null) => {

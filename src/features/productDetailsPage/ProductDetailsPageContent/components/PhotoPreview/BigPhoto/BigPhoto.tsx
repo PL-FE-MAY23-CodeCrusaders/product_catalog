@@ -1,7 +1,5 @@
 import './BigPhoto.scss';
-import {
-  useProductDetailsPageContext,
-} from '../../../../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../../../../context/ProductDetailsPageContext';
 
 export const BigPhoto = () => {
   const { photoPath } = useProductDetailsPageContext();

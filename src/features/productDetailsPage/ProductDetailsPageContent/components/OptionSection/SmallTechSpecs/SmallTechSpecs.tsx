@@ -1,6 +1,4 @@
-import {
-  useProductDetailsPageContext,
-} from '../../../../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../../../../context/ProductDetailsPageContext';
 import { SmallTechSpecItem } from './SmallTechSpecItem';
 
 export const SmallTechSepc = () => {

@@ -1,33 +1,30 @@
 .Phones__itemList {
-  
-    height: 100%;
-    box-sizing: border-box;
-    grid-area: 9/1/10/5;
-  
-    display: grid;
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 9/1/10/5;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  row-gap: 40px;
+  column-gap: 16px;
+
+  @media (min-width: 640px) {
+    grid-area: 9/1/10/13;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    row-gap: 40px;
-    column-gap: 16px;
-    
-    @media (min-width: 640px) {
-      grid-area: 9/1/10/13;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    }
-    
-    @media (min-width: 1200px) {
-      grid-area: 9/1/10/25;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    }
   }
-  
-  .item {
-    
-    height: 440px;
-    background-color: rgb(35, 180, 206);
-    border-radius: 8px;
-  
-    @media (min-width: 640px) {
-      height: 506px;
-    }
+
+  @media (min-width: 1200px) {
+    grid-area: 9/1/10/25;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   }
-  
+}
+
+.item {
+  height: 440px;
+  background-color: rgb(35, 180, 206);
+  border-radius: 8px;
+
+  @media (min-width: 640px) {
+    height: 506px;
+  }
+}

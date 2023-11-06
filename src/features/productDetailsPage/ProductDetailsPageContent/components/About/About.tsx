@@ -1,6 +1,4 @@
-import {
-  useProductDetailsPageContext,
-} from '../../../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../../../context/ProductDetailsPageContext';
 import { HeaderH3 } from '../HeaderH3';
 import { HeaderH4 } from '../HeaderH4';
 import { Paragraph } from '../Paragraph';

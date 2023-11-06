@@ -1,137 +1,129 @@
 .Tablets__pagination {
-  
-    height: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 11/1/12/5;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  @media (min-width: 640px) {
+    grid-area: 11/1/12/13;
+  }
+
+  @media (min-width: 1200px) {
+    grid-area: 11/1/12/25;
+  }
+
+  &-button {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+    border: 1px solid #e2e6e9;
+    background-color: transparent;
     box-sizing: border-box;
-    grid-area: 11/1/12/5;
-    display: flex;
+    font-family: 'Mont';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #0f0f11;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid #0f0f11;
+    }
+
+    &:active {
+      cursor: pointer;
+      border: 1px solid #0f0f11;
+      background-color: #0f0f11;
+      color: #ffffff;
+    }
+  }
+
+  &-buttonL {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+    border: 1px solid #e2e6e9;
+    background-color: transparent;
+    box-sizing: border-box;
     justify-content: center;
-    gap: 8px;
-    
-    @media (min-width: 640px) {
-      grid-area: 11/1/12/13;
+    align-items: center;
+    display: flex;
+    margin-right: 8px;
+    font-family: 'Mont';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #0f0f11;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid #0f0f11;
     }
-    
-    @media (min-width: 1200px) {
-      grid-area: 11/1/12/25;
-    }
-  
-    &-button {
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        text-decoration: none;
-        border: 1px solid #E2E6E9;
-        background-color: transparent;
-        box-sizing: border-box;
-        font-family: 'Mont';
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 21px;
-        letter-spacing: 0em;
-        text-align: center;
-        color: #0F0F11;
-  
-        &:hover {
-            cursor: pointer;
-            border:1px solid #0F0F11;
-        }
-  
-        &:active {
-            cursor: pointer;
-            border:1px solid #0F0F11;
-            background-color: #0F0F11;
-            color: #FFFFFF;
-        }
-  
-    }
-  
-    &-buttonL {
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      text-decoration: none;
-      border: 1px solid #E2E6E9;
-      background-color: transparent;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      margin-right: 8px;
-      font-family: 'Mont';
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 21px;
-      letter-spacing: 0em;
-      text-align: center;
-      color: #0F0F11;
-    
-      &:hover {
-        cursor: pointer;
-        border:1px solid #0F0F11;
-      }
-    
-      &:active {
-        cursor: pointer;
-        border:1px solid #0F0F11;
-        background-color: #0F0F11;
-        color: #FFFFFF;
-      }
-    
-    }
-  
-    &-buttonR {
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      text-decoration: none;
-      border: 1px solid #E2E6E9;
-      background-color: transparent;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      margin-left: 8px;
-      font-family: 'Mont';
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 21px;
-      letter-spacing: 0em;
-      text-align: center;
-      color: #0F0F11;
-    
-      &:hover {
-        cursor: pointer;
-        border:1px solid #0F0F11;
-      }
-    
-      &:active {
-        cursor: pointer;
-        border:1px solid #0F0F11;
-        background-color: #0F0F11;
-        color: #FFFFFF;
-      }
-    
+
+    &:active {
+      cursor: pointer;
+      border: 1px solid #0f0f11;
+      background-color: #0f0f11;
+      color: #ffffff;
     }
   }
-  
-  .Tablets__pagination-leftButton {
-    width: 5.33px;
-    height: 9.33px;
-    background-image: url("../../../images/phonepage__arrow-left.svg");
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+
+  &-buttonR {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+    border: 1px solid #e2e6e9;
+    background-color: transparent;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 8px;
+    font-family: 'Mont';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #0f0f11;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid #0f0f11;
+    }
+
+    &:active {
+      cursor: pointer;
+      border: 1px solid #0f0f11;
+      background-color: #0f0f11;
+      color: #ffffff;
+    }
   }
-  
-  .Tablets__pagination-rightButton {
-    width: 5.33px;
-    height: 9.33px;
-    background-image: url("../../../images/phonepage__arrow-right.svg");
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    
-  }
-  
+}
+
+.Tablets__pagination-leftButton {
+  width: 5.33px;
+  height: 9.33px;
+  background-image: url('../../../images/phonepage__arrow-left.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Tablets__pagination-rightButton {
+  width: 5.33px;
+  height: 9.33px;
+  background-image: url('../../../images/phonepage__arrow-right.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

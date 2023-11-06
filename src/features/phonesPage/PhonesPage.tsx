@@ -1,7 +1,6 @@
 import React from 'react';
 import './PhonesPage.scss';
 import { Card } from '../../components/Card';
-import { Footer } from '../../components/Footer';
 
 export const Phones = () => {
   return (
@@ -13,9 +12,7 @@ export const Phones = () => {
           <span className="Phones__map-label">Phones</span>
         </div>
         <div className="Accessories__titleWrapper">
-          <h1 className="Accessories__title">
-            Mobile phones
-          </h1>
+          <h1 className="Accessories__title">Mobile phones</h1>
         </div>
         <div className="Phones__modelsCount">
           <p>95 models</p>
@@ -33,30 +30,39 @@ export const Phones = () => {
         <div className="Phones__pagination">
           {/* eslint-disable-next-line */}
           <button
-          type="button"
-          className="Phones__pagination-buttonL"
-          aria-label="Next page"
-        >
+            type="button"
+            className="Phones__pagination-buttonL"
+            aria-label="Next page"
+          >
             <div className="Phones__pagination-leftButton" />
           </button>
-          <button type="button" className="Phones__pagination-button">1</button>
-          <button type="button" className="Phones__pagination-button">2</button>
-          <button type="button" className="Phones__pagination-button">3</button>
+          <button type="button" className="Phones__pagination-button">
+            1
+          </button>
+          <button type="button" className="Phones__pagination-button">
+            2
+          </button>
+          <button type="button" className="Phones__pagination-button">
+            3
+          </button>
           {/* eslint-disable-next-line */}
-            <button type="button" className="Phones__pagination-button">4</button>
+          <button type="button" className="Phones__pagination-button">
+            4
+          </button>
           {/* eslint-disable-next-line */}
-            <button type="button" className="Phones__pagination-button">5</button>
+          <button type="button" className="Phones__pagination-button">
+            5
+          </button>
           {/* eslint-disable-next-line */}
           <button
-          type="button"
-          className="Phones__pagination-buttonR"
-          aria-label="Previouse page"
-        >
+            type="button"
+            className="Phones__pagination-buttonR"
+            aria-label="Previouse page"
+          >
             <div className="Phones__pagination-rightButton" />
           </button>
         </div>
       </main>
-      <Footer />
     </>
   );
 };

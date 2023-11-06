@@ -11,9 +11,7 @@ export const Accessories = () => {
       </div>
 
       <div className="Accessories__titleWrapper">
-        <h1 className="Accessories__title">
-          Accessories
-        </h1>
+        <h1 className="Accessories__title">Accessories</h1>
       </div>
 
       <div className="Accessories__modelsCount">

@@ -1,54 +1,52 @@
 .Phones__titleWrapper {
-    height: 100%;
-    box-sizing: border-box;
-    color: #0F0F11;
-    align-items: center;
-    display: flex;
-    
-    
-    text-align: left;
-  
-    grid-area: 3/1/4/5;
-    
-    @media (min-width: 640px) {
-      grid-area: 3/1/4/13;
-      font-family: Mont;
-      font-size: 48px;
-      padding:0;
-      margin: 0;
-      line-height: 56px;
-    }
-    
-    @media (min-width: 1200px) {
-      grid-area: 3/1/4/25;   
-      font-family: Mont;
-      font-size: 48px;
-    }
+  height: 100%;
+  box-sizing: border-box;
+  color: #0f0f11;
+  align-items: center;
+  display: flex;
+
+  text-align: left;
+
+  grid-area: 3/1/4/5;
+
+  @media (min-width: 640px) {
+    grid-area: 3/1/4/13;
+    font-family: Mont;
+    font-size: 48px;
+    padding: 0;
+    margin: 0;
+    line-height: 56px;
   }
-  
-  
-  .Phones__title { 
-    margin:0;
-    box-sizing: border-box;
-    color: #0F0F11;
-    font-family: 'Mont';
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 4px;
+
+  @media (min-width: 1200px) {
+    grid-area: 3/1/4/25;
+    font-family: Mont;
+    font-size: 48px;
+  }
+}
+
+.Phones__title {
+  margin: 0;
+  box-sizing: border-box;
+  color: #0f0f11;
+  font-family: 'Mont';
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 4px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  grid-area: 3/1/4/5;
+
+  @media (min-width: 640px) {
+    font-family: Mont;
+    font-size: 48px;
+    line-height: 56px;
     letter-spacing: -0.01em;
-    text-align: left;
-    grid-area: 3/1/4/5;
-    
-    @media (min-width: 640px) {  
-      font-family: Mont;
-      font-size: 48px;
-      line-height: 56px;
-      letter-spacing: -0.01em;
-    }
-    
-    @media (min-width: 1200px) {   
-      font-family: Mont;
-      font-size: 48px;
-      letter-spacing: -0.01em;
-    }
   }
+
+  @media (min-width: 1200px) {
+    font-family: Mont;
+    font-size: 48px;
+    letter-spacing: -0.01em;
+  }
+}

@@ -9,7 +9,7 @@ export const AvailableColors = () => {
   const availableColors = phoneData?.colorsAvailable || [];
 
   const [selectedColor, setSelectedColor] = useState<string | null>(
-    phoneData?.color || null,
+    phoneData?.color || null
   );
 
   const handleColorChange = (color: string | null) => {

@@ -1,11 +1,9 @@
 /* eslint-disable max-len */
-import {
-  createContext, useContext, useEffect, useState,
-} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { ProductDetailsPageContextType, Props, Phone } from './types';
 
 const ProductDetailsPageContext = createContext<
-ProductDetailsPageContextType | undefined
+  ProductDetailsPageContextType | undefined
 >(undefined);
 
 export const ProductDetailsPageProvider = ({ children }: Props) => {
@@ -16,7 +14,7 @@ export const ProductDetailsPageProvider = ({ children }: Props) => {
 
   const getData = async () => {
     const response = await fetch(
-      'product_catalog/apple-iphone-11-128gb-black.json',
+      'product_catalog/apple-iphone-11-128gb-black.json'
     );
 
     if (!response.ok) {
@@ -70,7 +68,7 @@ export const useProductDetailsPageContext = () => {
 
   if (!context) {
     throw new Error(
-      'useProductDetailsPageContext must be used within a ProductDetailsPageProvider',
+      'useProductDetailsPageContext must be used within a ProductDetailsPageProvider'
     );
   }
 

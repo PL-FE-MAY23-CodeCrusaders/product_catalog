@@ -1,8 +1,6 @@
 import './ProductDetaisPageContent.scss';
 
-import {
-  useProductDetailsPageContext,
-} from '../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../context/ProductDetailsPageContext';
 import { HeaderH2 } from './components/HeaderH2';
 import { PhotoPreview } from './components/PhotoPreview';
 import { TechSpec } from './components/TechSpec';

@@ -1,16 +1,14 @@
 import './Gallery.scss';
-import {
-  useProductDetailsPageContext,
-} from '../../../../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../../../../context/ProductDetailsPageContext';
 
 export const Gallery = () => {
-  const { phoneData, changePhoto, isActivePhoto }
-    = useProductDetailsPageContext();
+  const { phoneData, changePhoto, isActivePhoto } =
+    useProductDetailsPageContext();
 
   return (
     <div className="gallery">
-      {phoneData
-        && phoneData.images.map((img) => {
+      {phoneData &&
+        phoneData.images.map((img) => {
           const path = img.slice(-6);
 
           return (

@@ -1,6 +1,4 @@
-import {
-  useProductDetailsPageContext,
-} from '../../../context/ProductDetailsPageContext';
+import { useProductDetailsPageContext } from '../../../context/ProductDetailsPageContext';
 import { HeaderH3 } from '../HeaderH3';
 import { TechSpecItem } from './TechSpecItem';
 
@@ -19,7 +17,6 @@ export const TechSpec = () => {
         <TechSpecItem name="Camera" value={phoneData?.camera || ''} />
         <TechSpecItem name="Zoom" value={phoneData?.zoom || ''} />
         <TechSpecItem name="Cell" value={phoneData?.cell.join(', ') || ''} />
-
       </div>
     </section>
   );
