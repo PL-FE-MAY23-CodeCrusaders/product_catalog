@@ -6,7 +6,14 @@
   "capacity": "128GB",
   "priceRegular": 1100,
   "priceDiscount": 1050,
-  "colorsAvailable": ["black", "green", "yellow", "white", "purple", "red"],
+  "colorsAvailable": [
+    "black",
+    "green",
+    "yellow",
+    "white",
+    "purple",
+    "red"
+  ],
   "color": "black",
   "images": [
     "img/phones/apple-iphone-11/black/00.jpg",

@@ -8,7 +8,7 @@ import cart from '../../images/cart.png';
 import favourites from '../../images/favourites.png';
 import logo from '../../images/logo.png';
 import menu from '../../images/menu.png';
-import close from '../../images/Close.png';
+import close from '../../images/close.png';
 import './Header.scss';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 
@@ -37,7 +37,9 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/"
-                className={`nav__link ${activeNav === 'home' ? 'is-active' : ''}`}
+                className={`nav__link ${
+                  activeNav === 'home' ? 'is-active' : ''
+                }`}
                 onClick={() => handleNavClick('home')}
               >
                 Home
@@ -46,7 +48,9 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/phones"
-                className={`nav__link ${activeNav === 'phones' ? 'is-active' : ''}`}
+                className={`nav__link ${
+                  activeNav === 'phones' ? 'is-active' : ''
+                }`}
                 onClick={() => handleNavClick('phones')}
               >
                 Phones
@@ -55,7 +59,9 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/tablets"
-                className={`nav__link ${activeNav === 'tablets' ? 'is-active' : ''}`}
+                className={`nav__link ${
+                  activeNav === 'tablets' ? 'is-active' : ''
+                }`}
                 onClick={() => handleNavClick('tablets')}
               >
                 Tablets
@@ -64,7 +70,9 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/accessories"
-                className={`nav__link ${activeNav === 'accessories' ? 'is-active' : ''}`}
+                className={`nav__link ${
+                  activeNav === 'accessories' ? 'is-active' : ''
+                }`}
                 onClick={() => handleNavClick('accessories')}
               >
                 Accessories
@@ -73,11 +81,12 @@ function Header() {
           </ul>
         </nav>
         <div className="header__icon">
-          <div className={`header__icon-box ${activeNav === 'fav' ? 'active-icon' : ''}`}>
-            <NavLink
-              to="/fav"
-              onClick={() => handleNavClick('fav')}
-            >
+          <div
+            className={`header__icon-box ${
+              activeNav === 'fav' ? 'active-icon' : ''
+            }`}
+          >
+            <NavLink to="/fav" onClick={() => handleNavClick('fav')}>
               <img
                 src={favourites}
                 alt="wishlist"
@@ -85,10 +94,12 @@ function Header() {
               />
             </NavLink>
           </div>
-          <div className={`header__icon-box ${activeNav === 'cart' ? 'active-icon' : ''}`}>
-            <NavLink
-              to="/cart"
-            >
+          <div
+            className={`header__icon-box ${
+              activeNav === 'cart' ? 'active-icon' : ''
+            }`}
+          >
+            <NavLink to="/cart">
               <img src={cart} alt="Cart" className="header__icon-img" />
             </NavLink>
           </div>

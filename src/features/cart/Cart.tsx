@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import CartProductList from './cartComponents/cartProductList';
-import CartSum from './cartComponents/cartSum';
-import Back from '../images/back.png';
-import './cart.scss';
-import { useCartContext } from '../cartContext';
-import { Phone } from '../Phone';
+import Back from '../../images/back.png';
+import './Cart.scss';
+import { Phone } from '../../types/Phone';
+import { useCartContext } from '../../context/cartContext';
+import CartProductList from './components/CartProductList';
+import CartSum from './components/CartSum';
 
 export const Cart = () => {
   const { cartState, removeFromCart, clearCart } = useCartContext();
@@ -22,8 +22,7 @@ export const Cart = () => {
     cartState.map((item: Phone) => item.quantity === 1);
   };
 
-  useEffect(() => {
-  }, [cartState]);
+  useEffect(() => {}, [cartState]);
 
   return (
     <div className="cart">

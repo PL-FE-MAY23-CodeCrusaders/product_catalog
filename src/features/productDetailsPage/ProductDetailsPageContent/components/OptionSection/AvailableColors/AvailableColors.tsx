@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import './AvailableColors.scss';
 import { ReactComponent as ColorAvailable } from './colors.svg';
-// eslint-disable-next-line max-len
-import { useProductDetailsPageContext } from '../../../../context/ProductDetailsPageContext';
+import { useProductDetailsContext } from '../../../../context/ProductDetailsContext';
 
 export const AvailableColors = () => {
-  const { phoneData } = useProductDetailsPageContext();
+  const { phoneData } = useProductDetailsContext();
   const availableColors = phoneData?.colorsAvailable || [];
 
   const [selectedColor, setSelectedColor] = useState<string | null>(
-    phoneData?.color || null
+    phoneData?.color || null,
   );
 
   const handleColorChange = (color: string | null) => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import CartItem from './cartItem';
-import { Phone } from '../../Phone';
+import { Phone } from '../../../types/Phone';
+import CartItem from './CartItem';
 
 interface CartProductListProps {
   cartState: Phone[];
@@ -15,8 +15,7 @@ const CartProductList: React.FC<CartProductListProps> = ({
   setQuantity,
   quantity,
 }) => {
-  useEffect(() => {
-  }, [cartState]);
+  useEffect(() => {}, [cartState]);
 
   return (
     <div>

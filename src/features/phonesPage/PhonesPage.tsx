@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import './PhonesPage.scss';
-import { Card } from '../../components/Card';
+import { Card } from '../../commonComponents/Card';
 
 export const Phones = () => {
   return (

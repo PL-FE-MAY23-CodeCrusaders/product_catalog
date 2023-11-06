@@ -18,7 +18,9 @@ function BurgerMenu() {
           <li className="burger-nav__item">
             <NavLink
               to="/"
-              className={`burger-nav__link ${activeNav === 'home' ? 'is-active' : ''}`}
+              className={`burger-nav__link ${
+                activeNav === 'home' ? 'is-active' : ''
+              }`}
               onClick={() => handleNavClick('home')}
             >
               Home
@@ -27,7 +29,9 @@ function BurgerMenu() {
           <li className="burger-nav__item">
             <NavLink
               to="/phones"
-              className={`burger-nav__link ${activeNav === 'phones' ? 'is-active' : ''}`}
+              className={`burger-nav__link ${
+                activeNav === 'phones' ? 'is-active' : ''
+              }`}
               onClick={() => handleNavClick('phones')}
             >
               Phones
@@ -36,7 +40,9 @@ function BurgerMenu() {
           <li className="burger-nav__item">
             <NavLink
               to="/tablets"
-              className={`burger-nav__link ${activeNav === 'tablets' ? 'is-active' : ''}`}
+              className={`burger-nav__link ${
+                activeNav === 'tablets' ? 'is-active' : ''
+              }`}
               onClick={() => handleNavClick('tablets')}
             >
               Tablets
@@ -45,7 +51,9 @@ function BurgerMenu() {
           <li className="burger-nav__item">
             <NavLink
               to="/accessories"
-              className={`burger-nav__link ${activeNav === 'accessories' ? 'is-active' : ''}`}
+              className={`burger-nav__link ${
+                activeNav === 'accessories' ? 'is-active' : ''
+              }`}
               onClick={() => handleNavClick('accessories')}
             >
               Accessories
@@ -55,7 +63,9 @@ function BurgerMenu() {
       </nav>
       <div className="burger-icon">
         <div
-          className={`burger-icon__box ${activeNav === 'fav' ? 'box-Active' : ''}`}
+          className={`burger-icon__box ${
+            activeNav === 'fav' ? 'box-Active' : ''
+          }`}
         >
           <NavLink to="/fav" onClick={() => handleNavClick('fav')}>
             <img
@@ -66,7 +76,9 @@ function BurgerMenu() {
           </NavLink>
         </div>
         <div
-          className={`burger-icon__box ${activeNav === 'cart' ? 'box-Active' : ''}`}
+          className={`burger-icon__box ${
+            activeNav === 'cart' ? 'box-Active' : ''
+          }`}
         >
           <NavLink to="/cart" onClick={() => handleNavClick('cart')}>
             <img src={cart} className="burger-icon__img" alt="Cart" />

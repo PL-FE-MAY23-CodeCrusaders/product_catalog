@@ -31,7 +31,11 @@ export const Breadcrumbs = () => {
     <div className="breadcrumbs">
       <div>
         <Link to="/">
-          <img src={homeIco} alt="home icon" className="breadcrumbs__home" />
+          <img
+            src={homeIco}
+            alt="home icon"
+            className="breadcrumbs__home"
+          />
         </Link>
       </div>
       {crumbs}

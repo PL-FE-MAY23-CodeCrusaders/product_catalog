@@ -6,11 +6,13 @@ const ProductDetailsPageContext = createContext<
   ProductDetailsPageContextType | undefined
 >(undefined);
 
-export const ProductDetailsPageProvider = ({ children }: Props) => {
+export const ProductDetailsProvider = ({ children }: Props) => {
   const [phoneData, setPhoneData] = useState<Phone | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [photoPath, setPhotoPath] = useState<string>('product_catalog/00.jpg');
+  const [photoPath, setPhotoPath] = useState<string>(
+    'product_catalog/00.jpg'
+  );
 
   const getData = async () => {
     const response = await fetch(
@@ -63,12 +65,12 @@ export const ProductDetailsPageProvider = ({ children }: Props) => {
   );
 };
 
-export const useProductDetailsPageContext = () => {
+export const useProductDetailsContext = () => {
   const context = useContext(ProductDetailsPageContext);
 
   if (!context) {
     throw new Error(
-      'useProductDetailsPageContext must be used within a ProductDetailsPageProvider'
+      'useProductDetailsContext must be used within a ProductDetailsPageProvider'
     );
   }
 

@@ -1,11 +1,11 @@
-import { useProductDetailsPageContext } from '../../../context/ProductDetailsPageContext';
+import { useProductDetailsContext } from '../../../context/ProductDetailsContext';
 import { HeaderH3 } from '../HeaderH3';
 import { HeaderH4 } from '../HeaderH4';
 import { Paragraph } from '../Paragraph';
 import './About.scss';
 
 export const About = () => {
-  const { phoneData } = useProductDetailsPageContext();
+  const { phoneData } = useProductDetailsContext();
 
   return (
     <section>

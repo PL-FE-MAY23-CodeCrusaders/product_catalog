@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import { Phone } from '../../Phone';
-import './cartSum.scss';
+import { Phone } from '../../../types/Phone';
+import './CartSum.scss';
 
 interface SumItemProps {
   cartState: Phone[]; // Assuming Phone[] is the correct type
@@ -43,21 +43,10 @@ const CartSum: React.FC<SumItemProps> = ({
   }, [cartState, quantity]);
 
   return (
-    <>
-      <div className="cart__sum">
-        <h1 className="cart__sum-price">
-          $
-          {sumOfPrice}
-        </h1>
-        <h3 className="cart__sum-num">
-          Total for
-          {' '}
-          {numOfItems}
-          {' '}
-          items
-        </h3>
-      </div>
-    </>
+    <div className="cart__sum">
+      <h1 className="cart__sum-price">${sumOfPrice}</h1>
+      <h3 className="cart__sum-num">Total for {numOfItems} items</h3>
+    </div>
   );
 };
 

@@ -1,0 +1,21 @@
+.cart__sum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-price {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -1%;
+    margin: 0;
+  }
+
+  &-num {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+  }
+}

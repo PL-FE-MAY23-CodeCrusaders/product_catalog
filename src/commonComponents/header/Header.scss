@@ -97,7 +97,7 @@ body {
 }
 
 .is-active::after {
-  content: "";
+  content: '';
   width: 100%;
   position: absolute;
   left: 0;
@@ -162,7 +162,6 @@ body {
   .nav__item:not(:last-child) {
     margin-right: 32px;
   }
-
 }
 
 @media (max-width: 439px) {

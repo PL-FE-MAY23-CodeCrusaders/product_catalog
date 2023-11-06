@@ -1,10 +1,10 @@
-import { useProductDetailsPageContext } from '../../../../context/ProductDetailsPageContext';
+import { useProductDetailsContext } from '../../../../context/ProductDetailsContext';
 import './Price.scss';
 import { DiscountPrice } from './DiscountPrice';
 import { OldPrice } from './OldPrice';
 
 export const Price = () => {
-  const { phoneData } = useProductDetailsPageContext();
+  const { phoneData } = useProductDetailsContext();
 
   return (
     <div className="price">
