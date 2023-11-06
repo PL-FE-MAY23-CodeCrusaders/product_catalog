@@ -33,7 +33,11 @@ export const Tablets = () => {
       </div>
 
       <div className="Tablets__pagination">
-        <button type="button" className="Tablets__pagination-buttonL">
+        <button
+          type="button"
+          className="Tablets__pagination-buttonL"
+          aria-label="Next page"
+        >
           <div className="Tablets__pagination-leftButton" />
         </button>
         <button type="button" className="Tablets__pagination-button">1</button>
@@ -41,7 +45,11 @@ export const Tablets = () => {
         <button type="button" className="Tablets__pagination-button">3</button>
         <button type="button" className="Tablets__pagination-button">4</button>
         <button type="button" className="Tablets__pagination-button">5</button>
-        <button type="button" className="Tablets__pagination-buttonR">
+        <button
+          type="button"
+          className="Tablets__pagination-buttonR"
+          aria-label="Gop to Next page"
+        >
           <div className="Tablets__pagination-rightButton" />
         </button>
       </div>

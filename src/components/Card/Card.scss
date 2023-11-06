@@ -76,6 +76,12 @@ $card-img-height: 196px;
       margin-bottom: $card-spacer;
 
       &--title {
+        &-actual{display: inline-block;}
+        &-actual,
+        &-previous {
+          min-width: 50px;
+        }
+
         &-previous {
             display: inline-block;
             margin-left: $card-spacer;

@@ -14,6 +14,7 @@ export const Footer: React.FC = () => {
     const handleScroll = () => {
       // Pokaż lub ukryj przycisk "Back to top" na podstawie pozycji przewinięcia
       const scrollButton = document.querySelector('.Footer__navigation');
+
       if (scrollButton) {
         if (window.scrollY > 100) {
           scrollButton.classList.add('show');
@@ -40,16 +41,20 @@ export const Footer: React.FC = () => {
           <a className="Footer__links--link" href="https://github.com">
             Github
           </a>
-          <a className="Footer__links--link" href="">
+          <a className="Footer__links--link" href="https://google.com">
             Contact
           </a>
-          <a className="Footer__links--link" href="">
+          <a className="Footer__links--link" href="https://google.com">
             Rights
           </a>
         </div>
-        <button className="Footer__navigation" onClick={scrollToTop}>
+        <button
+          type="button"
+          className="Footer__navigation"
+          onClick={scrollToTop}
+        >
           <p className="Footer__navigation--text">Back to top</p>
-          <div className="Footer__navigation--icon"></div>
+          <div className="Footer__navigation--icon" />
         </button>
       </div>
     </div>

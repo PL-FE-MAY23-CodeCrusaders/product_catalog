@@ -25,10 +25,10 @@ export const Phones = () => {
         <div className="Phones__itemList">
           {/* <div className="item" /> */}
           <Card />
+          {/* <div className="item" />
           <div className="item" />
           <div className="item" />
-          <div className="item" />
-          <div className="item" />
+          <div className="item" /> */}
         </div>
         <div className="Phones__pagination">
           {/* eslint-disable-next-line */}
