@@ -1,0 +1,9 @@
+@import '../../../../../utils/variables.scss';
+
+.headerH4 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: $desktop-h4-size;
+  line-height: $desktop-h4-line-height;
+  letter-spacing: $desktop-h4-letter-spacing;
+}

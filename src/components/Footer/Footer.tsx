@@ -15,6 +15,7 @@ export const Footer: React.FC = () => {
       // Pokaż lub ukryj przycisk "Back to top" na podstawie pozycji przewinięcia
       const scrollButton = document.querySelector('.Footer__navigation');
 
+
       if (scrollButton) {
         if (window.scrollY > 100) {
           scrollButton.classList.add('show');
@@ -48,6 +49,11 @@ export const Footer: React.FC = () => {
             Rights
           </a>
         </div>
+        <button
+          type="button"
+          className="Footer__navigation"
+          onClick={scrollToTop}
+        >
         <button
           type="button"
           className="Footer__navigation"
