@@ -2,7 +2,6 @@
 import React from 'react';
 import './PhonesPage.scss';
 import { Card } from '../../components/Card';
-import { Footer } from '../../components/Footer';
 
 export const Phones = () => {
   return (
@@ -12,20 +11,16 @@ export const Phones = () => {
         <div className="Phones__map-arrowIcon" />
         <span className="Phones__map-label">Phones</span>
       </div>
-
       <div className="Accessories__titleWrapper">
         <h1 className="Accessories__title">
           Mobile phones
         </h1>
       </div>
-
       <div className="Phones__modelsCount">
         <p>95 models</p>
       </div>
-
       <div className="Phones__sortByField" />
       <div className="Phones__itemsOnPageField" />
-
       <div className="Phones__itemList">
         <Card />
         {/* <div className="item" />
@@ -34,7 +29,6 @@ export const Phones = () => {
         <div className="item" />
         <div className="item" /> */}
       </div>
-
       <div className="Phones__pagination">
         <button
           type="button"
