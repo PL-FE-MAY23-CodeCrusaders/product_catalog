@@ -33,7 +33,6 @@
     margin:0;
     padding:0;
     color:#0F0F11;
-    font-family: Mont;
     font-size: 32px;
     font-weight: 800;
     line-height: 41px;
@@ -135,4 +134,27 @@ border-radius: 8px;
     height: 506px;
     min-width: 272px;
     }
+}
+
+
+.disabled {
+  border: 1px solid #E2E6E9;
+  &:hover {
+    cursor:default;
+    border:1px solid #E2E6E9;
+  }
+}
+
+.Slider__buttonLeftIcon-disabled {
+  background-image: url("./images/disabledArrow-L.svg");
+  width: 16px;
+  height: 16px;
+}
+
+.Slider__buttonRightIcon-disabled {
+  background-image: url("./images/Rdisabled.svg");
+  width: 16px;
+    height: 16px;
+
+    
 }
