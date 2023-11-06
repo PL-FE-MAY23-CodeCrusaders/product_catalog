@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import {
-  ReactComponent as RightArrow,
-} from '../../../../../images/phonepage__arrow-left.svg';
+import { ReactComponent as RightArrow } from '../../../../../images/phonepage__arrow-left.svg';
 import './BackArrow.scss';
 
 export const BackArrow = () => {
@@ -21,9 +19,7 @@ export const BackArrow = () => {
       >
         <RightArrow />
         <p className="back-button__text">Back</p>
-
       </button>
     </div>
-
   );
 };

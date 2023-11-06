@@ -25,12 +25,12 @@ export type Phone = {
 };
 
 export interface ProductDetailsPageContextType {
-  phoneData: Phone | undefined,
-  isLoading: boolean,
-  error: boolean,
-  photoPath: string,
-  changePhoto: (path: string) => void,
-  isActivePhoto: (path: string) => boolean,
+  phoneData: Phone | undefined;
+  isLoading: boolean;
+  error: boolean;
+  photoPath: string;
+  changePhoto: (path: string) => void;
+  isActivePhoto: (path: string) => boolean;
 }
 
 export type Props = React.PropsWithChildren<{}>;

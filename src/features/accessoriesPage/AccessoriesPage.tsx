@@ -12,9 +12,7 @@ export const Accessories = () => {
       </div>
 
       <div className="Accessories__titleWrapper">
-        <h1 className="Accessories__title">
-          Accessories
-        </h1>
+        <h1 className="Accessories__title">Accessories</h1>
       </div>
 
       <div className="Accessories__modelsCount">
@@ -36,29 +34,49 @@ export const Accessories = () => {
         <button
           type="button"
           className="Accessories__pagination-buttonL"
-          aria-label="Next page"
+          aria-label="Previous page"
         >
           <div className="Accessories__pagination-leftButton" />
         </button>
-        <button type="button" className="Accessories__pagination-button">
+        <button
+          type="button"
+          className="Accessories__pagination-button"
+          aria-label="Go to page 1"
+        >
           1
         </button>
-        <button type="button" className="Accessories__pagination-button">
+        <button
+          type="button"
+          className="Accessories__pagination-button"
+          aria-label="Go to page 2"
+        >
           2
         </button>
-        <button type="button" className="Accessories__pagination-button">
+        <button
+          type="button"
+          className="Accessories__pagination-button"
+          aria-label="Go to page 3"
+        >
           3
         </button>
-        <button type="button" className="Accessories__pagination-button">
+        <button
+          type="button"
+          className="Accessories__pagination-button"
+          aria-label="Go to page 4"
+        >
           4
         </button>
-        <button type="button" className="Accessories__pagination-button">
+        <button
+          type="button"
+          className="Accessories__pagination-button"
+          aria-label="Go to page 5"
+        >
           5
         </button>
         <button
           type="button"
           className="Accessories__pagination-buttonR"
-          aria-label="Previouse page"
+          aria-label="Next Page"
         >
           <div className="Accessories__pagination-rightButton" />
         </button>

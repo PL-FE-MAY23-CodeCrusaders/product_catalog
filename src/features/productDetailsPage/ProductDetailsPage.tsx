@@ -1,10 +1,10 @@
-import { ProductDetailsPageContent }
-  from './ProductDetailsPageContent/ProductDetailsPageContent';
-import { ProductDetailsPageProvider }
-  from './context/ProductDetailsPageContext';
+import {
+  ProductDetailsPageContent,
+} from './ProductDetailsPageContent/ProductDetailsPageContent';
+import { ProductDetailsProvider } from './context/ProductDetailsContext';
 
 export const ProductDetailsPage = () => (
-  <ProductDetailsPageProvider>
+  <ProductDetailsProvider>
     <ProductDetailsPageContent />
-  </ProductDetailsPageProvider>
+  </ProductDetailsProvider>
 );

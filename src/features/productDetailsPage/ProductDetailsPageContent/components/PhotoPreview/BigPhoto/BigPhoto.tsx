@@ -1,10 +1,8 @@
+import { useProductDetailsContext } from '../../../../context/ProductDetailsContext';
 import './BigPhoto.scss';
-import {
-  useProductDetailsPageContext,
-} from '../../../../context/ProductDetailsPageContext';
 
 export const BigPhoto = () => {
-  const { photoPath } = useProductDetailsPageContext();
+  const { photoPath } = useProductDetailsContext();
 
   return (
     <div className="bigPhoto">

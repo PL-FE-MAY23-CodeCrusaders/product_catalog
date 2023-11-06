@@ -1,11 +1,9 @@
+import { useProductDetailsContext } from '../../../../context/ProductDetailsContext';
 import './Gallery.scss';
-import {
-  useProductDetailsPageContext,
-} from '../../../../context/ProductDetailsPageContext';
 
 export const Gallery = () => {
   const { phoneData, changePhoto, isActivePhoto }
-    = useProductDetailsPageContext();
+    = useProductDetailsContext();
 
   return (
     <div className="gallery">
