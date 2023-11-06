@@ -1,6 +1,5 @@
-
-import Header from './components/header/Header';
 import { NavLink, Route, Routes } from 'react-router-dom';
+import Header from './components/header/Header';
 
 import PageNotFound from './pageNotFound';
 import { Cart } from './cart/cart';
@@ -32,10 +31,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<PageNotFound />} />
 
-      </Routes>
-      <Footer />
-
         </Routes>
+        <Footer />
       </CartProvider>
     </>
 
