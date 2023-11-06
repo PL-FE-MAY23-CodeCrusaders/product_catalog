@@ -23,11 +23,6 @@ export const Phones = () => {
       <div className="Phones__itemsOnPageField" />
       <div className="Phones__itemList">
         <Card />
-        {/* <div className="item" />
-        <div className="item" />
-        <div className="item" />
-        <div className="item" />
-        <div className="item" /> */}
       </div>
       <div className="Phones__pagination">
         <button
