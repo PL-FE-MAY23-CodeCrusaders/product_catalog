@@ -33,7 +33,11 @@ export const Accessories = () => {
       </div>
 
       <div className="Accessories__pagination">
-        <button type="button" className="Accessories__pagination-buttonL">
+        <button
+          type="button"
+          className="Accessories__pagination-buttonL"
+          aria-label="Next page"
+        >
           <div className="Accessories__pagination-leftButton" />
         </button>
         <button type="button" className="Accessories__pagination-button">
@@ -51,7 +55,11 @@ export const Accessories = () => {
         <button type="button" className="Accessories__pagination-button">
           5
         </button>
-        <button type="button" className="Accessories__pagination-buttonR">
+        <button
+          type="button"
+          className="Accessories__pagination-buttonR"
+          aria-label="Previouse page"
+        >
           <div className="Accessories__pagination-rightButton" />
         </button>
       </div>

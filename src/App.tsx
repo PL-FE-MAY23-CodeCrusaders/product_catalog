@@ -1,7 +1,7 @@
-import {
-  Route, Routes,
-} from 'react-router-dom';
+
 import Header from './components/header/Header';
+import { NavLink, Route, Routes } from 'react-router-dom';
+
 import PageNotFound from './pageNotFound';
 import { Cart } from './cart/cart';
 import { CartProvider } from './cartContext';
@@ -11,37 +11,17 @@ import { Phones } from './features/phonesPage/PhonesPage';
 import { Tablets } from './features/tabletsPage/TabletsPage';
 import { Accessories } from './features/accessoriesPage/AccessoriesPage';
 import { Favourites } from './features/favouritesPage/FavouritesPage';
+import {
+  ProductDetailsPage,
+} from './features/productDetailsPage/ProductDetailsPage';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
     <>
+
       <CartProvider>
         <Header />
-        {/* <header>
-          <nav>
-            <ul>
-              <li>
-                <NavLink to="/">HOME</NavLink>
-              </li>
-              <li>
-                <NavLink to="/phones">PHONES</NavLink>
-              </li>
-              <li>
-                <NavLink to="/tablets">TABLETS</NavLink>
-              </li>
-              <li>
-                <NavLink to="/accessories">ACCESSORIES</NavLink>
-              </li>
-              <li>
-                <NavLink to="/favourites">FAVOURITES</NavLink>
-              </li>
-              <li>
-                <NavLink to="/cart">CART</NavLink>
-              </li>
-            </ul>
-          </nav>
-        </header> */}
-
         <Routes>
 
           <Route path="/" element={<Home />} />
@@ -52,9 +32,13 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<PageNotFound />} />
 
+      </Routes>
+      <Footer />
+
         </Routes>
       </CartProvider>
     </>
+
   );
 }
 
