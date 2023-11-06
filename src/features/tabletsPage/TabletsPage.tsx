@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './TabletsPage.scss';
 
 export const Tablets = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="Tablets__main">
       <div className="Tablets__map">

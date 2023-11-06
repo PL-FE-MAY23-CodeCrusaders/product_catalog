@@ -1,4 +1,4 @@
-.Home_sectionCategories {
+.Home__categories {
     height: 100%;
     box-sizing: border-box;
     grid-area: 3/1/4/5;
@@ -24,13 +24,18 @@
         letter-spacing: 0em;
         text-align: left;
 
+        @media (min-width: 640px) {
+            font-size: 32px;
+            line-height: 41px;
+            letter-spacing: -0.01em;        
+            
+        }              
     }
 }
 
 .Home__categories_container {
     gap: 32px;
     display: grid;
-    border:1px solid yellow;
     height: 100%;
     
 
@@ -54,9 +59,6 @@
 
 .Home__categories__mobilePhones{
     height: 100%;
-    border: 1px solid red;
-
-    
     display: flex;
     flex-direction: column;
     
@@ -76,26 +78,54 @@
     background-color: black;
     aspect-ratio: 1/1;
     margin-bottom: 24px;
+    border-radius: 8px;
+
+    background-image: url("../../../images/HomeCategoryAccessories.jpg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.2s;
+
+    
     
     
     
 
     @media (min-width: 640px) {
-        
+        &:hover {
+            transform: scale(1.03);
+            cursor: pointer;
+        }
        }
      
      @media (min-width: 1200px) {
-         
+         border-radius: 0;
      }
 };
 
 .categories__mobilePhones-title{
     align-self: flex-start;
     margin:0 0 8px;
+    font-family: Mont;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #0F0F11;
 };
 
 .categories__mobilePhones-modelsCount{
     margin:0;
+    //styleName: Body text 14;
+    font-family: Mont;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #89939A;
+
 };
 
 /* #endregion */
@@ -110,7 +140,6 @@
 
 .Home__categories__tablets{
     height: 100%;
-    border: 1px solid red;
     max-height: 100%;
 
     
@@ -119,7 +148,6 @@
     
 
     @media (min-width: 640px) {
-       //height: 443px;
       }
     
     @media (min-width: 1200px) {
@@ -133,26 +161,53 @@
     background-color: black;
     aspect-ratio: 1/1;
     margin-bottom: 24px;
+    border-radius: 8px;
+
+    background-image: url("../../../images/homeTablets.png");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.2s;
+
+   
     
     
     
 
     @media (min-width: 640px) {
-        
+        &:hover {
+            transform: scale(1.03);
+            cursor: pointer;
+        }
        }
      
      @media (min-width: 1200px) {
-         
+         border-radius: 0;
      }
 };
 
 .categories__tablets-title{
     align-self: flex-start;
     margin:0 0 8px;
+    font-family: Mont;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #0F0F11;
 };
 
 .categories__tablets-modelsCount{
     margin:0;
+    font-family: Mont;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #89939A;
+
 };
 
 /* #endregion */
@@ -167,15 +222,11 @@
 
 .Home__categories__accessories{
     height: 100%;
-    border: 1px solid red;
-
-    
     display: flex;
     flex-direction: column;
     
 
     @media (min-width: 640px) {
-       //height: 443px;
       }
     
     @media (min-width: 1200px) {
@@ -189,15 +240,29 @@
     background-color: black;
     aspect-ratio: 1/1;
     margin-bottom: 24px;
+    border-radius: 8px;
+
+    background-image: url("../../../images/HomeCategoryPhones.png");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.2s;
+
+    
     
     
     
 
     @media (min-width: 640px) {
+        &:hover {
+            transform: scale(1.03);
+            cursor: pointer;
+        }
         
        }
      
      @media (min-width: 1200px) {
+         border-radius: 0;
          
      }
 };
@@ -205,10 +270,25 @@
 .categories__accessories-title{
     align-self: flex-start;
     margin:0 0 8px;
+    font-family: Mont;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #0F0F11;
 };
 
 .categories__accessories-modelsCount{
     margin:0;
+    font-family: Mont;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #89939A;
+
 };
 
 /* #endregion */
