@@ -107,7 +107,7 @@ body {
   border-radius: 8px;
 }
 
-@media (min-width: 321px) and (max-width: 640px) {
+@media (min-width: 440px) and (max-width: 1024px) {
   body {
     height: 48px;
     font-weight: 700;
@@ -165,7 +165,7 @@ body {
 
 }
 
-@media (max-width: 320px) {
+@media (max-width: 439px) {
   body {
     height: 48px;
   }

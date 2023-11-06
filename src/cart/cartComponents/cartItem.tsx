@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Phone } from '../../Phone';
 import close from '../../images/Close.png';
 import test from '../../images/testProductPhoto.svg';
@@ -10,18 +11,35 @@ import './cartItem.scss';
 interface CartItemProps {
   item: Phone;
   removeFromCart: (phoneId: string) => void;
+  setQuantity: (value: number) => void;
+  quantity: number;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ item, removeFromCart }) => {
+const CartItem: React.FC<CartItemProps> = ({
+  item,
+  removeFromCart,
+  setQuantity,
+  quantity,
+}) => {
+  useEffect(() => {
+    console.log(item.quantity);
+  }, [item.quantity, quantity]);
+
   const handleMinus = () => {
     if (item.quantity && item.quantity > 1) {
       item.quantity -= 1;
+      const newQuantity = quantity + 1;
+
+      setQuantity(newQuantity);
     }
   };
 
   const handlePlus = () => {
     if (item.quantity) {
       item.quantity += 1;
+      const newQuantity = quantity + 1;
+
+      setQuantity(newQuantity);
     }
   };
 
@@ -31,7 +49,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, removeFromCart }) => {
         <div className="cart-card-iconBox">
           <button
             type="button"
-            onClick={() => removeFromCart(item.phoneId)}
+            onClick={() => removeFromCart(item.itemId)}
             className="cart-card-iconButton"
           >
             <img src={close} alt="Remove Item" className="cart-card-icon" />
@@ -49,7 +67,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, removeFromCart }) => {
           <div className="cart-card-amount-iconBox">
             <button
               type="button"
-              onClick={() => handleMinus}
+              onClick={() => handleMinus()}
               className="cart-card-iconButton"
             >
               <img
@@ -66,7 +84,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, removeFromCart }) => {
           <div className="cart-card-amount-iconBox">
             <button
               type="button"
-              onClick={() => handlePlus}
+              onClick={() => handlePlus()}
               className="cart-card-iconButton"
             >
               <img

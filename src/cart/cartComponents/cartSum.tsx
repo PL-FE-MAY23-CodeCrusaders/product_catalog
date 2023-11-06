@@ -10,6 +10,7 @@ interface SumItemProps {
   setNumOfItems: (value: number) => void;
   sumOfPrice: number;
   numOfItems: number;
+  quantity: number;
 }
 
 const CartSum: React.FC<SumItemProps> = ({
@@ -18,6 +19,7 @@ const CartSum: React.FC<SumItemProps> = ({
   setNumOfItems,
   sumOfPrice,
   numOfItems,
+  quantity,
 }) => {
   useEffect(() => {
     let sum = 0;
@@ -38,7 +40,7 @@ const CartSum: React.FC<SumItemProps> = ({
     }
 
     setSumOfPrice(totalPriceSum);
-  }, [cartState]);
+  }, [cartState, quantity]);
 
   return (
     <>

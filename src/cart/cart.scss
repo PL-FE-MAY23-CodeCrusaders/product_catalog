@@ -86,21 +86,29 @@ body {
 }
 
 .cart-message {
+    text-decoration: none;
     margin-top: 20px;
     width: 100%;
     height: 60px;
     border-radius: 8px;
-    border: #27AE60;
+    border: 2px solid #27AE60;
     background-color: #27AE60;
     font-size: 14px;
-    line-height: 21px;
+    line-height: 60px;
     color: #FFFFFF;
     font-weight: 700;
     display: none;
+    align-items: center;
+    justify-content: center;
 }
 
 .message-active {
     display: block;
+}
+
+.cart-message-text {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import CartProductList from './cartComponents/cartProductList';
 import CartSum from './cartComponents/cartSum';
 import Back from '../images/back.png';
@@ -11,6 +12,7 @@ export const Cart = () => {
   const [checkedout, setCheckedout] = useState(false);
   const [numOfItems, setNumOfItems] = useState(0);
   const [sumOfPrice, setSumOfPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
 
   const handleCheckOut = () => {
     clearCart();
@@ -19,6 +21,9 @@ export const Cart = () => {
     setSumOfPrice(0);
     cartState.map((item: Phone) => item.quantity === 1);
   };
+
+  useEffect(() => {
+  }, [cartState]);
 
   return (
     <div className="cart">
@@ -38,6 +43,8 @@ export const Cart = () => {
           <CartProductList
             cartState={cartState}
             removeFromCart={removeFromCart}
+            quantity={quantity}
+            setQuantity={setQuantity}
           />
         </div>
         <div className="cart-checkoutBox">
@@ -48,6 +55,7 @@ export const Cart = () => {
               setNumOfItems={setNumOfItems}
               sumOfPrice={sumOfPrice}
               numOfItems={numOfItems}
+              quantity={quantity}
             />
           </div>
           <button
@@ -64,7 +72,9 @@ export const Cart = () => {
         className={`cart-message ${checkedout ? 'message-active' : ''}`}
         onClick={() => setCheckedout(false)}
       >
-        Checkout is not implemented yet.
+        <NavLink to="/" className="cart-message-text">
+          Checkout is not implemented yet.
+        </NavLink>
       </button>
     </div>
   );
