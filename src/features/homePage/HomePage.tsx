@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Slider } from './components/Slider/Slider';
 
 export const Home = () => {
-  const ti = 'home text';
+  const titl = 'some text';
 
   return (
     <main className="Home_main">
@@ -12,7 +12,7 @@ export const Home = () => {
 
       <section className="slidecontainer2">
 
-        <Slider title={ti} />
+        <Slider titl={titl} />
 
       </section>
       <section className="Home__categories">
@@ -51,7 +51,7 @@ export const Home = () => {
       </section>
 
       <section className="slidcontainer">
-        <Slider title={ti} />
+        <Slider titl={titl} />
 
       </section>
     </main>

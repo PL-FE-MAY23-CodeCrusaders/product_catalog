@@ -1,4 +1,4 @@
-.Home_sectionHotPrice {
+.Slider {
   
     height: 495px;
     box-sizing: border-box;
@@ -19,7 +19,7 @@
     }
   }
 
-  .Home__sectionHotPrice-bar {
+  .Slider__bar {
     width: 100%;
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@
     
   }
    
-  .Home__sectionHotPrice-title {
+  .Slider-title {
     margin:0;
     padding:0;
     color:#0F0F11;
@@ -44,7 +44,7 @@
 
 
 
-  .Home__sectionHotPrice__buttons {
+  .Slider__buttons {
     display: flex ;
     gap:16px;
 
@@ -75,7 +75,7 @@
   
   
   
-  .sectionHotPrice__buttonLeftIcon {
+  .Slider__buttonLeftIcon {
     width: 5.33px;
     height: 9.33px;
     background-image: url("./images/phonepage__arrow-left.svg");
@@ -84,7 +84,7 @@
     background-size: cover;
   }
   
-  .sectionHotPrice__buttonRightIcon {
+  .Slider__buttonRightIcon {
     width: 5.33px;
     height: 9.33px;
     background-image: url("./images/phonepage__arrow-right.svg");
@@ -94,7 +94,7 @@
   }
   
   
-  .sectionHotprice__gridContainer {
+  .Slider__gridContainer {
     display: flex;
     overflow-x: auto;
     grid-row: 2/3;
@@ -102,7 +102,7 @@
     min-width: 100%;
   }
   
-  .sectionHotprice__gridContainer::-webkit-scrollbar {
+  .Slider__gridContainer::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
@@ -117,7 +117,7 @@
   
   
   
-.hotPricesItem {                 // <------------- placeholder !
+.SliderItem {                 // <------------- placeholder !
 width: 212px;
 height: 439px;
 min-width: 212px;

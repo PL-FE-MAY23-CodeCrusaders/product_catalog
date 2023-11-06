@@ -1,12 +1,18 @@
-import react, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Slider.scss';
-import PropTypes from 'prop-types';
 
-export const Slider = ({ titl }) => {
+type Props = {
+  titl: string,
+};
+
+export const Slider: React.FC<Props> = ({ titl }) => {
   const sectionHotPrice = useRef<HTMLDivElement | null>(null);
   const sectionNewModels = useRef<HTMLDivElement | null>(null);
 
   const x = 4;
+
+  // eslint-disable-next-line no-console
+  console.log(titl);
 
   useEffect(() => {
     if (sectionHotPrice.current) {
@@ -71,56 +77,52 @@ export const Slider = ({ titl }) => {
   };
 
   return (
-    <section className="Home_sectionHotPrice">
+    <section className="Slider">
 
-      <div className="Home__sectionHotPrice-bar">
-        <h2 className="Home__sectionHotPrice-title">{titl}</h2>
-        <div className="Home__sectionHotPrice__buttons">
+      <div className="Slider__bar">
+        <h2 className="Slider-title">{titl}</h2>
+        <div className="Slider__buttons">
 
           <button
             type="button"
-            className="Home__sectionHotPrice__buttons-L"
+            className="Slider__buttons-L"
             onMouseDown={() => startScrolling(sectionHotPrice, -1)}
             onMouseUp={stopScrolling}
             onMouseLeave={stopScrolling}
           >
-            <div className="sectionHotPrice__buttonLeftIcon" />
+            <div className="Slider__buttonLeftIcon" />
           </button>
 
           <button
             type="button"
-            className="Home__sectionHotPrice__buttons-R"
+            className="Slider__buttons-R"
             onMouseDown={() => startScrolling(sectionHotPrice, 1)}
             onMouseUp={stopScrolling}
             onMouseLeave={stopScrolling}
           >
-            <div className="sectionHotPrice__buttonRightIcon" />
+            <div className="Slider__buttonRightIcon" />
           </button>
 
         </div>
       </div>
 
       <div
-        className="sectionHotprice__gridContainer"
+        className="Slider__gridContainer"
         ref={sectionHotPrice}
         id="12"
       >
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
-        <div className="hotPricesItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
+        <div className="SliderItem" />
       </div>
 
     </section>
