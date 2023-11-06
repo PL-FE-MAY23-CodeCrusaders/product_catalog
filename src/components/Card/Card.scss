@@ -67,6 +67,7 @@ $card-img-height: 196px;
     }
   
     &__price {
+      display: flex;
       font-size: 22px;
       font-style: normal;
       font-weight: 800;
