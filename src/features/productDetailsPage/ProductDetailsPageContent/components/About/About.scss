@@ -1,0 +1,8 @@
+@import '../../../../../utils/variables.scss';
+
+.about {
+  &__line {
+    border-top: solid 1px $elements-color;
+    margin-bottom: 26px;
+  }
+}

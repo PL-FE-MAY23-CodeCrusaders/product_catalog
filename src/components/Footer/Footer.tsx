@@ -41,10 +41,17 @@ export const Footer: React.FC = () => {
           <a className="Footer__links--link" href="https://github.com">
             Github
           </a>
+<<<<<<< HEAD
           <a className="Footer__links--link" href="https://google.com">
             Contact
           </a>
           <a className="Footer__links--link" href="https://google.com">
+=======
+          <a className="Footer__links--link" href="/">
+            Contact
+          </a>
+          <a className="Footer__links--link" href="/">
+>>>>>>> origin/main
             Rights
           </a>
         </div>

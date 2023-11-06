@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import './AccessoriesPage.scss';
 
@@ -35,7 +36,11 @@ export const Accessories = () => {
         <button
           type="button"
           className="Accessories__pagination-buttonL"
+<<<<<<< HEAD
           aria-label="Previous page"
+=======
+          aria-label="Next page"
+>>>>>>> origin/main
         >
           <div className="Accessories__pagination-leftButton" />
         </button>
@@ -77,7 +82,11 @@ export const Accessories = () => {
         <button
           type="button"
           className="Accessories__pagination-buttonR"
+<<<<<<< HEAD
           aria-label="Next Page"
+=======
+          aria-label="Previouse page"
+>>>>>>> origin/main
         >
           <div className="Accessories__pagination-rightButton" />
         </button>
