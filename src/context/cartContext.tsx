@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {
   createContext,
   useContext,
@@ -49,11 +50,12 @@ const testValue: Phone[] = [
 ];
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cartState, setCartState] = useState<Phone[]>(testValue);
+  const [cartState, setCartState] = useState<Phone[]>([]);
 
   const addToCart = (product: Phone) => {
-    // Implement your addToCart logic here
-    setCartState([...cartState, product]);
+    const newProduct = { ...product, quantity: 1 };
+
+    setCartState([...cartState, newProduct]);
   };
 
   const removeFromCart = (phoneId: string) => {

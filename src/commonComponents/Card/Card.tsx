@@ -177,6 +177,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
+import { useCartContext } from '../../context/cartContext';
 import './Card.scss';
 
 interface PhoneData {
@@ -201,6 +202,7 @@ export const Card: React.FC = () => {
   const [isFavourite, setIsFavourite] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState<boolean>(false);
+  const { addToCart } = useCartContext();
 
   const getData = async () => {
     const data = await fetch('/api/phones.json', {
@@ -233,9 +235,10 @@ export const Card: React.FC = () => {
     fetchData();
   }, []);
 
-  const handleAddToCartClick = (index: number) => {
+  const handleAddToCartClick = (index: number, product: PhoneData) => {
     const updatedCartStatus = [...isAddedToCart];
 
+    addToCart(product);
     updatedCartStatus[index] = !updatedCartStatus[index];
     setIsAddedToCart(updatedCartStatus);
   };
@@ -309,7 +312,7 @@ export const Card: React.FC = () => {
               className={`card__buttons-left ${
                 isAddedToCart[index] ? 'added-to-cart' : ''
               }`}
-              onClick={() => handleAddToCartClick(index)}
+              onClick={() => handleAddToCartClick(index, phone)}
             >
               {isAddedToCart[index] ? 'Added to cart' : 'Add to cart'}
             </button>
