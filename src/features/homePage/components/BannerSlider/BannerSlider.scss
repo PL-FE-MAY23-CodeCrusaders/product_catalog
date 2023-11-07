@@ -1,0 +1,19 @@
+@import '../../../../utils/variables.scss';
+
+  .slick-next,
+  .slick-prev{
+    height: 100%;
+    // background-color: red;
+    width: 32px;
+    border-radius: 48px;
+    border: 1px solid $ocons-color;
+    z-index: 20;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    left: 97%;
+  }
