@@ -91,6 +91,7 @@ export const Card: React.FC = () => {
       {phoneData.map((phone, index) => (
         <div className="card" key={phone.id}>
           <ReactImageMagnify
+            className='card-img'
             smallImage={{
               isFluidWidth: true,
               src: phone.image,
