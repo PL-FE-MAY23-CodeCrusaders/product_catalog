@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useEffect } from 'react';
 import './PhonesPage.scss';
 import { Card } from '../../commonComponents/Card';
 
 export const Phones = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <main className="Phones__main">

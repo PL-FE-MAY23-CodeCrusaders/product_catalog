@@ -44,8 +44,17 @@ const CartSum: React.FC<SumItemProps> = ({
 
   return (
     <div className="cart__sum">
-      <h1 className="cart__sum-price">${sumOfPrice}</h1>
-      <h3 className="cart__sum-num">Total for {numOfItems} items</h3>
+      <h1 className="cart__sum-price">
+        $
+        {sumOfPrice}
+      </h1>
+      <h3 className="cart__sum-num">
+        Total for
+        {' '}
+        {numOfItems}
+        {' '}
+        items
+      </h3>
     </div>
   );
 };

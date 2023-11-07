@@ -5,8 +5,8 @@ import { ReactComponent as HeartWhite } from './heart.svg';
 import { ReactComponent as HeartPink } from './pink-heart.svg';
 
 export const Favourites = () => {
-  const [selectedFavourite, setSelectedFavourite] =
-    useState<boolean>(false);
+  const [selectedFavourite, setSelectedFavourite]
+    = useState<boolean>(false);
 
   const handleCapacityChange = (v: boolean) => {
     setSelectedFavourite(v);

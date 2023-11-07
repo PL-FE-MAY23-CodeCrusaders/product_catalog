@@ -1,0 +1,160 @@
+.Slider {
+  
+    height: 495px;
+    box-sizing: border-box;
+  
+    display:grid;
+    grid-template-rows: 1fr 439px;
+    
+    @media (min-width: 640px) {
+      height: 577px;
+      grid-template-rows: 1fr 512px;
+    
+    }
+  
+    @media (min-width: 1200px) {
+      height: 571px;
+      grid-template-rows: 1fr 506px;
+    
+    }
+  }
+
+  .Slider__bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height:100%;
+    justify-content: space-between;
+    
+    
+  }
+   
+  .Slider-title {
+    margin:0;
+    padding:0;
+    color:#0F0F11;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+    text-align: left;
+  }
+
+
+
+
+  .Slider__buttons {
+    display: flex ;
+    gap:16px;
+
+    &-L,
+    &-R {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+    border: 1px solid #B4BDC3;
+    background-color: transparent;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 8px;
+    text-align: center;
+    color: #0F0F11;
+  
+        &:hover {
+        cursor: pointer;
+        border:1px solid #0F0F11;
+        }
+    }
+   }
+  
+  
+  
+  
+  
+  .Slider__buttonLeftIcon {
+    width: 5.33px;
+    height: 9.33px;
+    background-image: url("./images/phonepage__arrow-left.svg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .Slider__buttonRightIcon {
+    width: 5.33px;
+    height: 9.33px;
+    background-image: url("./images/phonepage__arrow-right.svg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  
+  .Slider__gridContainer {
+    display: flex;
+    overflow-x: auto;
+    grid-row: 2/3;
+    column-gap: 16px;
+    min-width: 100%;
+  }
+  
+  .Slider__gridContainer::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+.SliderItem {                 // <------------- placeholder !
+width: 212px;
+height: 439px;
+min-width: 212px;
+background-color: rgb(35, 180, 206);
+border-radius: 8px;
+
+
+
+    @media (min-width: 640px) {
+    height: 512px;
+    min-width: 237px;
+    }
+
+    @media (min-width: 1200px) {
+    height: 506px;
+    min-width: 272px;
+    }
+}
+
+
+.disabled {
+  border: 1px solid #E2E6E9;
+  &:hover {
+    cursor:default;
+    border:1px solid #E2E6E9;
+  }
+}
+
+.Slider__buttonLeftIcon-disabled {
+  background-image: url("./images/disabledArrow-L.svg");
+  width: 16px;
+  height: 16px;
+}
+
+.Slider__buttonRightIcon-disabled {
+  background-image: url("./images/Rdisabled.svg");
+  width: 16px;
+    height: 16px;
+
+    
+}

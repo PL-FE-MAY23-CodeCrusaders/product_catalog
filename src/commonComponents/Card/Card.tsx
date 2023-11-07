@@ -272,7 +272,8 @@ export const Card: React.FC = () => {
             largeImage={{
               width: 800,
               height: 840,
-              src: phone.image, // Użyj tej samej ścieżki do dużej grafiki, jeśli jest to odpowiednie dla Twojego projektu
+              src: phone.image, // Użyj tej samej ścieżki do dużej
+              // grafiki, jeśli jest to odpowiednie dla Twojego projektu
             }}
           />
           <h4>{phone.name}</h4>

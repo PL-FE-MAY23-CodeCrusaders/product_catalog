@@ -101,7 +101,10 @@ const CartItem: React.FC<CartItemProps> = ({
           </div>
         </div>
         <div className="cart-card-priceBox">
-          <h2 className="cart-card-price">${item.price}</h2>
+          <h2 className="cart-card-price">
+            $
+            {item.price}
+          </h2>
         </div>
       </div>
     </div>

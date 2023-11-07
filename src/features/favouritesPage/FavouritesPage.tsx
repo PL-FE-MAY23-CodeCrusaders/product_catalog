@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './FavouritesPage.scss';
 
 export const Favourites = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="Favourites_main">
       <div className="Favourites_map" />

@@ -1,8 +1,12 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useEffect } from 'react';
 import './AccessoriesPage.scss';
 
 export const Accessories = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="Accessories__main">
       <div className="Accessories__map">

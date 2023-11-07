@@ -59,7 +59,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const removeFromCart = (phoneId: string) => {
     // Implement your removeFromCart logic here
     setCartState(
-      cartState.filter((product: Phone) => product.itemId !== phoneId)
+      cartState.filter((product: Phone) => product.itemId !== phoneId),
     );
   };
 
