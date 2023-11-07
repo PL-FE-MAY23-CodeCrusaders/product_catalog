@@ -17,13 +17,13 @@ export const BannerSlider = () => {
   return (
     <Slider {...settings}>
       <div>
-        <img src={Banner} alt="banner" />
+        <img className="banner-img" src={Banner} alt="banner" />
       </div>
       <div>
-        <img src={Banner} alt="banner" />
+        <img className="banner-img" src={Banner} alt="banner" />
       </div>
       <div>
-        <img src={Banner} alt="banner" />
+        <img className="banner-img" src={Banner} alt="banner" />
       </div>
     </Slider>
   );

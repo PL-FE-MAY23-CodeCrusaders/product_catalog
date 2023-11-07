@@ -17,3 +17,16 @@
   .slick-next {
     left: 97%;
   }
+
+  .slick-slide > div > div {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .slick-arrow {
+    &::before {
+      background-color: $ocons-color;
+      border-radius: 50%;
+      border-color: transparent;
+    }
+  }
