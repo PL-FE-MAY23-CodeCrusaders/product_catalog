@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext, useContext, useEffect, useState,
+} from 'react';
 import { ProductDetailsPageContextType, Props, Phone } from './types';
 
 const ProductDetailsPageContext = createContext<
-  ProductDetailsPageContextType | undefined
+ProductDetailsPageContextType | undefined
 >(undefined);
 
 export const ProductDetailsProvider = ({ children }: Props) => {
@@ -11,12 +13,12 @@ export const ProductDetailsProvider = ({ children }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [photoPath, setPhotoPath] = useState<string>(
-    'product_catalog/00.jpg'
+    'product_catalog/00.jpg',
   );
 
   const getData = async () => {
     const response = await fetch(
-      'product_catalog/apple-iphone-11-128gb-black.json'
+      'product_catalog/apple-iphone-11-128gb-black.json',
     );
 
     if (!response.ok) {
@@ -70,7 +72,7 @@ export const useProductDetailsContext = () => {
 
   if (!context) {
     throw new Error(
-      'useProductDetailsContext must be used within a ProductDetailsPageProvider'
+      'useProductDetailsContext must be used within a ProductDetailsPageProvider',
     );
   }
 

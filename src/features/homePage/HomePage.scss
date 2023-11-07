@@ -1,35 +1,39 @@
-.Home_main {
-  width: 100%;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 458px 526px 1208px 495px;
-  row-gap: 56px;
-  grid-auto-flow: column;
-  column-gap: 16px;
-  justify-content: center;
-  padding: 24px 16px 64px;
-  box-sizing: border-box;
+@import './components/__sectionCategory';
 
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 365px 577px 327 577px;
-    row-gap: 64px;
-    padding: 32px 24px 64px;
-  }
 
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(24, 32px);
-    grid-template-rows: 544px 571px 508px 571px;
-    row-gap: 80px;
-    padding: 56px 32px 80px;
-  }
+.Home_main {  
+  background-color: #FAFBFC;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat( 4, 1fr) ;
+    grid-template-rows: 458px 526px minmax(1208px, 1fr) 495px;
+    row-gap: 56px;
+    grid-auto-flow: column; 
+    column-gap: 16px;
+    justify-content: center;
+    padding: 24px 16px 64px;
+    box-sizing: border-box;
+
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(12, 1fr); 
+        grid-template-rows: 365px 577px minmax(327px, 1fr) 577px;
+        row-gap: 64px;
+        padding: 32px 24px 64px;
+        }
+    
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(24, 32px); 
+      grid-template-rows: 544px 571px minmax(508px, 1fr) 571px;
+      row-gap: 80px;
+      padding: 56px 32px 80px;
+      }
 }
 
 .Home_sectionWelcome {
   background-color: blue;
   height: 100%;
-  display: flex;
+  display:flex;
   box-sizing: border-box;
   grid-area: 1/1/2/5;
 
@@ -42,85 +46,12 @@
   }
 }
 
-.Home_sectionNewModels {
-  background-color: yellow;
-  height: 100%;
-  box-sizing: border-box;
-  grid-area: 2/1/3/5;
 
-  @media (min-width: 640px) {
-    grid-area: 2/1/3/14;
-  }
 
-  @media (min-width: 1200px) {
-    grid-area: 2/1/3/25;
-  }
-}
 
-.Home_sectionCategory {
-  background-color: red;
-  height: 100%;
-  box-sizing: border-box;
-  grid-area: 3/1/4/5;
-
-  @media (min-width: 640px) {
-    grid-area: 3/1/4/14;
-  }
-
-  @media (min-width: 1200px) {
-    grid-area: 3/1/4/25;
-  }
-}
-
-.Home_sectionHotPrice {
-  background-color: green;
-  height: 100%;
-  box-sizing: border-box;
-  grid-area: 4/1/5/5;
-  width: auto;
-
-  display: grid;
-  grid-template-rows: minmax(32px, 1fr) 439px;
-  flex-wrap: nowrap;
-  grid-template-columns: repeat(40, minmax(230px, 1fr));
-
-  width: 100%; /* Ustala szerokość sekcji na 100% szerokości okna przeglądarki */
-  overflow-x: auto; /* Dodaje pasek przewijania poziomego, jeśli zawartość przekracza szerokość sekcji */
-  white-space: nowrap;
-  overflow-y: hidden;
-  row-gap: 16px;
-
-  @media (min-width: 640px) {
-    grid-area: 4/1/5/14;
-  }
-
-  @media (min-width: 1200px) {
-    grid-area: 4/1/5/25;
-  }
-}
-
-.Home__sectionHotPrice-bar {
-  grid-row: 1 / 2;
-  min-width: 400px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  transform: translateY(25%);
-}
-
-.hotPricesItem {
-  width: 212px;
-  height: 439px;
-  background-color: rgb(35, 180, 206);
-  border-radius: 8px;
-  grid-row: 2/3;
-
-  @media (min-width: 640px) {
-    height: 506px;
-  }
-}
 
 .Accessories__itemList {
+  
   height: 100%;
   box-sizing: border-box;
   grid-area: 9/1/10/5;
@@ -129,14 +60,63 @@
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   row-gap: 40px;
   column-gap: 16px;
-
+  
   @media (min-width: 640px) {
     grid-area: 9/1/10/13;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   }
-
+  
   @media (min-width: 1200px) {
     grid-area: 9/1/10/25;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+}
+
+
+
+
+
+
+
+.slidcontainer {
+  
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 4/1/5/5;
+
+ 
+  
+  @media (min-width: 640px) {
+    grid-area: 4/1/5/14;
+    
+  
+  }
+
+  @media (min-width: 1200px) {
+    grid-area: 4/1/5/25;
+    
+  
+  }
+}
+
+.slidecontainer2 {
+  
+  height: 100%;
+  box-sizing: border-box;
+  grid-area: 2/1/3/5;
+
+  
+  
+  
+  @media (min-width: 640px) {
+      grid-area: 2/1/3/14;
+    grid-template-rows: 1fr 512px;
+  
+  }
+
+  @media (min-width: 1200px) {
+    grid-area: 2/1/3/25;
+    
+  
   }
 }

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+// eslint-disable-next-line max-len
 import { ReactComponent as RightArrow } from '../../../../../images/phonepage__arrow-left.svg';
 import './BackArrow.scss';
 
