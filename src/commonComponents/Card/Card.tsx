@@ -68,6 +68,7 @@ export const Card: React.FC = () => {
 
     updatedCartStatus[index] = !updatedCartStatus[index];
     setIsAddedToCart(updatedCartStatus);
+
     addToCart(phone);
   };
 
