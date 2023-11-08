@@ -1,13 +1,47 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PhonesPage.scss';
-import { Card } from '../../commonComponents/Card';
 import { Breadcrumbs } from '../../commonComponents/Breadcrumbs/Breadcrumbs';
+import { Phone } from '../../types/Phone';
+import { CardItem } from '../../commonComponents/CardItem/CardItem';
 
 export const Phones = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [phoneData, setPhoneData] = useState<Phone[]>([]);
+
+  const [isError, setError] = useState<boolean>(false);
+
+  const getData = async () => {
+    const data = await fetch('/api/phones.json', {
+      headers: { Accept: 'application/json' },
+    })
+      .then((response) => response.json())
+      .catch((e) => {
+        throw new Error(`Error fetching data: ${e}`);
+      });
+
+    return data;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getData();
+
+        setPhoneData(data);
+      } catch (e) {
+        setError(true);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (isError) {
+    return <p>s</p>;
+  }
 
   return (
     <>
@@ -20,20 +54,16 @@ export const Phones = () => {
           <h1 className="Phones__title">Mobile phones</h1>
         </div>
         <div className="Phones__modelsCount">
-          <p>95 models</p>
+          <p>{`${phoneData.length} models`}</p>
         </div>
         <div className="Phones__sortByField" />
         <div className="Phones__itemsOnPageField" />
         <div className="Phones__itemList">
-          {/* <div className="item" /> */}
-          <Card />
-          {/* <div className="item" />
-          <div className="item" />
-          <div className="item" />
-          <div className="item" /> */}
+          {phoneData.map((phone) => (
+            <CardItem item={phone} key={phone.id} />
+          ))}
         </div>
         <div className="Phones__pagination">
-          {/* eslint-disable-next-line */}
           <button
             type="button"
             className="Phones__pagination-buttonL"
@@ -50,15 +80,12 @@ export const Phones = () => {
           <button type="button" className="Phones__pagination-button">
             3
           </button>
-          {/* eslint-disable-next-line */}
           <button type="button" className="Phones__pagination-button">
             4
           </button>
-          {/* eslint-disable-next-line */}
           <button type="button" className="Phones__pagination-button">
             5
           </button>
-          {/* eslint-disable-next-line */}
           <button
             type="button"
             className="Phones__pagination-buttonR"

@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useEffect, useRef, useState } from 'react';
 import './Slider.scss';
-import { Phone } from '../../../../types/Phone';
-import { CardItem } from '../../../../commonComponents/Card/CardItem';
+import { Phone } from '../../types/Phone';
+import { CardItem } from '../CardItem';
 
 interface Props {
-  title: string,
-  itemList: Phone[],
+  title: string;
+  itemList: Phone[];
 }
 
 export const Slider = ({ title, itemList }: Props) => {
@@ -25,8 +25,9 @@ export const Slider = ({ title, itemList }: Props) => {
 
   const calculateScrollWidth = (): void => {
     if (sliderContainer.current) {
-      const scrollWidthDifference = sliderContainer.current.scrollWidth
-      - sliderContainer.current.offsetWidth;
+      const scrollWidthDifference
+        = sliderContainer.current.scrollWidth
+        - sliderContainer.current.offsetWidth;
 
       setScrollWidth(scrollWidthDifference);
     }
@@ -35,14 +36,16 @@ export const Slider = ({ title, itemList }: Props) => {
   useEffect(() => {
     calculateScrollWidth();
     if (sliderContainer.current) {
-      sliderContainer.current
-        .addEventListener('scroll', trackScroll, { passive: true });
+      sliderContainer.current.addEventListener('scroll', trackScroll, {
+        passive: true,
+      });
       window.addEventListener('resize', calculateScrollWidth);
     }
   }, [itemList]);
 
-  const [scrollInterval, setScrollInterval]
-  = useState<NodeJS.Timeout | number>(0);
+  const [scrollInterval, setScrollInterval] = useState<
+  NodeJS.Timeout | number
+  >(0);
 
   const handleScroll = (direction: number) => {
     const section = sliderContainer.current;
@@ -75,50 +78,52 @@ export const Slider = ({ title, itemList }: Props) => {
 
   return (
     <section className="Slider">
-
       <div className="Slider__bar">
         <h2 className="Slider-title">{title}</h2>
         <div className="Slider__buttons">
-
           <button
             type="button"
-            className={`Slider__buttons-L ${scrollPosition === 0 ? 'disabled' : ''}`}
+            className={`Slider__buttons-L ${
+              scrollPosition === 0 ? 'disabled' : ''
+            }`}
             onMouseDown={() => startScrolling(-1)}
             onMouseUp={stopScrolling}
             onMouseLeave={stopScrolling}
           >
-            <div className={`Slider__buttonLeftIcon ${scrollPosition === 0
-              ? 'Slider__buttonLeftIcon-disabled'
-              : ''}`}
+            <div
+              className={`Slider__buttonLeftIcon ${
+                scrollPosition === 0
+                  ? 'Slider__buttonLeftIcon-disabled'
+                  : ''
+              }`}
             />
           </button>
 
           <button
             type="button"
-            className={`Slider__buttons-R ${scrollPosition + 1 >= scrollWidth
-              ? 'disabled'
-              : ''}`}
+            className={`Slider__buttons-R ${
+              scrollPosition + 1 >= scrollWidth ? 'disabled' : ''
+            }`}
             onMouseDown={() => startScrolling(1)}
             onMouseUp={stopScrolling}
             onMouseLeave={stopScrolling}
           >
-            <div className={`Slider__buttonRightIcon ${scrollPosition + 1 >= scrollWidth
-              ? 'Slider__buttonRightIcon-disabled'
-              : ''}`}
+            <div
+              className={`Slider__buttonRightIcon ${
+                scrollPosition + 1 >= scrollWidth
+                  ? 'Slider__buttonRightIcon-disabled'
+                  : ''
+              }`}
             />
           </button>
-
         </div>
       </div>
 
-      <div
-        className="Slider__gridContainer"
-        ref={sliderContainer}
-        id="12"
-      >
-        {itemList.map(item => <CardItem item={item} key={item.id} />)}
+      <div className="Slider__gridContainer" ref={sliderContainer} id="12">
+        {itemList.map((item) => (
+          <CardItem item={item} key={item.id} />
+        ))}
       </div>
-
     </section>
   );
 };

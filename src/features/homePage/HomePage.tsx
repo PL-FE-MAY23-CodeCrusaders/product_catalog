@@ -1,8 +1,8 @@
 import './HomePage.scss';
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Slider } from './components/Slider/Slider';
 import { BannerSlider } from './components/BannerSlider/BannerSlider';
+import { Slider } from '../../commonComponents/Slider/Slider';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);

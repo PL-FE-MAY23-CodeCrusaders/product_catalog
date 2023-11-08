@@ -1,58 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
-import './Card.scss';
-import { useCartContext } from '../../context/cartContext';
+import './favProductList.scss';
+import { useCartContext } from '../../context/cartContext/cartContext';
 import { Phone } from '../../types/Phone';
 
-interface PhoneData {
-  id: number;
-  name: string;
-  category: string;
-  phoneId: string;
-  itemId: string;
-  fullPrice: number;
-  price: number;
-  screen: string;
-  capacity: string;
-  color: string;
-  image: string;
-  ram: string;
-  year: number;
-  quantity?: number;
+interface FavListProps {
+  favState: Phone[];
+  removeFromFav: (value: string) => void;
 }
 
-export const Card: React.FC = () => {
-  const [phoneData, setPhoneData] = useState<PhoneData[]>([]);
+const FavProductList: React.FC<FavListProps> = ({
+  favState,
+  removeFromFav,
+}) => {
+  const [phoneData, setPhoneData] = useState<Phone[]>([]);
+  const [isAddedToCart, setIsAddedToCart] = useState<boolean[]>([]);
   const [isFavourite, setIsFavourite] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState<boolean>(false);
-  const { addToCart, isAddedToCart, removeFromCart } = useCartContext();
-
-  const getData = async () => {
-    const data = await fetch('/api/phones.json', {
-      headers: { Accept: 'application/json' },
-    })
-      .then((response) => response.json())
-      .catch((e) => {
-        throw new Error(`Error fetching data: ${e}`);
-      });
-
-    return data;
-  };
+  const { addToCart } = useCartContext();
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const data = await getData();
+        const data = favState;
 
         setPhoneData(data);
-        setIsFavourite(new Array(data.length).fill(false));
+        setIsAddedToCart(new Array(data.length).fill(false));
+        setIsFavourite(new Array(data.length).fill(true));
         setIsLoading(false);
       } catch (e) {
         setError(true);
@@ -61,21 +41,23 @@ export const Card: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [favState]);
 
-  const handleAddToCartClick = (phone: Phone) => {
-    if (isAddedToCart(phone.phoneId)) {
-      removeFromCart(phone.phoneId);
-    } else {
-      addToCart(phone);
-    }
+  const handleAddToCartClick = (index: number, phone: Phone) => {
+    const updatedCartStatus = [...isAddedToCart];
+
+    updatedCartStatus[index] = !updatedCartStatus[index];
+    setIsAddedToCart(updatedCartStatus);
+    addToCart(phone);
   };
 
-  const handleButtonClick = (index: number) => {
+  const handleButtonClick = (index: number, phone: Phone) => {
     const updatedFavouriteStatus = [...isFavourite];
 
     updatedFavouriteStatus[index] = !updatedFavouriteStatus[index];
     setIsFavourite(updatedFavouriteStatus);
+
+    removeFromFav(phone.itemId);
   };
 
   if (isLoading) {
@@ -91,24 +73,21 @@ export const Card: React.FC = () => {
   }
 
   return (
-    <>
+    <div className="fav__content">
       {phoneData.map((phone, index) => (
-        <div className="card" key={phone.id}>
-          <Link to={`/phones/${phone.phoneId}`} className="card__link">
-            <ReactImageMagnify
-              className="card-img"
-              smallImage={{
-                isFluidWidth: true,
-                src: phone.image,
-              }}
-              largeImage={{
-                width: 800,
-                height: 840,
-                src: phone.image,
-              }}
-            />
-          </Link>
-
+        <div className="card" key={phone.itemId}>
+          <ReactImageMagnify
+            className="card-img"
+            smallImage={{
+              isFluidWidth: true,
+              src: phone.image,
+            }}
+            largeImage={{
+              width: 800,
+              height: 840,
+              src: phone.image,
+            }}
+          />
           <h4>{phone.name}</h4>
           <div className="card__price">
             <h3 className="card__price--title">
@@ -140,18 +119,18 @@ export const Card: React.FC = () => {
             <button
               type="button"
               className={`card__buttons-left ${
-                isAddedToCart(phone.phoneId) ? 'added-to-cart' : ''
+                isAddedToCart[index] ? 'added-to-cart' : ''
               }`}
-              onClick={() => handleAddToCartClick(phone)}
+              onClick={() => handleAddToCartClick(index, phone)}
             >
-              {isAddedToCart(phone.phoneId) ? 'Added to cart' : 'Add to cart'}
+              {isAddedToCart[index] ? 'Added to cart' : 'Add to cart'}
             </button>
             <button
               type="button"
               className={`card__buttons-right ${
                 isFavourite[index] ? 'added-to-favourites' : ''
               }`}
-              onClick={() => handleButtonClick(index)}
+              onClick={() => handleButtonClick(index, phone)}
             >
               <div className="favourites">
                 <img
@@ -172,6 +151,8 @@ export const Card: React.FC = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
+
+export default FavProductList;
