@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
 import './HomePage.scss';
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Slider } from './components/Slider/Slider';
-// import { getPhones } from '../../api/Products';
+import { BannerSlider } from './components/BannerSlider/BannerSlider';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +39,12 @@ export const Home = () => {
 
   return (
     <main className="Home_main">
-      <section className="Home_sectionWelcome" />
+      <section className="Home_sectionWelcome">
+        <h1 className="Home_sectionWelcome-title title">
+          Welcome to Nice Gadgets store!
+        </h1>
+        <BannerSlider />
+      </section>
 
       <section className="slidecontainer2">
 

@@ -1,18 +1,7 @@
-* {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  height: 64px;
-  border-bottom: 1px solid #e2e6e9;
-}
-
 .header {
   display: flex;
   align-items: flex-start;
+  background-color: white;
 }
 
 .header__logo-box {

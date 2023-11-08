@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
@@ -13,17 +12,15 @@ type Props = {
 };
 
 export const CardItem = ({ item }: Props) => {
-  const [isAddedToCart, setIsAddedToCart] = useState<boolean>(false);
   const [isFavourite, setIsFavourite] = useState<boolean>(false);
-
-  const [isError, setError] = useState<boolean>(false);
-  const { addToCart } = useCartContext();
+  const { addToCart, isAddedToCart, removeFromCart } = useCartContext();
 
   const handleAddToCartClick = () => {
-    const updatedCartStatus = !isAddedToCart;
-
-    addToCart(item);
-    setIsAddedToCart(updatedCartStatus);
+    if (isAddedToCart(item.itemId)) {
+      removeFromCart(item.phoneId);
+    } else {
+      addToCart(item);
+    }
   };
 
   const handleButtonClick = () => {
@@ -31,18 +28,6 @@ export const CardItem = ({ item }: Props) => {
 
     setIsFavourite(updatedFavouriteStatus);
   };
-
-  //   if (isLoading) {
-  //     return (
-  //       <div className="container">
-  //         <Skeleton height={500} />
-  //       </div>
-  //     );
-  //   }
-
-  if (isError) {
-    return <div>Error fetching data.</div>;
-  }
 
   return (
     <>
@@ -92,11 +77,11 @@ export const CardItem = ({ item }: Props) => {
           <button
             type="button"
             className={`card__buttons-left ${
-              isAddedToCart ? 'added-to-cart' : ''
+              isAddedToCart(item.phoneId) ? 'added-to-cart' : ''
             }`}
             onClick={() => handleAddToCartClick()}
           >
-            {isAddedToCart ? 'Added to cart' : 'Add to cart'}
+            {isAddedToCart(item.phoneId) ? 'Added to cart' : 'Add to cart'}
           </button>
           <button
             type="button"
