@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Phone } from '../../../types/Phone';
 import close from '../../../images/close.png';
 import test from '../../../images/testProductPhoto.svg';
@@ -63,9 +64,9 @@ const CartItem: React.FC<CartItemProps> = ({
           <img src={test} alt="product" className="cart-card-photo" />
         </div>
         <div className="cart-card-nameBox">
-          <a href="/" className="cart-card-name">
+          <Link to={`/phones/${item.phoneId}`} className="cart-card-name">
             {item.name}
-          </a>
+          </Link>
         </div>
       </div>
       <div className="cart-card-mobileTwo">
