@@ -32,11 +32,19 @@ $card-img-height: 196px;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     transition: all 0.5s ease-in-out;    
+    cursor: pointer;
 
     &:hover {
         cursor: initial;
         transform: scale(1.05);
         box-shadow: 0px 2px 16px 0px $shadow-clr;
+    }
+
+    &__link{
+      text-decoration: none;
+      color: $primary-color;
+      cursor: pointer;
+
     }
   
     &__img {

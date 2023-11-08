@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
@@ -21,7 +22,7 @@ interface PhoneData {
   image: string;
   ram: string;
   year: number;
-  quantity?: number
+  quantity?: number;
 }
 
 export const Card: React.FC = () => {
@@ -94,19 +95,28 @@ export const Card: React.FC = () => {
   return (
     <>
       {phoneData.map((phone, index) => (
-        <div className="card" key={phone.id}>
-          <ReactImageMagnify
-            className="card-img"
-            smallImage={{
-              isFluidWidth: true,
-              src: phone.image,
-            }}
-            largeImage={{
-              width: 800,
-              height: 840,
-              src: phone.image,
-            }}
-          />
+        <div
+          className="card"
+          key={phone.id}
+        >
+          <Link
+            to={`/phones/${phone.phoneId}`}
+            className="card__link"
+          >
+            <ReactImageMagnify
+              className="card-img"
+              smallImage={{
+                isFluidWidth: true,
+                src: phone.image,
+              }}
+              largeImage={{
+                width: 800,
+                height: 840,
+                src: phone.image,
+              }}
+            />
+          </Link>
+
           <h4>{phone.name}</h4>
           <div className="card__price">
             <h3 className="card__price--title">
