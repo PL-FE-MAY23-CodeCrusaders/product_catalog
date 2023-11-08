@@ -16,50 +16,22 @@ interface CartContextProps {
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
-const testValue: Phone[] = [
-  {
-    category: 'Smartphone',
-    phoneId: '1',
-    itemId: '101',
-    name: 'iPhone 13',
-    fullPrice: 999,
-    price: 899,
-    screen: '6.1 inches',
-    capacity: '128GB',
-    color: 'Midnight',
-    ram: '4GB',
-    year: 2022,
-    image: 'iphone13.jpg',
-    quantity: 1,
-  },
-  {
-    category: 'Smartphone',
-    phoneId: '2',
-    itemId: '102',
-    name: 'Samsung Galaxy S21',
-    fullPrice: 899,
-    price: 799,
-    screen: '6.2 inches',
-    capacity: '256GB',
-    color: 'Phantom Gray',
-    ram: '8GB',
-    year: 2021,
-    image: 'samsungs21.jpg',
-    quantity: 3,
-  },
-];
+// const testValue: Phone[] = [];
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartState, setCartState] = useState<Phone[]>([]);
 
   const addToCart = (product: Phone) => {
-    const newProduct = { ...product, quantity: 1 };
+    let newProduct = { ...product };
+
+    if (!product.quantity) {
+      newProduct = { ...product, quantity: 1 };
+    }
 
     setCartState([...cartState, newProduct]);
   };
 
   const removeFromCart = (phoneId: string) => {
-    // Implement your removeFromCart logic here
     setCartState(
       cartState.filter((product: Phone) => product.itemId !== phoneId),
     );
