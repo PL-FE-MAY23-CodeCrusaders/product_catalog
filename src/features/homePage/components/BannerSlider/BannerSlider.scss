@@ -1,0 +1,31 @@
+@import '../../../../utils/variables.scss';
+
+  .slick-next,
+  .slick-prev{
+    height: 100%;
+    width: 32px;
+    border-radius: 48px;
+    border: 1px solid $ocons-color;
+    z-index: 20;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    left: 97%;
+  }
+
+  .slick-slide > div > div {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .slick-arrow {
+    &::before {
+      background-color: $ocons-color;
+      border-radius: 50%;
+      border-color: transparent;
+    }
+  }

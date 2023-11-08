@@ -81,28 +81,28 @@ function Header() {
           </ul>
         </nav>
         <div className="header__icon">
-          <div
+          <NavLink
+            to="/fav"
+            onClick={() => handleNavClick('fav')}
             className={`header__icon-box ${
               activeNav === 'fav' ? 'active-icon' : ''
             }`}
           >
-            <NavLink to="/fav" onClick={() => handleNavClick('fav')}>
-              <img
-                src={favourites}
-                alt="wishlist"
-                className="header__icon-img"
-              />
-            </NavLink>
-          </div>
-          <div
+            <img
+              src={favourites}
+              alt="wishlist"
+              className="header__icon-img"
+            />
+          </NavLink>
+          <NavLink
+            to="/cart"
+            onClick={() => handleNavClick('cart')}
             className={`header__icon-box ${
               activeNav === 'cart' ? 'active-icon' : ''
             }`}
           >
-            <NavLink to="/cart">
-              <img src={cart} alt="Cart" className="header__icon-img" />
-            </NavLink>
-          </div>
+            <img src={cart} alt="Cart" className="header__icon-img" />
+          </NavLink>
           <div className="header__icon-box">
             <a onClick={handleMenuToggle}>
               {menuOpen ? (

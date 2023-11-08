@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {
   createContext,
   useContext,
@@ -18,6 +19,7 @@ const CartContext = createContext<CartContextProps | undefined>(undefined);
 // const testValue: Phone[] = [];
 
 export function CartProvider({ children }: { children: ReactNode }) {
+  const [cartState, setCartState] = useState<Phone[]>([]);
   const [cartState, setCartState] = useState<Phone[]>([]);
 
   const addToCart = (product: Phone) => {
