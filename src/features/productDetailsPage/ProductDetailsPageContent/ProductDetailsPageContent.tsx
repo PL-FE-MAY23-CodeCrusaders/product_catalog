@@ -8,9 +8,10 @@ import { About } from './components/About';
 import { OptionSection } from './components/OptionSection';
 import { BackArrow } from './components/BackArrow';
 import { Breadcrumbs } from '../../../commonComponents/Breadcrumbs/Breadcrumbs';
+import { Slider } from '../../../commonComponents/Slider/Slider';
 
 export const ProductDetailsPageContent = () => {
-  const { isLoading, phoneData } = useProductDetailsContext();
+  const { isLoading, phoneData, phonesData } = useProductDetailsContext();
 
   if (isLoading) {
     return (
@@ -34,9 +35,7 @@ export const ProductDetailsPageContent = () => {
           <About />
           <TechSpec />
         </div>
-        <section>
-          <HeaderH2 header2="You may also like" />
-        </section>
+        <Slider title="You may also like" itemList={phonesData} />
       </main>
     );
   }

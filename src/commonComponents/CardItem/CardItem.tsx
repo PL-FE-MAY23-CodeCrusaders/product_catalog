@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
 import { useCartContext } from '../../context/cartContext';
-import './Card.scss';
+import './CardItem.scss';
 import { Phone } from '../../types/Phone';
 
 type Props = {
@@ -33,19 +34,22 @@ export const CardItem = ({ item }: Props) => {
     <>
 
       <div className="card" key={item.id}>
-        {/* Zawartość karty */}
-        <ReactImageMagnify
-          smallImage={{
-            isFluidWidth: true,
-            src: item.image,
-          }}
-          largeImage={{
-            width: 800,
-            height: 840,
-            src: item.image, // Użyj tej samej ścieżki do dużej
+        <Link to={`/phones/${item.phoneId}`} className="card__link">
+
+          {/* Zawartość karty */}
+          <ReactImageMagnify
+            smallImage={{
+              isFluidWidth: true,
+              src: item.image,
+            }}
+            largeImage={{
+              width: 800,
+              height: 840,
+              src: item.image, // Użyj tej samej ścieżki do dużej
             // grafiki, jeśli jest to odpowiednie dla Twojego projektu
-          }}
-        />
+            }}
+          />
+        </Link>
         <h4>{item.name}</h4>
         <div className="card__price">
           <h3 className="card__price--title">
