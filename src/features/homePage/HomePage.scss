@@ -31,11 +31,14 @@
 }
 
 .Home_sectionWelcome {
-  background-color: blue;
+  // background-color: blue;
   height: 100%;
-  display:flex;
   box-sizing: border-box;
   grid-area: 1/1/2/5;
+
+  &-title {
+    font-size: 48px;
+  }
 
   @media (min-width: 640px) {
     grid-area: 1/1/2/14;
