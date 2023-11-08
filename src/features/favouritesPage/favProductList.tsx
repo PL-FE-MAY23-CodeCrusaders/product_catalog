@@ -4,12 +4,11 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
-import './Card.scss';
+import './favProductList.scss';
 import { useCartContext } from '../../context/cartContext';
-import { useFavContext } from '../../context/favContext';
+import { Phone } from '../../types/Phone';
 
 interface PhoneData {
-  id: number;
   name: string;
   category: string;
   phoneId: string;
@@ -25,36 +24,28 @@ interface PhoneData {
   quantity?: number
 }
 
-export const Card: React.FC = () => {
+interface FavListProps {
+  favState: Phone[];
+  removeFromFav: (value: string) => void;
+}
+
+const FavProductList: React.FC<FavListProps> = ({ favState, removeFromFav }) => {
   const [phoneData, setPhoneData] = useState<PhoneData[]>([]);
   const [isAddedToCart, setIsAddedToCart] = useState<boolean[]>([]);
   const [isFavourite, setIsFavourite] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState<boolean>(false);
   const { addToCart } = useCartContext();
-  const { addToFav, removeFromFav, favState } = useFavContext();
-
-  const getData = async () => {
-    const data = await fetch('/api/phones.json', {
-      headers: { Accept: 'application/json' },
-    })
-      .then((response) => response.json())
-      .catch((e) => {
-        throw new Error(`Error fetching data: ${e}`);
-      });
-
-    return data;
-  };
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const data = await getData();
+        const data = favState;
 
         setPhoneData(data);
         setIsAddedToCart(new Array(data.length).fill(false));
-        setIsFavourite(new Array(data.length).fill(false));
+        setIsFavourite(new Array(data.length).fill(true));
         setIsLoading(false);
       } catch (e) {
         setError(true);
@@ -63,7 +54,7 @@ export const Card: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [favState]);
 
   const handleAddToCartClick = (index: number, phone: PhoneData) => {
     const updatedCartStatus = [...isAddedToCart];
@@ -78,15 +69,8 @@ export const Card: React.FC = () => {
 
     updatedFavouriteStatus[index] = !updatedFavouriteStatus[index];
     setIsFavourite(updatedFavouriteStatus);
-    let phoneID = '';
 
-    if (favState.some(item => +item.itemId === phone.id)) {
-      phoneID = `${phone.id}`;
-
-      removeFromFav(phoneID);
-    } else {
-      addToFav(phone);
-    }
+    removeFromFav(phone.itemId);
   };
 
   if (isLoading) {
@@ -102,9 +86,9 @@ export const Card: React.FC = () => {
   }
 
   return (
-    <>
+    <div className="fav__content">
       {phoneData.map((phone, index) => (
-        <div className="card" key={phone.id}>
+        <div className="card" key={phone.itemId}>
           <ReactImageMagnify
             className="card-img"
             smallImage={{
@@ -180,6 +164,8 @@ export const Card: React.FC = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
+
+export default FavProductList;

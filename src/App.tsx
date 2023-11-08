@@ -3,6 +3,7 @@ import Header from './commonComponents/header/Header';
 
 import PageNotFound from './features/pageNotFound/PageNotFound';
 import { CartProvider } from './context/cartContext';
+import { FavProvider } from './context/favContext';
 
 import { Home } from './features/homePage/HomePage';
 import { Phones } from './features/phonesPage/PhonesPage';
@@ -17,18 +18,20 @@ function App() {
   return (
     <>
       <CartProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/phones" element={<Phones />} />
-          <Route path="/phones/1" element={<ProductDetailsPage />} />
-          <Route path="/tablets" element={<Tablets />} />
-          <Route path="/accessories" element={<Accessories />} />
-          <Route path="/favourites" element={<Favourites />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-        <Footer />
+        <FavProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/phones" element={<Phones />} />
+            <Route path="/phones/1" element={<ProductDetailsPage />} />
+            <Route path="/tablets" element={<Tablets />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/fav" element={<Favourites />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+          <Footer />
+        </FavProvider>
       </CartProvider>
     </>
   );
