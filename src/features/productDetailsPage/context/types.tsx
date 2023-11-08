@@ -27,7 +27,7 @@ export type PhoneDetails = {
 };
 
 export interface ProductDetailsPageContextType {
-  phoneData: PhoneDetails | undefined;
+  phoneData: PhoneDetails | null;
   phonesData: Phone[] | [];
   isLoading: boolean;
   error: boolean;

@@ -14,7 +14,7 @@ ProductDetailsPageContextType | undefined
 >(undefined);
 
 export const ProductDetailsProvider = ({ children }: Props) => {
-  const [phoneData, setPhoneData] = useState<PhoneDetails | undefined>();
+  const [phoneData, setPhoneData] = useState<PhoneDetails | null>(null);
   const [phonesData, setPhonesData] = useState<Phone[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
