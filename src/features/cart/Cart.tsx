@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Back from '../../images/back.png';
 import './Cart.scss';
 import { Phone } from '../../types/Phone';
-import { useCartContext } from '../../context/cartContext';
+import { useCartContext } from '../../context/cartContext/cartContext';
 import CartProductList from './components/CartProductList';
 import CartSum from './components/CartSum';
 
