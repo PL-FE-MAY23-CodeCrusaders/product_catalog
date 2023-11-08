@@ -32,6 +32,7 @@ export interface ProductDetailsPageContextType {
   isLoading: boolean;
   error: boolean;
   photoPath: string | undefined;
+  sliderData: Phone[] | [];
   changePhoto: (path: string) => void;
   isActivePhoto: (path: string) => boolean;
 }

@@ -15,7 +15,7 @@ export async function getPhones(): Promise<Phone[]> {
   }
 }
 
-export async function getNewPhones(): Promise<{}> {
+export async function getNewPhones(): Promise<Phone[]> {
   try {
     const response = await fetch(`${API_URL}/new`);
 
@@ -30,8 +30,9 @@ export async function getNewPhones(): Promise<{}> {
 export async function getDiscountPhones(): Promise<Phone[]> {
   try {
     const response = await fetch(`${API_URL}/discount`);
+    const phones = await response.json();
 
-    return await response.json();
+    return phones.data;
   } catch (error) {
     throw new Error('Failed to fetch discount phones');
   }

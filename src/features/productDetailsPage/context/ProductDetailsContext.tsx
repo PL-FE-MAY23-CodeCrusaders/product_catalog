@@ -14,7 +14,7 @@ import {
   PhoneDetails,
 } from './types';
 import { Phone } from '../../../types/Phone';
-import { getPhone, getPhones } from '../../../api';
+import { getDiscountPhones, getPhone, getPhones } from '../../../api';
 
 const ProductDetailsPageContext = createContext<
 ProductDetailsPageContextType | undefined
@@ -26,6 +26,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [photoPath, setPhotoPath] = useState<string>('');
+  const [sliderData, setSilderData] = useState<Phone[]>([]);
 
   const { id } = useParams();
 
@@ -35,12 +36,14 @@ export const ProductDetailsProvider = ({ children }: Props) => {
         setIsLoading(true);
         const dataPhone = await getPhone(id || '');
         const dataPhones = await getPhones();
+        const sliderPhones = await getDiscountPhones();
 
         if (dataPhone && dataPhones) {
           if (dataPhone.images && dataPhone.images.length > 0) {
             setPhoneData(dataPhone);
             setPhotoPath(`https://crusaders.onrender.com/${dataPhone.images[0]}`);
             setPhonesData(dataPhones);
+            setSilderData(sliderPhones);
           } else {
             throw new Error('Phone data does not contain images');
           }
@@ -81,6 +84,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
         isLoading,
         error,
         photoPath,
+        sliderData,
         changePhoto,
         isActivePhoto,
       }}
