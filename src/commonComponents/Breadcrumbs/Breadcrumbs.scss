@@ -7,16 +7,24 @@
   margin-bottom: 28px;
   margin-top: 20px;
 
+
   &__arrow {
     margin-left: 8px;
     margin-right: 8px;
   }
 
   &__link {
+    display: flex;
+    align-items: center;
+    align-content: center;
     text-decoration: none;
     color: $primary-color;
     font-size: 12px;
     font-weight: 700;
+  }
+  
+  &__current{
+    color: $secondary-color;
   }
 
   &__home {
