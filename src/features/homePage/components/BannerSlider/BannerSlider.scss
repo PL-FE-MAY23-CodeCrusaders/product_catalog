@@ -5,7 +5,7 @@
     height: 100%;
     width: 32px;
     border-radius: 48px;
-    border: 1px solid $ocons-color;
+    border: 1px solid $icons-color;
     z-index: 20;
   }
 
@@ -24,7 +24,7 @@
 
   .slick-arrow {
     &::before {
-      background-color: $ocons-color;
+      background-color: $icons-color;
       border-radius: 50%;
       border-color: transparent;
     }
