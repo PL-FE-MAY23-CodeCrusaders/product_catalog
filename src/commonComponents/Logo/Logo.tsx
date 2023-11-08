@@ -1,8 +1,11 @@
-import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Logo.scss';
 
 export const Logo = () => (
-  <div className="Logo">
+  <NavLink
+    className="Logo"
+    to="/"
+  >
     <div className="Logo__icon" />
-  </div>
+  </NavLink>
 );
