@@ -20,7 +20,13 @@ const CartContext = createContext<CartContextProps | undefined>(undefined);
 // const testValue: Phone[] = [];
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cartState, setCartState] = useState<Phone[]>([]);
+  const initialCartState = JSON.parse(localStorage.getItem('cartState') || '[]');
+  const [cartState, setCartState] = useState<Phone[]>(initialCartState);
+
+  const setCartStateAndLocalStorage = (newState: Phone[]) => {
+    setCartState(newState);
+    localStorage.setItem('cartState', JSON.stringify(newState));
+  };
 
   const addToCart = (product: Phone) => {
     let newProduct = { ...product };
@@ -29,20 +35,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
       newProduct = { ...product, quantity: 1 };
     }
 
-    setCartState([...cartState, newProduct]);
+    const newCartState = [...cartState, newProduct];
+
+    setCartStateAndLocalStorage(newCartState);
   };
 
   const removeFromCart = (phoneId: string) => {
-    setCartState(
-      cartState.filter((product: Phone) => product.itemId !== phoneId),
-    );
+    const newCartState = cartState.filter((product: Phone) => product.itemId !== phoneId);
+
+    setCartStateAndLocalStorage(newCartState);
   };
 
   const clearCart = () => {
-    setCartState([]);
+    setCartStateAndLocalStorage([]);
   };
 
-  const isAddedToCart = (phoneId: string) => cartState.some((p) => p.phoneId === phoneId);
+  const isAddedToCart = (phoneId: string) => cartState.some((p) => p.itemId === phoneId);
 
   return (
     <CartContext.Provider

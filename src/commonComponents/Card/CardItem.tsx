@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
