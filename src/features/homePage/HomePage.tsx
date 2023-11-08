@@ -37,6 +37,14 @@ export const Home = () => {
     fetchData();
   }, []);
 
+  if (isLoading) {
+    <p>Loading</p>; // coś tu będzie
+  }
+
+  if (error) {
+    <p>Loading</p>; // coś tu będzie
+  }
+
   return (
     <main className="Home_main">
       <section className="Home_sectionWelcome">
