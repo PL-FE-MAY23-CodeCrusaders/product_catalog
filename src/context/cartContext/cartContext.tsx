@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   createContext,
   useContext,
@@ -9,8 +8,6 @@ import { Phone } from '../../types/Phone';
 import { CartContextType } from './type';
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
-
-// const testValue: Phone[] = [];
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const initialCartState = JSON.parse(
@@ -28,6 +25,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     if (!product.quantity) {
       newProduct = { ...product, quantity: 1 };
+    } else {
+      newProduct = { ...product, quantity: product.quantity + 1 };
     }
 
     const newCartState = [...cartState, newProduct];
