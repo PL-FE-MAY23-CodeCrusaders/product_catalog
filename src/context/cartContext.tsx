@@ -18,6 +18,7 @@ const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 const testValue: Phone[] = [
   {
+    id: 1,
     category: 'Smartphone',
     phoneId: '1',
     itemId: '101',
@@ -33,6 +34,7 @@ const testValue: Phone[] = [
     quantity: 1,
   },
   {
+    id: 2,
     category: 'Smartphone',
     phoneId: '2',
     itemId: '102',
