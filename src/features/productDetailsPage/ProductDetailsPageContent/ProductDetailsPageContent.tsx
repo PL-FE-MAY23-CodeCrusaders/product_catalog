@@ -10,7 +10,7 @@ import { BackArrow } from './components/BackArrow';
 import { Breadcrumbs } from '../../../commonComponents/Breadcrumbs/Breadcrumbs';
 
 export const ProductDetailsPageContent = () => {
-  const { isLoading, error, phoneData } = useProductDetailsContext();
+  const { isLoading, phoneData } = useProductDetailsContext();
 
   if (isLoading) {
     return (
@@ -20,26 +20,26 @@ export const ProductDetailsPageContent = () => {
     );
   }
 
-  if (error) {
-    return <HeaderH2 header2="Something bad happened" />;
+  if (phoneData) {
+    return (
+      <main className="main">
+        <Breadcrumbs />
+        <BackArrow />
+        <HeaderH2 header2={phoneData.name || ''} />
+        <div className="main__option-container">
+          <PhotoPreview />
+          <OptionSection />
+        </div>
+        <div className="main__text-container">
+          <About />
+          <TechSpec />
+        </div>
+        <section>
+          <HeaderH2 header2="You may also like" />
+        </section>
+      </main>
+    );
   }
 
-  return (
-    <main className="main">
-      <Breadcrumbs />
-      <BackArrow />
-      <HeaderH2 header2={phoneData?.name || ''} />
-      <div className="main__option-container">
-        <PhotoPreview />
-        <OptionSection />
-      </div>
-      <div className="main__text-container">
-        <About />
-        <TechSpec />
-      </div>
-      <section>
-        <HeaderH2 header2="You may also like" />
-      </section>
-    </main>
-  );
+  return <HeaderH2 header2="Something bad happened" />;
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
@@ -6,6 +7,7 @@ import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
 import './Card.scss';
 import { useCartContext } from '../../context/cartContext';
+import { Phone } from '../../types/Phone';
 
 interface PhoneData {
   id: number;
@@ -21,16 +23,15 @@ interface PhoneData {
   image: string;
   ram: string;
   year: number;
-  quantity?: number
+  quantity?: number;
 }
 
 export const Card: React.FC = () => {
   const [phoneData, setPhoneData] = useState<PhoneData[]>([]);
-  const [isAddedToCart, setIsAddedToCart] = useState<boolean[]>([]);
   const [isFavourite, setIsFavourite] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState<boolean>(false);
-  const { addToCart } = useCartContext();
+  const { addToCart, isAddedToCart, removeFromCart } = useCartContext();
 
   const getData = async () => {
     const data = await fetch('/api/phones.json', {
@@ -51,7 +52,6 @@ export const Card: React.FC = () => {
         const data = await getData();
 
         setPhoneData(data);
-        setIsAddedToCart(new Array(data.length).fill(false));
         setIsFavourite(new Array(data.length).fill(false));
         setIsLoading(false);
       } catch (e) {
@@ -63,13 +63,12 @@ export const Card: React.FC = () => {
     fetchData();
   }, []);
 
-  const handleAddToCartClick = (index: number, phone: PhoneData) => {
-    const updatedCartStatus = [...isAddedToCart];
-
-    updatedCartStatus[index] = !updatedCartStatus[index];
-    setIsAddedToCart(updatedCartStatus);
-
-    addToCart(phone);
+  const handleAddToCartClick = (phone: Phone) => {
+    if (isAddedToCart(phone.phoneId)) {
+      removeFromCart(phone.phoneId);
+    } else {
+      addToCart(phone);
+    }
   };
 
   const handleButtonClick = (index: number) => {
@@ -95,18 +94,21 @@ export const Card: React.FC = () => {
     <>
       {phoneData.map((phone, index) => (
         <div className="card" key={phone.id}>
-          <ReactImageMagnify
-            className="card-img"
-            smallImage={{
-              isFluidWidth: true,
-              src: phone.image,
-            }}
-            largeImage={{
-              width: 800,
-              height: 840,
-              src: phone.image,
-            }}
-          />
+          <Link to={`/phones/${phone.phoneId}`} className="card__link">
+            <ReactImageMagnify
+              className="card-img"
+              smallImage={{
+                isFluidWidth: true,
+                src: phone.image,
+              }}
+              largeImage={{
+                width: 800,
+                height: 840,
+                src: phone.image,
+              }}
+            />
+          </Link>
+
           <h4>{phone.name}</h4>
           <div className="card__price">
             <h3 className="card__price--title">
@@ -138,11 +140,11 @@ export const Card: React.FC = () => {
             <button
               type="button"
               className={`card__buttons-left ${
-                isAddedToCart[index] ? 'added-to-cart' : ''
+                isAddedToCart(phone.phoneId) ? 'added-to-cart' : ''
               }`}
-              onClick={() => handleAddToCartClick(index, phone)}
+              onClick={() => handleAddToCartClick(phone)}
             >
-              {isAddedToCart[index] ? 'Added to cart' : 'Add to cart'}
+              {isAddedToCart(phone.phoneId) ? 'Added to cart' : 'Add to cart'}
             </button>
             <button
               type="button"

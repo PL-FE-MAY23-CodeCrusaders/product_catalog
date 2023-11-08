@@ -12,6 +12,7 @@ interface CartContextProps {
   addToCart: (product: Phone) => void;
   removeFromCart: (phoneId: string) => void;
   clearCart: () => void;
+  isAddedToCart: (phoneId: string) => boolean;
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
@@ -41,6 +42,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCartState([]);
   };
 
+  const isAddedToCart = (phoneId: string) => cartState.some((p) => p.phoneId === phoneId);
+
   return (
     <CartContext.Provider
       value={{
@@ -48,6 +51,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         addToCart,
         removeFromCart,
         clearCart,
+        isAddedToCart,
       }}
     >
       {children}
