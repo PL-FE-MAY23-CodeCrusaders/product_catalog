@@ -52,12 +52,6 @@ export const Footer: React.FC = () => {
           type="button"
           className="Footer__navigation"
           onClick={scrollToTop}
-          aria-label="Go to top"
-        />
-        <button
-          type="button"
-          className="Footer__navigation"
-          onClick={scrollToTop}
         >
           <p className="Footer__navigation--text">Back to top</p>
           <div className="Footer__navigation--icon" />
