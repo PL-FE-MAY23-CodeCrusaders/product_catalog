@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
@@ -10,30 +9,14 @@ import { useCartContext } from '../../context/cartContext';
 import { useFavContext } from '../../context/favContext';
 import { Phone } from '../../types/Phone';
 
-interface PhoneData {
-  id: number;
-  name: string;
-  category: string;
-  phoneId: string;
-  itemId: string;
-  fullPrice: number;
-  price: number;
-  screen: string;
-  capacity: string;
-  color: string;
-  image: string;
-  ram: string;
-  year: number;
-  quantity?: number;
-}
-
 export const Card: React.FC = () => {
-  const [phoneData, setPhoneData] = useState<PhoneData[]>([]);
+  const [phoneData, setPhoneData] = useState<Phone[]>([]);
+  const [isAddedToCart, setIsAddedToCart] = useState<boolean[]>([]);
   const [isFavourite, setIsFavourite] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState<boolean>(false);
+  const { addToCart } = useCartContext();
   const { addToFav, removeFromFav, favState } = useFavContext();
-  const { addToCart, isAddedToCart, removeFromCart } = useCartContext();
 
   const getData = async () => {
     const data = await fetch('/api/phones.json', {
@@ -54,6 +37,7 @@ export const Card: React.FC = () => {
         const data = await getData();
 
         setPhoneData(data);
+        setIsAddedToCart(new Array(data.length).fill(false));
         setIsFavourite(new Array(data.length).fill(false));
         setIsLoading(false);
       } catch (e) {
@@ -65,23 +49,24 @@ export const Card: React.FC = () => {
     fetchData();
   }, []);
 
-  const handleAddToCartClick = (phone: Phone) => {
-    if (isAddedToCart(phone.phoneId)) {
-      removeFromCart(phone.phoneId);
-    } else {
-      addToCart(phone);
-    }
+  const handleAddToCartClick = (index: number, phone: Phone) => {
+    const updatedCartStatus = [...isAddedToCart];
+
+    updatedCartStatus[index] = !updatedCartStatus[index];
+    setIsAddedToCart(updatedCartStatus);
+
+    addToCart(phone);
   };
 
-  const handleButtonClick = (index: number, phone: PhoneData) => {
+  const handleButtonClick = (index: number, phone: Phone) => {
     const updatedFavouriteStatus = [...isFavourite];
 
     updatedFavouriteStatus[index] = !updatedFavouriteStatus[index];
     setIsFavourite(updatedFavouriteStatus);
     let phoneID = '';
 
-    if (favState.some(item => +item.itemId === phone.id)) {
-      phoneID = `${phone.id}`;
+    if (favState.some(item => item.itemId === phone.itemId)) {
+      phoneID = `${phone.itemId}`;
 
       removeFromFav(phoneID);
     } else {
@@ -104,22 +89,19 @@ export const Card: React.FC = () => {
   return (
     <>
       {phoneData.map((phone, index) => (
-        <div className="card" key={phone.id}>
-          <Link to={`/phones/${phone.phoneId}`} className="card__link">
-            <ReactImageMagnify
-              className="card-img"
-              smallImage={{
-                isFluidWidth: true,
-                src: phone.image,
-              }}
-              largeImage={{
-                width: 800,
-                height: 840,
-                src: phone.image,
-              }}
-            />
-          </Link>
-
+        <div className="card" key={phone.itemId}>
+          <ReactImageMagnify
+            className="card-img"
+            smallImage={{
+              isFluidWidth: true,
+              src: phone.image,
+            }}
+            largeImage={{
+              width: 800,
+              height: 840,
+              src: phone.image,
+            }}
+          />
           <h4>{phone.name}</h4>
           <div className="card__price">
             <h3 className="card__price--title">
@@ -151,11 +133,11 @@ export const Card: React.FC = () => {
             <button
               type="button"
               className={`card__buttons-left ${
-                isAddedToCart(phone.phoneId) ? 'added-to-cart' : ''
+                isAddedToCart[index] ? 'added-to-cart' : ''
               }`}
-              onClick={() => handleAddToCartClick(phone)}
+              onClick={() => handleAddToCartClick(index, phone)}
             >
-              {isAddedToCart(phone.phoneId) ? 'Added to cart' : 'Add to cart'}
+              {isAddedToCart[index] ? 'Added to cart' : 'Add to cart'}
             </button>
             <button
               type="button"
