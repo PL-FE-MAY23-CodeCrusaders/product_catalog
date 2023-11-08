@@ -178,6 +178,7 @@ import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
 import './Card.scss';
+import { useCartContext } from '../../context/cartContext';
 
 interface PhoneData {
   id: number;
@@ -193,6 +194,7 @@ interface PhoneData {
   image: string;
   ram: string;
   year: number;
+  quantity?: number
 }
 
 export const Card: React.FC = () => {
@@ -201,6 +203,7 @@ export const Card: React.FC = () => {
   const [isFavourite, setIsFavourite] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState<boolean>(false);
+  const { addToCart } = useCartContext();
 
   const getData = async () => {
     const data = await fetch('/api/phones.json', {
@@ -233,11 +236,12 @@ export const Card: React.FC = () => {
     fetchData();
   }, []);
 
-  const handleAddToCartClick = (index: number) => {
+  const handleAddToCartClick = (index: number, phone: PhoneData) => {
     const updatedCartStatus = [...isAddedToCart];
 
     updatedCartStatus[index] = !updatedCartStatus[index];
     setIsAddedToCart(updatedCartStatus);
+    addToCart(phone);
   };
 
   const handleButtonClick = (index: number) => {
@@ -309,7 +313,7 @@ export const Card: React.FC = () => {
               className={`card__buttons-left ${
                 isAddedToCart[index] ? 'added-to-cart' : ''
               }`}
-              onClick={() => handleAddToCartClick(index)}
+              onClick={() => handleAddToCartClick(index, phone)}
             >
               {isAddedToCart[index] ? 'Added to cart' : 'Add to cart'}
             </button>
