@@ -12,10 +12,26 @@ import { FavContextType } from './type';
 const FavContext = createContext<FavContextType | undefined>(undefined);
 
 export function FavProvider({ children }: { children: ReactNode }) {
-  const [favState, setFavState] = useState<Phone[]>([]);
+  const initialFavState = JSON.parse(
+    localStorage.getItem('favState') || '[]',
+  );
+  const [favState, setFavState] = useState<Phone[]>(initialFavState);
+
+  const setFavStateAndLocalStorage = (newState: Phone[]) => {
+    setFavState(newState);
+    localStorage.setItem('favState', JSON.stringify(newState));
+  };
 
   const addToFav = (product: Phone) => {
-    setFavState([...favState, product]);
+    let newProduct = { ...product };
+
+    if (!product.quantity) {
+      newProduct = { ...product, quantity: 1 };
+    }
+
+    const newFavState = [...favState, newProduct];
+
+    setFavStateAndLocalStorage(newFavState);
   };
 
   const removeFromFav = (phoneId: string) => {
