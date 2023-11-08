@@ -3,6 +3,13 @@
 @import './components/__pagination';
 @import './components/__title';
 
+.breadcrumps_div{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: -50px;
+}
 .Phones__main {
   width: 100%;
   min-height: 100vh;
