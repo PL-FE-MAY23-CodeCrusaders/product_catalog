@@ -3,19 +3,23 @@
 @import './components/__pagination';
 @import './components/__title';
 
-.breadcrumps_div{
+.breadcrumps_div2{
   max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 25px;
-  padding-right: 25px;
-  margin-bottom: -50px;
+  
+
+  
+
+  grid-row: 1/2;
+  grid-column: 1/5;
+  align-items: center;
 }
+
 .Phones__main {
   width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 16px 24px 41px 8px 21px 32px 59px 24px 1fr 24px 32px;
+  grid-template-rows: 24px 24px 41px 8px 21px 32px 59px 24px 1fr 24px 32px;
   grid-auto-flow: column;
   column-gap: 16px;
   justify-content: center;
@@ -26,13 +30,13 @@
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+    grid-template-rows: 24px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
     padding: 24px 24px 64px;
   }
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(24, 32px);
-    grid-template-rows: 16px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+    grid-template-rows: 24px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
     padding: 24px 32px 80px;
   }
 }
@@ -52,7 +56,7 @@
 
   @media (min-width: 640px) {
     grid-area: 3/1/4/13;
-    font-family: Mont;
+   
     font-size: 48px;
 
     line-height: 56px;
@@ -62,7 +66,7 @@
   @media (min-width: 1200px) {
     grid-area: 3/1/4/25;
 
-    font-family: Mont;
+    
     font-size: 48px;
 
     letter-spacing: -0.01em;

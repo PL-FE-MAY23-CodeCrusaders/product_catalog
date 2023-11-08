@@ -45,12 +45,13 @@ export const Phones = () => {
 
   return (
     <>
-      <div className="breadcrumps_div">
-        <Breadcrumbs />
-      </div>
+
       <main className="Phones__main">
-        <div className="Accessories__titleWrapper">
-          <h2 className="Accessories__title">Mobile phones</h2>
+        <div className="breadcrumps_div2">
+          <Breadcrumbs />
+        </div>
+        <div className="Phones__titleWrapper">
+          <h1 className="Phones__title">Mobile phones</h1>
         </div>
         <div className="Phones__modelsCount">
           <p>{`${phoneData.length} models`}</p>
