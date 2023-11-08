@@ -1,4 +1,5 @@
 @import './components/__sectionCategory';
+@import '../../utils/variables.scss';
 
 
 .Home_main {  
@@ -32,12 +33,22 @@
 
 .Home_sectionWelcome {
   // background-color: blue;
+  align-items: center;
   height: 100%;
   box-sizing: border-box;
   grid-area: 1/1/2/5;
 
   &-title {
     font-size: 48px;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: $mobile-h1-size;
+      letter-spacing: $mobile-h1-letter-spacing;
+    }
   }
 
   @media (min-width: 640px) {
