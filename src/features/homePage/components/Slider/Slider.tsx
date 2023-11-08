@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useEffect, useRef, useState } from 'react';
 import './Slider.scss';
+import { Phone } from '../../../../types/Phone';
+import { CardItem } from '../../../../commonComponents/Card/CardItem';
 
 interface Props {
   title: string,
+  itemList: Phone[],
 }
 
-export const Slider = ({ title }: Props) => {
+export const Slider = ({ title, itemList }: Props) => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [scrollWidth, setScrollWidth] = useState<number>(0);
   const sliderContainer = useRef<HTMLDivElement | null>(null);
@@ -36,7 +39,7 @@ export const Slider = ({ title }: Props) => {
         .addEventListener('scroll', trackScroll, { passive: true });
       window.addEventListener('resize', calculateScrollWidth);
     }
-  }, []);
+  }, [itemList]);
 
   const [scrollInterval, setScrollInterval]
   = useState<NodeJS.Timeout | number>(0);
@@ -113,13 +116,7 @@ export const Slider = ({ title }: Props) => {
         ref={sliderContainer}
         id="12"
       >
-        <div className="SliderItem" />
-        <div className="SliderItem" />
-        <div className="SliderItem" />
-        <div className="SliderItem" />
-        <div className="SliderItem" />
-        <div className="SliderItem" />
-
+        {itemList.map(item => <CardItem item={item} key={item.id} />)}
       </div>
 
     </section>

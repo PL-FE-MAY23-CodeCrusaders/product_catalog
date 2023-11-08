@@ -1,63 +1,45 @@
-import React, { useEffect } from 'react';
-import './Footer.scss';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
+import './Footer.scss';
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
+  const { pathname } = useLocation();
+  const handleScroll = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Pokaż lub ukryj przycisk "Back to top" na podstawie pozycji przewinięcia
-      const scrollButton = document.querySelector('.Footer__navigation');
-
-      if (scrollButton) {
-        if (window.scrollY > 100) {
-          scrollButton.classList.add('show');
-        } else {
-          scrollButton.classList.remove('show');
-        }
-      }
-    };
-
-    // Dodaj event listener do scrolla
-    window.addEventListener('scroll', handleScroll);
-
-    // Usuń event listener po odmontowaniu komponentu
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div className="Footer">
       <div className="Footer__content">
         <Logo />
         <div className="Footer__links">
-          <a className="Footer__links--link" href="https://github.com">
+          <NavLink
+            className="Footer__links--link"
+            target="_blank"
+            to="https://github.com/PL-FE-MAY23-CodeCrusaders/product_catalog"
+          >
             Github
-          </a>
-          <a className="Footer__links--link" href="https://google.com">
+          </NavLink>
+          <NavLink
+            className="Footer__links--link"
+            to={{ pathname }}
+          >
             Contact
-          </a>
-          <a className="Footer__links--link" href="https://google.com">
+          </NavLink>
+          <NavLink
+            className="Footer__links--link"
+            to={{ pathname }}
+          >
             Rights
-          </a>
+          </NavLink>
         </div>
         <button
           type="button"
           className="Footer__navigation"
-          onClick={scrollToTop}
-          aria-label="Go to top"
-        />
-        <button
-          type="button"
-          className="Footer__navigation"
-          onClick={scrollToTop}
+          onClick={handleScroll}
         >
           <p className="Footer__navigation--text">Back to top</p>
           <div className="Footer__navigation--icon" />
