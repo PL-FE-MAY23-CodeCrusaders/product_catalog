@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable max-len */
 import { useParams } from 'react-router-dom';
@@ -22,25 +25,43 @@ export const ProductDetailsProvider = ({ children }: Props) => {
   const [phonesData, setPhonesData] = useState<Phone[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [photoPath, setPhotoPath] = useState<string | undefined>(undefined);
+  const [photoPath, setPhotoPath] = useState<string>('');
 
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
-      const dataPhone = await getPhone(id!);
-      const dataPhones = await getPhones();
-
-      setPhoneData(dataPhone);
-      setPhonesData(dataPhones);
-      setPhotoPath(`https://crusaders.onrender.com/${dataPhone.images[0]}`);
       try {
-        setTimeout(async () => {
+        setIsLoading(true);
+        const dataPhone = await getPhone(id || '');
+        const dataPhones = await getPhones();
+
+        if (dataPhone && dataPhones) {
+          if (dataPhone.images && dataPhone.images.length > 0) {
+            setPhoneData(dataPhone);
+            setPhotoPath(`https://crusaders.onrender.com/${dataPhone.images[0]}`);
+            setPhonesData(dataPhones);
+          } else {
+            throw new Error('Phone data does not contain images');
+          }
+        } else {
+          throw new Error('Error fetching phone data');
+        }
+
+        setTimeout(() => {
           setIsLoading(false);
         }, 1000);
-      } catch (e) {
-        setError(true);
+      } catch (error: any) {
+        if (error.response && error.response.status === 404) {
+          // Handle 404 specifically (Not Found)
+          setError(true);
+          console.error('404 Error: Phone not found');
+        } else {
+          // For other errors
+          setError(true);
+          console.error('Error fetching phone data:', error);
+        }
+
         setIsLoading(false);
       }
     };

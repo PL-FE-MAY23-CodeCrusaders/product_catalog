@@ -8,6 +8,7 @@ import { About } from './components/About';
 import { OptionSection } from './components/OptionSection';
 import { BackArrow } from './components/BackArrow';
 import { Breadcrumbs } from '../../../commonComponents/Breadcrumbs/Breadcrumbs';
+import PageNotFound from '../../pageNotFound/PageNotFound';
 
 export const ProductDetailsPageContent = () => {
   const { isLoading, phoneData } = useProductDetailsContext();
@@ -38,5 +39,5 @@ export const ProductDetailsPageContent = () => {
     );
   }
 
-  return <HeaderH2 header2="Something bad happened" />;
+  return <PageNotFound />;
 };

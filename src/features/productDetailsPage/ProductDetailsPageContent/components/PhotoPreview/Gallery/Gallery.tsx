@@ -5,6 +5,10 @@ export const Gallery = () => {
   const { phoneData, changePhoto, isActivePhoto }
     = useProductDetailsContext();
 
+  if (!phoneData) {
+    return null;
+  }
+
   return (
     <div className="gallery">
       {phoneData

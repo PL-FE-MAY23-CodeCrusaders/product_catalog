@@ -19,7 +19,6 @@ export const SelectCapacity = () => {
 
   const { id } = useParams();
 
-  // eslint-disable-next-line consistent-return
   const setNewLink = (capicity: string) => {
     const newId = id!.replace(
       selectedCapacity.toLocaleLowerCase(), capicity.toLocaleLowerCase(),
