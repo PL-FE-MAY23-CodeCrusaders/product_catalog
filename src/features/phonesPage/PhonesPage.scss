@@ -89,10 +89,36 @@
 }
 
 .Phones__sortByField {
-  background-color: rgb(243, 15, 133);
   height: 100%;
   box-sizing: border-box;
   grid-area: 7/1/8/3;
+  color: #89939A;
+  font-weight: 700;
+
+  &-label {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+  }
+  &-dropdown {
+    height: 40px;
+    font-size: 14px;
+    line-height: 21px;
+    color:  #0f0f11 ;
+    font-weight: 600;
+    border: solid #89939A 1px;
+    border-radius: 8px;
+  &-option {
+    font-weight: 600;
+    color: #89939A;
+    &:hover {
+      background-color: transparent;
+      color: #0f0f11;
+    }
+  }
+  }
+
+
 
   @media (min-width: 640px) {
     grid-area: 7/1/8/5;
@@ -111,11 +137,39 @@
   }
 }
 
+
 .Phones__itemsOnPageField {
-  background-color: rgb(231, 19, 213);
-  height: 100%;
+  height: 59px;
   box-sizing: border-box;
-  grid-area: 7/3/8/5;
+  grid-area: 7/1/8/3;
+  color: #89939A;
+  font-weight: 700;
+
+  &-label {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    margin-bottom: 4px;
+  }
+  &-dropdown {
+    width: 128px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 21px;
+    color:  #0f0f11 ;
+    font-weight: 600;
+    border: solid #89939A 1px;
+    border-radius: 8px;
+  &-option {
+    font-weight: 600;
+    color: #89939A;
+    &:hover {
+      background-color: transparent;
+      color: #0f0f11;
+    }
+  }
+  }
+
 
   @media (min-width: 640px) {
     grid-area: 7/5/8/8;

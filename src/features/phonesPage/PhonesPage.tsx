@@ -1,12 +1,18 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PhonesPage.scss';
+import { string } from 'yargs';
 import { Card } from '../../commonComponents/Card';
 
 export const Phones = () => {
+  const [sortOption, setSortOption] = useState<string>('default');
+  const [itemsOnPage, setItemsOnPage] = useState<string>('16');
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    console.log(sortOption, itemsOnPage);
+  }, [sortOption, itemsOnPage]);
 
   return (
     <>
@@ -22,8 +28,82 @@ export const Phones = () => {
         <div className="Phones__modelsCount">
           <p>95 models</p>
         </div>
-        <div className="Phones__sortByField" />
-        <div className="Phones__itemsOnPageField" />
+
+        <div className="Phones__sortByField">
+          <label className="Phones__sortByField-label" htmlFor="menu">
+            Sort by:
+          </label>
+          <select
+            className="Phones__sortByField-dropdown"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option
+              className="Phones__sortByField-dropdown-option"
+              value="Newest"
+            >
+              Newest
+            </option>
+            <option
+              className="Phones__sortByField-dropdown-option"
+              value="Screen"
+            >
+              Screen
+            </option>
+            <option
+              className="Phones__sortByField-dropdown-option"
+              value="Price-descending"
+            >
+              Price descending
+            </option>
+            <option
+              className="Phones__sortByField-dropdown-option"
+              value="Price ascending"
+            >
+              Price ascending
+            </option>
+
+          </select>
+        </div>
+
+        <div className="Phones__itemsOnPageField">
+          <label
+            htmlFor="itemsOnPage"
+            className="Phones__itemsOnPageFild-label"
+          >
+            Items on page:
+          </label>
+          <select
+            className="Phones__itemsOnPageField-dropdown"
+            value={itemsOnPage.toString()}
+            onChange={(e) => setItemsOnPage(e.target.value)}
+          >
+            <option
+              className="Phones__itemsOnPageField-dropdown-option"
+              value="24"
+            >
+              24
+            </option>
+            <option
+              className="Phones__itemsOnPageField-dropdown-option"
+              value="32"
+            >
+              32
+            </option>
+            <option
+              className="Phones__itemsOnPageField-dropdown-option"
+              value="36"
+            >
+              36
+            </option>
+            <option
+              value="40"
+              className="Phones__itemsOnPageField-dropdown-option"
+            >
+              40
+            </option>
+          </select>
+        </div>
         <div className="Phones__itemList">
           {/* <div className="item" /> */}
           <Card />
