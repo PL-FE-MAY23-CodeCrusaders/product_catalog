@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './commonComponents/header/Header';
+import './App.scss';
 
 import PageNotFound from './features/pageNotFound/PageNotFound';
 import { CartProvider } from './context/cartContext';
@@ -15,7 +16,7 @@ import { ProductDetailsPage } from './features/productDetailsPage/ProductDetails
 
 function App() {
   return (
-    <>
+    <div className="App">
       <CartProvider>
         <Header />
         <Routes>
@@ -30,7 +31,7 @@ function App() {
         </Routes>
         <Footer />
       </CartProvider>
-    </>
+    </div>
   );
 }
 
