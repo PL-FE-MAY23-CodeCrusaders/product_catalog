@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

@@ -1,9 +1,42 @@
 import './HomePage.scss';
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Slider } from './components/Slider/Slider';
 import { BannerSlider } from './components/BannerSlider/BannerSlider';
 
 export const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [phonesData, setPhonesData] = useState([]);
+  const [error, setError] = useState(false);
+
+  const getData = async () => {
+    const data = await fetch('/api/phones.json', {
+      headers: { Accept: 'application/json' },
+    })
+      .then((response) => response.json())
+      .catch((e) => {
+        throw new Error(`Error fetching data: ${e}`);
+      });
+
+    return data;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getData();
+
+        setPhonesData(data);
+        setIsLoading(false);
+      } catch (e) {
+        setError(true);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <main className="Home_main">
       <section className="Home_sectionWelcome">
@@ -15,7 +48,7 @@ export const Home = () => {
 
       <section className="slidecontainer2">
 
-        <Slider title="Brand new models" />
+        <Slider title="Brand new models" itemList={phonesData} />
 
       </section>
       <section className="Home__categories">
@@ -29,7 +62,9 @@ export const Home = () => {
             </NavLink>
 
             <h3 className="categories__mobilePhones-title">Mobile phones</h3>
-            <p className="categories__mobilePhones-modelsCount">99 models</p>
+            <p className="categories__mobilePhones-modelsCount">
+              {`${phonesData.length} models`}
+            </p>
           </div>
 
           <div className="Home__categories__tablets">
@@ -38,7 +73,9 @@ export const Home = () => {
             </NavLink>
 
             <h3 className="categories__tablets-title">Tablets</h3>
-            <p className="categories__tablets-modelsCount">99 models</p>
+            <p className="categories__tablets-modelsCount">
+              55 models
+            </p>
           </div>
 
           <div className="Home__categories__accessories">
@@ -54,7 +91,7 @@ export const Home = () => {
       </section>
 
       <section className="slidcontainer">
-        <Slider title="Hot prices" />
+        <Slider title="Hot prices" itemList={phonesData} />
 
       </section>
     </main>
