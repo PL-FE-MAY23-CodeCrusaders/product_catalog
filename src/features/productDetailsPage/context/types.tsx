@@ -31,7 +31,7 @@ export interface ProductDetailsPageContextType {
   phonesData: Phone[] | [];
   isLoading: boolean;
   error: boolean;
-  photoPath: string;
+  photoPath: string | undefined;
   changePhoto: (path: string) => void;
   isActivePhoto: (path: string) => boolean;
 }

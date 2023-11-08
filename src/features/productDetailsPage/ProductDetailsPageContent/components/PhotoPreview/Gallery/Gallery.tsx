@@ -9,21 +9,21 @@ export const Gallery = () => {
     <div className="gallery">
       {phoneData
         && phoneData.images.map((img) => {
-          const path = img.slice(-6);
+          const path = `https://crusaders.onrender.com/${img}`;
 
           return (
             <button
               type="button"
               className={`gallery-button ${
-                isActivePhoto(`product_catalog/${path}`) ? 'active' : ''
+                isActivePhoto(`${path}`) ? 'active' : ''
               }`}
               key={img}
-              onClick={() => changePhoto(`product_catalog/${path}`)}
+              onClick={() => changePhoto(`${path}`)}
               aria-label="Change photo"
             >
               <img
                 className="gallery-photo"
-                src={`product_catalog/${path}`}
+                src={`${path}`}
                 alt=""
               />
             </button>

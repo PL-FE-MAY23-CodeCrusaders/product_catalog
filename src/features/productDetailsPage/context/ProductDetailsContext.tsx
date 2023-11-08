@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable max-len */
+import { useParams } from 'react-router-dom';
+
 import {
   createContext, useContext, useEffect, useState,
 } from 'react';
@@ -8,6 +11,7 @@ import {
   PhoneDetails,
 } from './types';
 import { Phone } from '../../../types/Phone';
+import { getPhone, getPhones } from '../../../api';
 
 const ProductDetailsPageContext = createContext<
 ProductDetailsPageContextType | undefined
@@ -18,42 +22,19 @@ export const ProductDetailsProvider = ({ children }: Props) => {
   const [phonesData, setPhonesData] = useState<Phone[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [photoPath, setPhotoPath] = useState<string>(
-    'product_catalog/00.jpg',
-  );
+  const [photoPath, setPhotoPath] = useState<string | undefined>(undefined);
 
-  const getPhoneData = async () => {
-    const response = await fetch(
-      'product_catalog/apple-iphone-11-128gb-black.json',
-    );
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    return response.json();
-  };
-
-  const getPhonesData = async () => {
-    const response = await fetch(
-      'product_catalog/phones.json',
-    );
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    return response.json();
-  };
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const dataPhone = await getPhoneData();
-      const dataPhones = await getPhonesData();
+      const dataPhone = await getPhone(id!);
+      const dataPhones = await getPhones();
 
       setPhoneData(dataPhone);
       setPhonesData(dataPhones);
+      setPhotoPath(`https://crusaders.onrender.com/${dataPhone.images[0]}`);
       try {
         setTimeout(async () => {
           setIsLoading(false);
@@ -65,7 +46,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const changePhoto = (path: string) => setPhotoPath(path);
 
