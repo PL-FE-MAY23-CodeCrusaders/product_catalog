@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import './AddToCart.scss';
-import { useCartContext } from '../../../../../../../context/cartContext';
+import { useCartContext } from '../../../../../../../context/cartContext/cartContext';
 import { useProductDetailsContext } from '../../../../../context/ProductDetailsContext';
 
 export const AddToCart = () => {
@@ -20,7 +20,9 @@ export const AddToCart = () => {
   return (
     <button
       type="button"
-      className={`add-button ${isAddedToCart(phoneData!.id) ? 'added-to-cart' : ''}`}
+      className={`add-button ${
+        isAddedToCart(phoneData!.id) ? 'added-to-cart' : ''
+      }`}
       onClick={() => handleAddToCartClick(phoneData?.id)}
     >
       Add to cart
