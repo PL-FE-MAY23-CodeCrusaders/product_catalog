@@ -7,18 +7,21 @@ export async function getPhones(): Promise<Phone[]> {
   try {
     const response = await fetch(`${API_URL}`);
 
-    return await response.json();
+    const phones = await response.json();
+
+    return phones.data;
   } catch (error) {
-    // Handle or throw the error accordingly
     throw new Error('Failed to fetch phones');
   }
 }
 
-export async function getNewPhones(): Promise<Phone[]> {
+export async function getNewPhones(): Promise<{}> {
   try {
     const response = await fetch(`${API_URL}/new`);
 
-    return await response.json();
+    const phones = await response.json();
+
+    return phones.data;
   } catch (error) {
     throw new Error('Failed to fetch new phones');
   }

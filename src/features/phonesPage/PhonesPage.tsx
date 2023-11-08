@@ -4,6 +4,7 @@ import './PhonesPage.scss';
 import { Breadcrumbs } from '../../commonComponents/Breadcrumbs/Breadcrumbs';
 import { Phone } from '../../types/Phone';
 import { CardItem } from '../../commonComponents/CardItem/CardItem';
+import { getPhones } from '../../api';
 
 export const Phones = () => {
   useEffect(() => {
@@ -13,24 +14,12 @@ export const Phones = () => {
 
   const [isError, setError] = useState<boolean>(false);
 
-  const getData = async () => {
-    const data = await fetch('/api/phones.json', {
-      headers: { Accept: 'application/json' },
-    })
-      .then((response) => response.json())
-      .catch((e) => {
-        throw new Error(`Error fetching data: ${e}`);
-      });
-
-    return data;
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getData();
+        const phones = await getPhones();
 
-        setPhoneData(data);
+        setPhoneData(phones);
       } catch (e) {
         setError(true);
       }
