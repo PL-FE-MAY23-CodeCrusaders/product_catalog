@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './commonComponents/header/Header';
+import './App.scss';
 
 import PageNotFound from './features/pageNotFound/PageNotFound';
 import { CartProvider } from './context/cartContext/cartContext';
@@ -16,7 +17,7 @@ import { FavProvider } from './context/favContext/favContext';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <FavProvider>
         <CartProvider>
           <Header />
@@ -33,7 +34,7 @@ function App() {
           <Footer />
         </CartProvider>
       </FavProvider>
-    </>
+    </div>
   );
 }
 
