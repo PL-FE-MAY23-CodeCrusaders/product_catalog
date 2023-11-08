@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import './PhonesPage.scss';
 import { Card } from '../../commonComponents/Card';
+import { Breadcrumbs } from '../../commonComponents/Breadcrumbs/Breadcrumbs';
 
 export const Phones = () => {
   useEffect(() => {
@@ -10,12 +11,10 @@ export const Phones = () => {
 
   return (
     <>
+      <div className="breadcrumps_div">
+        <Breadcrumbs />
+      </div>
       <main className="Phones__main">
-        <div className="Phones__map">
-          <div className="Phones__map-homeIcon" />
-          <div className="Phones__map-arrowIcon" />
-          <span className="Phones__map-label">Phones</span>
-        </div>
         <div className="Accessories__titleWrapper">
           <h1 className="Accessories__title">Mobile phones</h1>
         </div>
