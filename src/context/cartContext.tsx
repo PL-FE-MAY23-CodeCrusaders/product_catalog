@@ -20,7 +20,6 @@ const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartState, setCartState] = useState<Phone[]>([]);
-  const [cartState, setCartState] = useState<Phone[]>([]);
 
   const addToCart = (product: Phone) => {
     let newProduct = { ...product };
