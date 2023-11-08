@@ -11,10 +11,12 @@ import menu from '../../images/menu.png';
 import close from '../../images/close.png';
 import './Header.scss';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
+import { useCartContext } from '../../context/cartContext';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState('none');
+  const { cartState } = useCartContext();
 
   const handleNavClick = (value: string) => {
     setActiveNav(value);
@@ -101,7 +103,11 @@ function Header() {
               activeNav === 'cart' ? 'active-icon' : ''
             }`}
           >
-            <img src={cart} alt="Cart" className="header__icon-img" />
+            <div className="header__cart">
+              <img src={cart} alt="Cart" className="header__cart-img" />
+              <div className="header__counter">{cartState.length}</div>
+            </div>
+
           </NavLink>
           <div className="header__icon-box">
             <a onClick={handleMenuToggle}>
