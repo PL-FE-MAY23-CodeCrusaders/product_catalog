@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react';
 import './HomePage.scss';
 import { NavLink } from 'react-router-dom';
 import { Slider } from './components/Slider/Slider';
