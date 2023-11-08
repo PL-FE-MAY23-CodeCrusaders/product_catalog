@@ -2,23 +2,41 @@
 import {
   createContext, useContext, useEffect, useState,
 } from 'react';
-import { ProductDetailsPageContextType, Props, Phone } from './types';
+import {
+  ProductDetailsPageContextType,
+  Props,
+  PhoneDetails,
+} from './types';
+import { Phone } from '../../../types/Phone';
 
 const ProductDetailsPageContext = createContext<
 ProductDetailsPageContextType | undefined
 >(undefined);
 
 export const ProductDetailsProvider = ({ children }: Props) => {
-  const [phoneData, setPhoneData] = useState<Phone | undefined>();
+  const [phoneData, setPhoneData] = useState<PhoneDetails | undefined>();
+  const [phonesData, setPhonesData] = useState<Phone[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [photoPath, setPhotoPath] = useState<string>(
     'product_catalog/00.jpg',
   );
 
-  const getData = async () => {
+  const getPhoneData = async () => {
     const response = await fetch(
       'product_catalog/apple-iphone-11-128gb-black.json',
+    );
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    return response.json();
+  };
+
+  const getPhonesData = async () => {
+    const response = await fetch(
+      'product_catalog/phones.json',
     );
 
     if (!response.ok) {
@@ -31,9 +49,11 @@ export const ProductDetailsProvider = ({ children }: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const data = await getData();
+      const dataPhone = await getPhoneData();
+      const dataPhones = await getPhonesData();
 
-      setPhoneData(data);
+      setPhoneData(dataPhone);
+      setPhonesData(dataPhones);
       try {
         setTimeout(async () => {
           setIsLoading(false);
@@ -55,6 +75,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
     <ProductDetailsPageContext.Provider
       value={{
         phoneData,
+        phonesData,
         isLoading,
         error,
         photoPath,

@@ -1,9 +1,11 @@
+import { Phone } from '../../../types/Phone';
+
 export type DescriptionSection = {
   title: string;
   text: string[];
 };
 
-export type Phone = {
+export type PhoneDetails = {
   id: string;
   namespaceId: string;
   name: string;
@@ -25,7 +27,8 @@ export type Phone = {
 };
 
 export interface ProductDetailsPageContextType {
-  phoneData: Phone | undefined;
+  phoneData: PhoneDetails | undefined;
+  phonesData: Phone[] | [];
   isLoading: boolean;
   error: boolean;
   photoPath: string;
