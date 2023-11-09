@@ -47,3 +47,15 @@ export async function getPhone(phoneId: string): Promise<PhoneDetails> {
     throw new Error(`Failed to fetch phone with ID ${phoneId}`);
   }
 }
+
+export async function getAllPhones(): Promise<Phone[]> {
+  try {
+    const response = await fetch(`${API_URL}?limit=71`);
+
+    const phones = await response.json();
+
+    return phones.data;
+  } catch (error) {
+    throw new Error('Failed to fetch phones');
+  }
+}
