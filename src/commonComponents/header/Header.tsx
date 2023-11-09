@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-no-comment-textnodes */
@@ -12,15 +14,12 @@ import close from '../../images/close.png';
 import './Header.scss';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { useCartContext } from '../../context/cartContext/cartContext';
+import { useFavContext } from '../../context/favContext/favContext';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState('none');
-  const { cartState } = useCartContext();
-
-  const handleNavClick = (value: string) => {
-    setActiveNav(value);
-  };
+  const { quantitySum } = useCartContext();
+  const { favState } = useFavContext();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -31,7 +30,11 @@ function Header() {
       <header className="header">
         <div className="header__logo-box">
           <NavLink to="/">
-            <img src={logo} className="header__logo" alt="logo" />
+            <img
+              src={logo}
+              className="header__logo"
+              alt="logo"
+            />
           </NavLink>
         </div>
         <nav className="nav">
@@ -39,10 +42,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/"
-                className={`nav__link ${
-                  activeNav === 'home' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('home')}
+                className="nav__link"
               >
                 Home
               </NavLink>
@@ -50,10 +50,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/phones"
-                className={`nav__link ${
-                  activeNav === 'phones' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('phones')}
+                className="nav__link"
               >
                 Phones
               </NavLink>
@@ -61,10 +58,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/tablets"
-                className={`nav__link ${
-                  activeNav === 'tablets' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('tablets')}
+                className="nav__link"
               >
                 Tablets
               </NavLink>
@@ -72,10 +66,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/accessories"
-                className={`nav__link ${
-                  activeNav === 'accessories' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('accessories')}
+                className="nav__link"
               >
                 Accessories
               </NavLink>
@@ -85,27 +76,24 @@ function Header() {
         <div className="header__icon">
           <NavLink
             to="/favourites"
-            onClick={() => handleNavClick('fav')}
-            className={`header__icon-box ${
-              activeNav === 'fav' ? 'active-icon' : ''
-            }`}
+            className="header__icon-box"
           >
-            <img
-              src={favourites}
-              alt="wishlist"
-              className="header__icon-img"
-            />
+            <div className="header__cart">
+              <img
+                src={favourites}
+                alt="wishlist"
+                className="header__icon-img"
+              />
+              <div className="header__counter">{favState.length}</div>
+            </div>
           </NavLink>
           <NavLink
             to="/cart"
-            onClick={() => handleNavClick('cart')}
-            className={`header__icon-box ${
-              activeNav === 'cart' ? 'active-icon' : ''
-            }`}
+            className="header__icon-box"
           >
             <div className="header__cart">
               <img src={cart} alt="Cart" className="header__cart-img" />
-              <div className="header__counter">{cartState.length}</div>
+              <div className="header__counter">{quantitySum}</div>
             </div>
           </NavLink>
           <div className="header__icon-box">

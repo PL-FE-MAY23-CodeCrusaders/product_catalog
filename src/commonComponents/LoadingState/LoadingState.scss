@@ -1,4 +1,4 @@
-.notFound {
+.loading-state {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   display: flex;
@@ -10,18 +10,4 @@
   margin: 0;
   letter-spacing: -1%;
   color: #0f0f11;
-
-  &-title {
-    margin-bottom: 10px;
-    font-size: 48px;
-    text-align: center;
-    line-height: 56px;
-  }
-}
-
-@media (max-width: 320px) {
-  .notFound-title {
-    font-size: 32px;
-    line-height: 41px;
-  }
 }

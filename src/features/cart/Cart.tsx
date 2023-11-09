@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Back from '../../images/back.png';
 import './Cart.scss';
 import { Phone } from '../../types/Phone';
 import { useCartContext } from '../../context/cartContext/cartContext';
 import CartProductList from './components/CartProductList';
 import CartSum from './components/CartSum';
+import { BackArrow } from '../../commonComponents/BackArrow';
 
 export const Cart = () => {
-  const { cartState, removeFromCart, clearCart } = useCartContext();
+  const {
+    cartState,
+    removeFromCart,
+    clearCart,
+    setChangeQuantity,
+    changeQuantity,
+  } = useCartContext();
   const [checkedout, setCheckedout] = useState(false);
   const [numOfItems, setNumOfItems] = useState(0);
   const [sumOfPrice, setSumOfPrice] = useState(0);
@@ -26,15 +32,7 @@ export const Cart = () => {
 
   return (
     <div className="cart">
-      <nav className="cart-nav">
-        <div className="cart-nav-iconBox">
-          <img src={Back} alt="Back Icon" className="cart-nav-icon" />
-        </div>
-        <a className="cart-nav-link" href="#home">
-          Back
-        </a>
-      </nav>
-
+      <BackArrow />
       <h1 className="cart-title-text">Cart</h1>
 
       <div className="cart-contentBox">
@@ -44,6 +42,8 @@ export const Cart = () => {
             removeFromCart={removeFromCart}
             quantity={quantity}
             setQuantity={setQuantity}
+            changeQuantity={changeQuantity}
+            setChangeQuantity={setChangeQuantity}
           />
         </div>
         <div className="cart-checkoutBox">

@@ -14,7 +14,12 @@ import {
   PhoneDetails,
 } from './types';
 import { Phone } from '../../../types/Phone';
-import { getDiscountPhones, getPhone, getPhones } from '../../../api';
+import {
+  getDiscountPhones,
+  getPhone,
+  getAllPhones,
+  API_IMG_URL,
+} from '../../../api';
 
 const ProductDetailsPageContext = createContext<
 ProductDetailsPageContextType | undefined
@@ -35,13 +40,13 @@ export const ProductDetailsProvider = ({ children }: Props) => {
       try {
         setIsLoading(true);
         const dataPhone = await getPhone(id || '');
-        const dataPhones = await getPhones();
+        const dataPhones = await getAllPhones();
         const sliderPhones = await getDiscountPhones();
 
         if (dataPhone && dataPhones) {
           if (dataPhone.images && dataPhone.images.length > 0) {
             setPhoneData(dataPhone);
-            setPhotoPath(`https://crusaders.onrender.com/${dataPhone.images[0]}`);
+            setPhotoPath(`${API_IMG_URL}${dataPhone.images[0]}`);
             setPhonesData(dataPhones);
             setSilderData(sliderPhones);
           } else {
@@ -51,9 +56,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
           throw new Error('Error fetching phone data');
         }
 
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 1000);
+        setIsLoading(false);
       } catch (error: any) {
         if (error.response && error.response.status === 404) {
           // Handle 404 specifically (Not Found)

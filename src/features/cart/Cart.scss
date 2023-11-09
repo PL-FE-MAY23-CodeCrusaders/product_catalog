@@ -1,6 +1,7 @@
 .cart {
   width: 1136px;
-  margin: 40px auto 80px;
+  margin: 24px auto 45px;
+  flex:1;
 }
 
 .cart-nav {
@@ -39,7 +40,7 @@
   font-family: 800;
   font-size: 48px;
   margin-top: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .cart-contentBox {
@@ -79,6 +80,7 @@
   line-height: 21px;
   color: #ffffff;
   font-weight: 700;
+  
   &:hover {
     cursor: pointer;
   }

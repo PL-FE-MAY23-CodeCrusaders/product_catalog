@@ -7,6 +7,8 @@ interface CartProductListProps {
   removeFromCart: (phoneId: string) => void;
   setQuantity: (value: number) => void;
   quantity: number;
+  changeQuantity: number;
+  setChangeQuantity: (num: number) => void;
 }
 
 const CartProductList: React.FC<CartProductListProps> = ({
@@ -14,6 +16,8 @@ const CartProductList: React.FC<CartProductListProps> = ({
   removeFromCart,
   setQuantity,
   quantity,
+  changeQuantity,
+  setChangeQuantity,
 }) => {
   useEffect(() => {}, [cartState]);
 
@@ -26,6 +30,8 @@ const CartProductList: React.FC<CartProductListProps> = ({
           removeFromCart={removeFromCart}
           setQuantity={setQuantity}
           quantity={quantity}
+          changeQuantity={changeQuantity}
+          setChangeQuantity={setChangeQuantity}
         />
       ))}
     </div>
