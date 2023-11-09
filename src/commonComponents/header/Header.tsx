@@ -18,7 +18,7 @@ import { useFavContext } from '../../context/favContext/favContext';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState('none');
+  const [activeNav, setActiveNav] = useState('home');
   const { quantitySum } = useCartContext();
   const { favState } = useFavContext();
 
