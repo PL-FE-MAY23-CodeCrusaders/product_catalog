@@ -40,13 +40,12 @@ export const CardItem = ({ item }: Props) => {
           <ReactImageMagnify
             smallImage={{
               isFluidWidth: true,
-              src: item.image,
+              src: `https://crusaders.onrender.com/${item.image}`,
             }}
             largeImage={{
               width: 800,
               height: 840,
-              src: item.image, // Użyj tej samej ścieżki do dużej
-              // grafiki, jeśli jest to odpowiednie dla Twojego projektu
+              src: `https://crusaders.onrender.com/${item.image}`,
             }}
           />
         </Link>
