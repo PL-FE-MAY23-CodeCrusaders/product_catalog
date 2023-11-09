@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Back from '../../images/back.png';
 import './Cart.scss';
 import { Phone } from '../../types/Phone';
 import { useCartContext } from '../../context/cartContext/cartContext';
