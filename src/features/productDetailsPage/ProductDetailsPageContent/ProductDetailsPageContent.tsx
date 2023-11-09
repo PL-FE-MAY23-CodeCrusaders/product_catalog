@@ -6,7 +6,7 @@ import { TechSpec } from './components/TechSpec';
 import { Loader } from './components/Loader';
 import { About } from './components/About';
 import { OptionSection } from './components/OptionSection';
-import { BackArrow } from './components/BackArrow';
+import { BackArrow } from '../../../commonComponents/BackArrow';
 import { Breadcrumbs } from '../../../commonComponents/Breadcrumbs/Breadcrumbs';
 import PageNotFound from '../../pageNotFound/PageNotFound';
 import { Slider } from '../../../commonComponents/Slider/Slider';
