@@ -54,7 +54,8 @@ $card-img-height: 196px;
       height: $card-img-height;
       display: flex;
       margin-bottom: $card-spacer;
-      cursor: zoom-in;
+      cursor: zoom-in !important;
+      object-fit: contain;
     }
   
     &__title {
