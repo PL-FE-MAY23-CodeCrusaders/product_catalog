@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -34,7 +35,12 @@ function Header() {
       <header className="header">
         <div className="header__logo-box">
           <NavLink to="/">
-            <img src={logo} className="header__logo" alt="logo" />
+            <img
+              src={logo}
+              className="header__logo"
+              alt="logo"
+              onClick={() => handleNavClick('logo')}
+            />
           </NavLink>
         </div>
         <nav className="nav">
