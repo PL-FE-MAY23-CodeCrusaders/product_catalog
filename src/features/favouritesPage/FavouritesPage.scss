@@ -1,7 +1,8 @@
 .fav {
   margin: 24px auto 80px;
   width: 1188px;
-  min-height: 90vh;  
+  height: 100%;
+  flex: 1;
   &__nav {
     width: 116px;
     height: 16px;
