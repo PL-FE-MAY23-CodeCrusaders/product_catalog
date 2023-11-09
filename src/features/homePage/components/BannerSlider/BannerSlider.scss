@@ -60,15 +60,15 @@
 
     @include for-tablet {
       left: 20px;
-      width: 490px;
+      width: 560px;
       height: 189px;
-      margin-left: 38px;
+      margin-left: 33px;
     }
 
     @include for-phone {
       width: 320px;
       height: 320px;
-      background: url('../../components/BannerSlider/images/BannerMobile.png') !important;
+      background: url('../../components/BannerSlider/images/BannerMobileSmall.png') !important;
       background-size: auto;
       background-position: center !important;
       background-repeat: no-repeat !important;
@@ -100,7 +100,7 @@
   &_carousel-button-group {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -60px;
 
     &-right {
       background: url('../../../../images/arrow-right-gray.svg') !important;
@@ -138,7 +138,7 @@
       transform: rotate(180deg);
 
       @include for-tablet {
-        margin-right: 40px;
+        margin-right: 105px;
         height: 189px;
       }
 

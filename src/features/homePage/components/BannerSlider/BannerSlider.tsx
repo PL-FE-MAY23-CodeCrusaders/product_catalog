@@ -41,16 +41,13 @@ export const BannerSlider = () => {
           onClick={() => previous()}
           aria-label="button"
           type="button"
-        >
-          {/* {'<'} */}
-        </button>
+        />
         <button
           className="banner_carousel-button-group-right"
           onClick={() => next()}
           type="button"
-        >
-          {/* {'>'} */}
-        </button>
+          aria-label="button"
+        />
       </div>
     );
   };
