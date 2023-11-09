@@ -31,6 +31,11 @@
     // width: 80px;
     // height: 24px;
     bottom: -28px;
+
+    @include for-phone {
+      left: -60px;
+      bottom: -20px;
+    }  
   }
 
   &_newModelsSlider {
@@ -39,7 +44,7 @@
     height: 400px;
 
     @include for-tablet {
-      width: 600px;
+      width: 660px;
       height: 189px;
     }
 
@@ -59,16 +64,21 @@
     margin-left: 28px;
 
     @include for-tablet {
-      left: 20px;
-      width: 560px;
+      left: 40px;
+      width: 640px;
       height: 189px;
       margin-left: 33px;
+      margin: 0;
+      background: url('../../components/BannerSlider/images/BannerTablet.png') !important;
+      background-size: cover;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
     }
 
     @include for-phone {
       width: 320px;
       height: 320px;
-      background: url('../../components/BannerSlider/images/BannerMobileXS.png') !important;
+      background: url('../../components/BannerSlider/images/image16.png') !important;
       background-size: auto;
       background-position: center !important;
       background-repeat: no-repeat !important;
@@ -120,7 +130,7 @@
       margin-left: 1056px;
 
       @include for-tablet {
-        margin-left: 490px;
+        margin-left: 489px;
         height: 189px;
       }
 
@@ -142,7 +152,7 @@
       transform: rotate(180deg);
 
       @include for-tablet {
-        margin-right: 105px;
+        margin-right: 167px;
         height: 189px;
       }
 
