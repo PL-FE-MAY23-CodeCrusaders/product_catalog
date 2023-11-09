@@ -90,17 +90,10 @@ export const Card: React.FC = () => {
     <>
       {phoneData.map((phone, index) => (
         <div className="card" key={phone.id}>
-          <ReactImageMagnify
-            className='card-img'
-            smallImage={{
-              isFluidWidth: true,
-              src: phone.image,
-            }}
-            largeImage={{
-              width: 800,
-              height: 840,
-              src: phone.image,
-            }}
+          <img 
+            className="card-img" 
+            src={phone.image} 
+            // alt={phone.name}
           />
           <h4>{phone.name}</h4>
           <div className="card__price">
