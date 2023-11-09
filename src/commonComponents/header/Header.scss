@@ -2,7 +2,9 @@
   display: flex;
   align-items: flex-start;
   background-color: white;
-  border-bottom: 1px solid #e2e6e9
+  border-bottom: 1px solid #e2e6e9;
+  max-width: 99vw;
+  font-weight: 800;
 }
 
 
@@ -127,9 +129,8 @@ justify-content: center;
 
 
 @media (min-width: 550px) and (max-width: 1024px) {
-  body {
+  .header {
     height: 48px;
-    font-weight: 700;
   }
 
 
@@ -174,7 +175,7 @@ justify-content: center;
 }
 
 @media (max-width: 549px) {
-  body {
+  .header {
     height: 48px;
   }
 
