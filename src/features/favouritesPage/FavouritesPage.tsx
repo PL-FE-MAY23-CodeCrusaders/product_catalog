@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './FavouritesPage.scss';
 import FavSum from './favSum';
 import FavProductList from './favProductList';
