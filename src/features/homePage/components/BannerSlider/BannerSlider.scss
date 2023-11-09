@@ -68,12 +68,12 @@
     @include for-phone {
       width: 320px;
       height: 320px;
-      background: url('../../components/BannerSlider/images/BannerMobileSmall.png') !important;
+      background: url('../../components/BannerSlider/images/BannerMobileXS.png') !important;
       background-size: auto;
       background-position: center !important;
       background-repeat: no-repeat !important;
       margin: 0;
-      left: 0;
+      left: -17px;
     }
   }
 

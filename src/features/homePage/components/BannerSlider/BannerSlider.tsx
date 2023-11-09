@@ -61,8 +61,8 @@ export const BannerSlider = () => {
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
           arrows={false}
-          swipeable={false}
-          draggable={false}
+          swipeable
+          draggable
           responsive={responsive}
           ssr
           infinite
