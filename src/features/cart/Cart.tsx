@@ -8,7 +8,13 @@ import CartProductList from './components/CartProductList';
 import CartSum from './components/CartSum';
 
 export const Cart = () => {
-  const { cartState, removeFromCart, clearCart } = useCartContext();
+  const {
+    cartState,
+    removeFromCart,
+    clearCart,
+    setChangeQuantity,
+    changeQuantity,
+  } = useCartContext();
   const [checkedout, setCheckedout] = useState(false);
   const [numOfItems, setNumOfItems] = useState(0);
   const [sumOfPrice, setSumOfPrice] = useState(0);
@@ -44,6 +50,8 @@ export const Cart = () => {
             removeFromCart={removeFromCart}
             quantity={quantity}
             setQuantity={setQuantity}
+            changeQuantity={changeQuantity}
+            setChangeQuantity={setChangeQuantity}
           />
         </div>
         <div className="cart-checkoutBox">

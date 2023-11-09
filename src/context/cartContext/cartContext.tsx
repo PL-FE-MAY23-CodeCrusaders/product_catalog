@@ -3,6 +3,7 @@ import {
   useContext,
   ReactNode,
   useState,
+  useEffect,
 } from 'react';
 import { Phone } from '../../types/Phone';
 import { CartContextType } from './type';
@@ -14,6 +15,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.getItem('cartState') || '[]',
   );
   const [cartState, setCartState] = useState<Phone[]>(initialCartState);
+  const [quantitySum, setQuantitySum] = useState<number>(0);
 
   const setCartStateAndLocalStorage = (newState: Phone[]) => {
     setCartState(newState);
@@ -42,11 +44,28 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCartStateAndLocalStorage(newCartState);
   };
 
+  const handleSumQuantity = (cState: Phone[]) => {
+    const sum = cState.reduce((acc, currentItem) => {
+      if (currentItem.quantity) {
+        return acc + currentItem.quantity;
+      }
+
+      return acc;
+    }, 0);
+
+    setQuantitySum(sum);
+  };
+
   const clearCart = () => {
     setCartStateAndLocalStorage([]);
   };
 
   const isAddedToCart = (phoneId: string) => cartState.some((p) => p.itemId === phoneId);
+  const [changeQuantity, setChangeQuantity] = useState<number>(0);
+
+  useEffect(() => {
+    handleSumQuantity(cartState);
+  }, [cartState, changeQuantity]);
 
   return (
     <CartContext.Provider
@@ -56,6 +75,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         removeFromCart,
         clearCart,
         isAddedToCart,
+        quantitySum,
+        changeQuantity,
+        setChangeQuantity,
       }}
     >
       {children}
