@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
-import 'react-loading-skeleton/dist/skeleton.css';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
 import { useCartContext } from '../../context/cartContext/cartContext';
-import './CardItem.scss';
 import { Phone } from '../../types/Phone';
 import { useFavContext } from '../../context/favContext/favContext';
 import { API_IMG_URL } from '../../api';
+import './CardItem.scss';
 
 type Props = {
   item: Phone;
@@ -34,45 +33,47 @@ export const CardItem = ({ item }: Props) => {
 
   return (
     <>
-      <div className="card" key={item.id}>
+      <div className="cardItem" key={item.id}>
         <Link to={`/phones/${item.phoneId}`} className="card__link">
           <img
-            className="card__img"
+            className="cardItem__img"
             src={`${API_IMG_URL}${item.image}`}
-            alt=""
+            alt={item.name}
           />
         </Link>
-        <h4>{item.name}</h4>
-        <div className="card__price">
-          <h3 className="card__price--title">
+        <h4 className="cardItem__title">
+          {item.name}
+        </h4>
+        <div className="cardItem__price">
+          <h3 className="cardItem__price--title">
             <span> &#36;</span>
             {item.price}
           </h3>
-          <h3 className="card__price--title-previous">
+          <h3 className="cardItem__price--title-previous">
             <s>
               <span> &#36;</span>
               {item.fullPrice}
             </s>
           </h3>
         </div>
-        <div className="card__description">
-          <div className="card__details">
-            <div className="card__details-left">Screen</div>
-            <div className="card__details-right">{item.screen}</div>
+        <div className="cardItem__description">
+          <div className="cardItem__details">
+            <div className="cardItem__details-left">Screen</div>
+            <div className="cardItem__details-right">{item.screen}</div>
           </div>
-          <div className="card__details">
-            <div className="card__details-left">Capacity</div>
-            <div className="card__details-right">{item.capacity}</div>
+          <div className="cardItem__details">
+            <div className="cardItem__details-left">Capacity</div>
+            <div className="cardItem__details-right">{item.capacity}</div>
           </div>
-          <div className="card__details">
-            <div className="card__details-left">RAM</div>
-            <div className="card__details-right">{item.ram}</div>
+          <div className="cardItem__details">
+            <div className="cardItem__details-left">RAM</div>
+            <div className="cardItem__details-right">{item.ram}</div>
           </div>
         </div>
-        <div className="card__buttons">
+        <div className="cardItem__buttons">
           <button
             type="button"
-            className={`card__buttons-left ${
+            className={`cardItem__buttons-left ${
               isAddedToCart(item.phoneId) ? 'added-to-cart' : ''
             }`}
             onClick={() => handleAddToCartClick()}
@@ -81,7 +82,7 @@ export const CardItem = ({ item }: Props) => {
           </button>
           <button
             type="button"
-            className={`card__buttons-right ${
+            className={`cardItem__buttons-right ${
               isAddedToFav(item.phoneId) ? 'added-to-favourites' : ''
             }`}
             onClick={() => handleAddToFavClick()}
