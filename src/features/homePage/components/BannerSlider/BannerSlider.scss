@@ -102,6 +102,10 @@
     top: 0;
     right: 0;
 
+    @include for-tablet {
+      right: -60px;
+    }
+
     &-right {
       background: url('../../../../images/arrow-right-gray.svg') !important;
       background-size: 16px !important ;
