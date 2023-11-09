@@ -1,32 +1,29 @@
 import './HomePage.scss';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { BannerSlider } from './components/BannerSlider/BannerSlider';
 import { Slider } from '../../commonComponents/Slider/Slider';
+import { getDiscountPhones, getNewPhones, getPhones } from '../../api';
+import { Phone } from '../../types/Phone';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [phonesData, setPhonesData] = useState([]);
+  const [phonesData, setPhonesData] = useState<Phone[]>([]);
+  const [newPhonesData, setNewPhonesData] = useState<Phone[]>([]);
+  const [hotPhonesData, setHotPhonesData] = useState<Phone[]>([]);
+
   const [error, setError] = useState(false);
-
-  const getData = async () => {
-    const data = await fetch('/api/phones.json', {
-      headers: { Accept: 'application/json' },
-    })
-      .then((response) => response.json())
-      .catch((e) => {
-        throw new Error(`Error fetching data: ${e}`);
-      });
-
-    return data;
-  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getData();
+        const phones = await getPhones();
+        const newPhones = await getNewPhones();
+        const hotPhones = await getDiscountPhones();
 
-        setPhonesData(data);
+        setPhonesData(phones);
+        setNewPhonesData(newPhones);
+        setHotPhonesData(hotPhones);
         setIsLoading(false);
       } catch (e) {
         setError(true);
@@ -56,7 +53,7 @@ export const Home = () => {
 
       <section className="slidecontainer2">
 
-        <Slider title="Brand new models" itemList={phonesData} />
+        <Slider title="Brand new models" itemList={newPhonesData} />
 
       </section>
       <section className="Home__categories">
@@ -65,9 +62,9 @@ export const Home = () => {
         <div className="Home__categories_container">
 
           <div className="Home__categories__mobilePhones">
-            <NavLink to="/phones">
+            <Link to="/phones">
               <div className="categories__mobilePhones-picture" />
-            </NavLink>
+            </Link>
 
             <h3 className="categories__mobilePhones-title">Mobile phones</h3>
             <p className="categories__mobilePhones-modelsCount">
@@ -76,9 +73,9 @@ export const Home = () => {
           </div>
 
           <div className="Home__categories__tablets">
-            <NavLink to="/tablets">
+            <Link to="/tablets">
               <div className="categories__tablets-picture" />
-            </NavLink>
+            </Link>
 
             <h3 className="categories__tablets-title">Tablets</h3>
             <p className="categories__tablets-modelsCount">
@@ -87,9 +84,9 @@ export const Home = () => {
           </div>
 
           <div className="Home__categories__accessories">
-            <NavLink to="/accessories">
+            <Link to="/accessories">
               <div className="categories__accessories-picture" />
-            </NavLink>
+            </Link>
 
             <h3 className="categories__accessories-title">Accessories</h3>
             <p className="categories__accessories-modelsCount">99 models</p>
@@ -99,7 +96,7 @@ export const Home = () => {
       </section>
 
       <section className="slidcontainer">
-        <Slider title="Hot prices" itemList={phonesData} />
+        <Slider title="Hot prices" itemList={hotPhonesData} />
 
       </section>
     </main>
