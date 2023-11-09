@@ -19,7 +19,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 24px 24px 41px 8px 21px 32px 59px 24px 1fr 24px 32px;
+  grid-template-rows: 24px 24px 41px 8px 21px 32px minmax(59px, 70px) 24px 1fr 24px 32px;
   grid-auto-flow: column;
   column-gap: 16px;
   justify-content: center;
@@ -30,13 +30,13 @@
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 24px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+    grid-template-rows: 24px 40px 56px 8px 21px 40px minmax(59px, 70px) 24px 1fr 40px 32px;
     padding: 24px 24px 64px;
   }
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(24, 32px);
-    grid-template-rows: 24px 40px 56px 8px 21px 40px 59px 24px 1fr 40px 32px;
+    grid-template-rows: 24px 40px 56px 8px 21px 40px minmax(59px, 70px) 24px 1fr 40px 32px;
     padding: 24px 32px 80px;
   }
 }
@@ -128,7 +128,7 @@
 .Phones__itemsOnPageField {
   height: 59px;
   box-sizing: border-box;
-  grid-area: 7/1/8/3;
+  grid-area: 7/3/8/5;
   color: #89939A;
   font-weight: 700;
   place-items: center;
@@ -167,20 +167,20 @@
     grid-area: 7/5/8/8;
   }
   @media (min-width: 1200px) {
-    grid-area: 7/5/8/8;
+    grid-area: 7/6/8/8;
   }
 }
 
 .selectButton {
   width: 100%;
-  min-width: 200px;
+  
   height: auto;
   padding: 10px;
   border: 2px solid #89939A;
   border-radius: 8px;
   background-color: #fff;
   font-size: 16px;
-  margin-right: 20px;
+  
 
   &:hover {
     background-color: #fff;
