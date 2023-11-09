@@ -13,11 +13,13 @@ import close from '../../images/close.png';
 import './Header.scss';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { useCartContext } from '../../context/cartContext/cartContext';
+import { useFavContext } from '../../context/favContext/favContext';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState('none');
   const { quantitySum } = useCartContext();
+  const { favState } = useFavContext();
 
   const handleNavClick = (value: string) => {
     setActiveNav(value);
@@ -91,11 +93,14 @@ function Header() {
               activeNav === 'fav' ? 'active-icon' : ''
             }`}
           >
-            <img
-              src={favourites}
-              alt="wishlist"
-              className="header__icon-img"
-            />
+            <div className="header__cart">
+              <img
+                src={favourites}
+                alt="wishlist"
+                className="header__icon-img"
+              />
+              <div className="header__counter">{favState.length}</div>
+            </div>
           </NavLink>
           <NavLink
             to="/cart"

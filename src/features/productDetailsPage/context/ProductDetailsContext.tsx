@@ -14,7 +14,7 @@ import {
   PhoneDetails,
 } from './types';
 import { Phone } from '../../../types/Phone';
-import { getDiscountPhones, getPhone, getPhones } from '../../../api';
+import { getDiscountPhones, getPhone, getAllPhones } from '../../../api';
 
 const ProductDetailsPageContext = createContext<
 ProductDetailsPageContextType | undefined
@@ -35,7 +35,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
       try {
         setIsLoading(true);
         const dataPhone = await getPhone(id || '');
-        const dataPhones = await getPhones();
+        const dataPhones = await getAllPhones();
         const sliderPhones = await getDiscountPhones();
 
         if (dataPhone && dataPhones) {
