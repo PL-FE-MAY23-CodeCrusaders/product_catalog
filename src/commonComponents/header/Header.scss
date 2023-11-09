@@ -38,6 +38,9 @@ display: flex;
 align-items: center;
 justify-content: center;
   border-left: 1px solid #e2e6e9;
+  &.active {
+    border-bottom: #0f0f11 solid 2px;
+  }
 }
 
 .header__icon-box:first-child {
@@ -98,6 +101,21 @@ justify-content: center;
     font-size: 11px;
     line-height: 64px;
     display: inline-block;
+    &.active {
+      color: #0f0f11;
+      position: relative;
+      &::after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: #0f0f11;
+        border-radius: 8px;
+      }
+  
+    }
     &:hover {
       color: #0f0f11;
     }
@@ -105,26 +123,8 @@ justify-content: center;
   &__item:not(:last-child) {
     margin-right: 64px;
   }
-}
 
 
-.is-active {
-  color: #0f0f11;
-  position: relative;
-  &::after {
-    content: '';
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    background-color: #0f0f11;
-    border-radius: 8px;
-  }
-}
-
-.active-icon {
-  border-bottom: #0f0f11 solid 2px;
 }
 
 
@@ -149,9 +149,11 @@ justify-content: center;
     justify-content: center;
     align-items: center;
     border-left: 1px solid #e2e6e9;
+
     &:first-child {
       margin-left: auto;
     }
+    
   }
 
   .nav {
