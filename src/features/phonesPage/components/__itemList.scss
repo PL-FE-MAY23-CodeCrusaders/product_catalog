@@ -4,18 +4,23 @@
   grid-area: 9/1/10/5;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: 1fr;
   row-gap: 40px;
   column-gap: 16px;
 
+  justify-content: center; /* Wycentrowanie w poziomie */
+  align-items: center;
+  margin:0 auto;
+
   @media (min-width: 640px) {
     grid-area: 9/1/10/13;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 270px));
+    margin:0;
   }
 
   @media (min-width: 1200px) {
     grid-area: 9/1/10/25;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 270px));
   }
 }
 
