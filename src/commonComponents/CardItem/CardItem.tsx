@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
-import 'react-loading-skeleton/dist/skeleton.css';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
 import { useCartContext } from '../../context/cartContext/cartContext';
-import './CardItem.scss';
 import { Phone } from '../../types/Phone';
 import { useFavContext } from '../../context/favContext/favContext';
 import { API_IMG_URL } from '../../api';
+import './CardItemStyle.scss';
 
 type Props = {
   item: Phone;
@@ -39,7 +38,7 @@ export const CardItem = ({ item }: Props) => {
           <img
             className="card__img"
             src={`${API_IMG_URL}${item.image}`}
-            alt=""
+            alt={item.name}
           />
         </Link>
         <h4>{item.name}</h4>
