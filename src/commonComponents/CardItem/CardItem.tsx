@@ -6,6 +6,7 @@ import { useCartContext } from '../../context/cartContext/cartContext';
 import './CardItem.scss';
 import { Phone } from '../../types/Phone';
 import { useFavContext } from '../../context/favContext/favContext';
+import { API_IMG_URL } from '../../api';
 
 type Props = {
   item: Phone;
@@ -37,7 +38,7 @@ export const CardItem = ({ item }: Props) => {
         <Link to={`/phones/${item.phoneId}`} className="card__link">
           <img
             className="card__img"
-            src={`https://crusaders.onrender.com/${item.image}`}
+            src={`${API_IMG_URL}${item.image}`}
             alt=""
           />
         </Link>

@@ -3,6 +3,8 @@ import { Phone } from './types/Phone';
 
 const API_URL = 'https://crusaders.onrender.com/products';
 
+export const API_IMG_URL = 'https://crusaders.onrender.com/';
+
 export async function getPhones(): Promise<Phone[]> {
   try {
     const response = await fetch(`${API_URL}`);

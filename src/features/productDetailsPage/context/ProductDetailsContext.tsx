@@ -14,7 +14,9 @@ import {
   PhoneDetails,
 } from './types';
 import { Phone } from '../../../types/Phone';
-import { getDiscountPhones, getPhone, getAllPhones } from '../../../api';
+import {
+  getDiscountPhones, getPhone, getAllPhones, API_IMG_URL,
+} from '../../../api';
 
 const ProductDetailsPageContext = createContext<
 ProductDetailsPageContextType | undefined
@@ -41,7 +43,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
         if (dataPhone && dataPhones) {
           if (dataPhone.images && dataPhone.images.length > 0) {
             setPhoneData(dataPhone);
-            setPhotoPath(`https://crusaders.onrender.com/${dataPhone.images[0]}`);
+            setPhotoPath(`${API_IMG_URL}${dataPhone.images[0]}`);
             setPhonesData(dataPhones);
             setSilderData(sliderPhones);
           } else {
