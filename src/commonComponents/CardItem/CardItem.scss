@@ -9,7 +9,7 @@ $card-spacer: 8px;
 
 $card-width: 272px;
 $card-padding: 32px;
-$card-height: 570px;
+$card-height: 506px;
 
 $card-img-width: 208px;
 $card-img-height: 196px;
@@ -23,7 +23,7 @@ $card-img-height: 196px;
 
 // -------------------- CARD COMPONENT ---------------------- //
 
-.card {
+.cardItem {
     background-color: $white-color;
     width: $card-width;
     height: $card-height;
@@ -39,8 +39,6 @@ $card-img-height: 196px;
         cursor: initial;
         transform: scale(1.03);
         box-shadow: 0px 2px 16px 0px $shadow-clr;
-      
-    
   }
 
     &__link{
@@ -53,7 +51,7 @@ $card-img-height: 196px;
     &__img {
       width: $card-img-width;
       height: $card-img-height;
-      display: flex;
+      display: block;
       margin-bottom: $card-spacer;
       cursor: zoom-in !important;
       object-fit: contain;
@@ -62,10 +60,10 @@ $card-img-height: 196px;
     &__title {
       color: $primary-color;
       font-size: 14px;
-      font-style: normal;
+      height: 34px;
       font-weight: 600;
-      line-height: 21px;
-      padding-top: 16px;
+      line-height: 1.2;
+      // padding-top: 16px;
       margin-bottom: $card-spacer;
     }
   
@@ -74,10 +72,10 @@ $card-img-height: 196px;
       font-size: 22px;
       font-style: normal;
       font-weight: 800;
-      line-height: 140%;
-      padding-bottom: $card-spacer;
+      margin-top: -20px;
+      // padding-bottom: $card-spacer;
       border-bottom: 1px solid $elements-color;
-      margin-bottom: $card-spacer;
+      // margin-bottom: $card-spacer;
 
       &--title {
         &-actual{display: inline-block;}
@@ -96,8 +94,8 @@ $card-img-height: 196px;
     }
 
     &__description {
-      padding-top: $card-spacer;
-      margin-bottom: $card-spacer;
+      // padding-top: $card-spacer;
+      // margin-bottom: $card-spacer;
     }
   
     &__details {
@@ -113,9 +111,7 @@ $card-img-height: 196px;
       &-left {
         margin: 0;
         font-size: 12px;
-        font-style: normal;
         font-weight: 700;
-        line-height: normal;
         color: $secondary-color;
       }
   
