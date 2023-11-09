@@ -5,18 +5,21 @@ import { BannerSlider } from './components/BannerSlider/BannerSlider';
 import { Slider } from '../../commonComponents/Slider/Slider';
 import { getDiscountPhones, getNewPhones, getPhones } from '../../api';
 import { Phone } from '../../types/Phone';
+import { Loader } from '../../commonComponents/LoadingState/Loader';
 
 export const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   const [phonesData, setPhonesData] = useState<Phone[]>([]);
   const [newPhonesData, setNewPhonesData] = useState<Phone[]>([]);
   const [hotPhonesData, setHotPhonesData] = useState<Phone[]>([]);
 
-  const [error, setError] = useState(false);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
+
         const phones = await getPhones();
         const newPhones = await getNewPhones();
         const hotPhones = await getDiscountPhones();
@@ -26,7 +29,7 @@ export const Home = () => {
         setHotPhonesData(hotPhones);
         setIsLoading(false);
       } catch (e) {
-        setError(true);
+        setIsError(true);
         setIsLoading(false);
       }
     };
@@ -35,11 +38,31 @@ export const Home = () => {
   }, []);
 
   if (isLoading) {
-    <p>Loading</p>; // coś tu będzie
+    return (
+      <main className="Home_main">
+        <section className="Home_sectionWelcome">
+          <h1 className="Home_sectionWelcome-title title">
+            Welcome to Nice Gadgets store!
+          </h1>
+          <Loader />
+        </section>
+      </main>
+    );
   }
 
-  if (error) {
-    <p>Loading</p>; // coś tu będzie
+  if (isError) {
+    return (
+      <main className="Home_main">
+        <section className="Home_sectionWelcome">
+          <h1 className="Home_sectionWelcome-title title">
+            Welcome to Nice Gadgets store!
+          </h1>
+          <h2 className="Home__categories-title">
+            Something bad happened...
+          </h2>
+        </section>
+      </main>
+    );
   }
 
   return (
@@ -52,21 +75,20 @@ export const Home = () => {
       </section>
 
       <section className="slidecontainer2">
-
         <Slider title="Brand new models" itemList={newPhonesData} />
-
       </section>
       <section className="Home__categories">
         <h2 className="Home__categories-title">Shop by category</h2>
 
         <div className="Home__categories_container">
-
           <div className="Home__categories__mobilePhones">
             <Link to="/phones">
               <div className="categories__mobilePhones-picture" />
             </Link>
 
-            <h3 className="categories__mobilePhones-title">Mobile phones</h3>
+            <h3 className="categories__mobilePhones-title">
+              Mobile phones
+            </h3>
             <p className="categories__mobilePhones-modelsCount">
               {`${phonesData.length} models`}
             </p>
@@ -78,9 +100,7 @@ export const Home = () => {
             </Link>
 
             <h3 className="categories__tablets-title">Tablets</h3>
-            <p className="categories__tablets-modelsCount">
-              55 models
-            </p>
+            <p className="categories__tablets-modelsCount">55 models</p>
           </div>
 
           <div className="Home__categories__accessories">
@@ -89,15 +109,15 @@ export const Home = () => {
             </Link>
 
             <h3 className="categories__accessories-title">Accessories</h3>
-            <p className="categories__accessories-modelsCount">99 models</p>
+            <p className="categories__accessories-modelsCount">
+              99 models
+            </p>
           </div>
-
         </div>
       </section>
 
       <section className="slidcontainer">
         <Slider title="Hot prices" itemList={hotPhonesData} />
-
       </section>
     </main>
   );
