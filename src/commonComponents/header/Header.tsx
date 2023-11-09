@@ -39,7 +39,7 @@ function Header() {
               src={logo}
               className="header__logo"
               alt="logo"
-              onClick={() => handleNavClick('logo')}
+              onClick={() => handleNavClick('home')}
             />
           </NavLink>
         </div>
