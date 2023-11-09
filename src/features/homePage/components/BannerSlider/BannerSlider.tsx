@@ -6,19 +6,19 @@ import './BannerSlider.scss';
 export const BannerSlider = () => {
   const responsive = {
     superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1001 },
+      breakpoint: { max: 4000, min: 1440 },
       items: 1,
     },
     desktop: {
-      breakpoint: { max: 1000, min: 800 },
+      breakpoint: { max: 1440, min: 1200 },
       items: 1,
     },
     tablet: {
-      breakpoint: { max: 800, min: 501 },
+      breakpoint: { max: 1199, min: 640 },
       items: 1,
     },
     mobile: {
-      breakpoint: { max: 500, min: 0 },
+      breakpoint: { max: 639, min: 0 },
       items: 1,
     },
   };
@@ -68,7 +68,6 @@ export const BannerSlider = () => {
           infinite
           autoPlaySpeed={1000}
           keyBoardControl
-          // customTransition="all .5"
           transitionDuration={500}
           containerClass="banner_carousel-container"
           dotListClass="banner_custom-dot-list-style"
