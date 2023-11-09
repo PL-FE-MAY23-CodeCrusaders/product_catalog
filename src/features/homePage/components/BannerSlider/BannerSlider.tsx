@@ -1,31 +1,98 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import Banner from './images/Banner.png';
 import './BannerSlider.scss';
 
 export const BannerSlider = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1440 },
+      items: 1,
+    },
+    desktop: {
+      breakpoint: { max: 1440, min: 1200 },
+      items: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1199, min: 640 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 639, min: 0 },
+      items: 1,
+    },
+  };
+
+  const ButtonGroup = ({
+    next,
+    previous,
+    goToSlide,
+    ...rest // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }: any) => {
+    const {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      carouselState: { currentSlide },
+    } = rest;
+
+    return (
+      <div className="banner_carousel-button-group">
+        <button
+          className="banner_carousel-button-group-left"
+          onClick={() => previous()}
+          aria-label="button"
+          type="button"
+        />
+        <button
+          className="banner_carousel-button-group-right"
+          onClick={() => next()}
+          type="button"
+          aria-label="button"
+        />
+      </div>
+    );
   };
 
   return (
-    <Slider {...settings}>
-      <div>
-        <img className="banner-img" src={Banner} alt="banner" />
+    <div className="banner">
+      <div className="banner_newModelsSlider">
+        <Carousel
+          showDots
+          renderDotsOutside
+          renderButtonGroupOutside
+          customButtonGroup={<ButtonGroup />}
+          arrows={false}
+          swipeable
+          draggable
+          responsive={responsive}
+          ssr
+          infinite
+          autoPlaySpeed={1000}
+          keyBoardControl
+          transitionDuration={500}
+          containerClass="banner_carousel-container"
+          dotListClass="banner_custom-dot-list-style"
+          itemClass="banner_carousel-item"
+        >
+          <img
+            // eslint-disable-next-line import/no-dynamic-require, global-require
+            src={Banner}
+            alt="Banner is loading..."
+            className="banner_image"
+          />
+          <img
+            // eslint-disable-next-line import/no-dynamic-require, global-require
+            src={Banner}
+            alt="Banner is loading..."
+            className="banner_image"
+          />
+          <img
+            // eslint-disable-next-line import/no-dynamic-require, global-require
+            src={Banner}
+            alt="Banner is loading..."
+            className="banner_image"
+          />
+        </Carousel>
       </div>
-      <div>
-        <img className="banner-img" src={Banner} alt="banner" />
-      </div>
-      <div>
-        <img className="banner-img" src={Banner} alt="banner" />
-      </div>
-    </Slider>
+    </div>
   );
 };
