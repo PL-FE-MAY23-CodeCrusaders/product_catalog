@@ -6,6 +6,7 @@ import { Phone } from '../../types/Phone';
 import { useCartContext } from '../../context/cartContext/cartContext';
 import CartProductList from './components/CartProductList';
 import CartSum from './components/CartSum';
+import { BackArrow } from '../../commonComponents/BackArrow';
 
 export const Cart = () => {
   const {
@@ -32,15 +33,7 @@ export const Cart = () => {
 
   return (
     <div className="cart">
-      <nav className="cart-nav">
-        <div className="cart-nav-iconBox">
-          <img src={Back} alt="Back Icon" className="cart-nav-icon" />
-        </div>
-        <a className="cart-nav-link" href="#home">
-          Back
-        </a>
-      </nav>
-
+      <BackArrow />
       <h1 className="cart-title-text">Cart</h1>
 
       <div className="cart-contentBox">
