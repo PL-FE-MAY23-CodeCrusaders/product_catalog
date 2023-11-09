@@ -9,4 +9,5 @@ export interface CartContextType {
   quantitySum: number;
   changeQuantity: number;
   setChangeQuantity: (num: number) => void;
+  updateQuantityInLocalStorage: () => void;
 }

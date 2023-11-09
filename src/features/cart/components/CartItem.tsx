@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../../types/Phone';
 import close from '../../../images/close.png';
 import minus from '../../../images/Minus.png';
 import plus from '../../../images/Plus.png';
 import './CartItem.scss';
+import { useCartContext } from '../../../context/cartContext/cartContext';
 
 interface CartItemProps {
   item: Phone;
@@ -25,9 +26,13 @@ const CartItem: React.FC<CartItemProps> = ({
   changeQuantity,
   setChangeQuantity,
 }) => {
-  useEffect(() => {
-    console.log(item.quantity);
-  }, [item.quantity, quantity]);
+  // useEffect(() => {
+  //   console.log(item.quantity);
+  // }, [item.quantity, quantity]);
+
+  const {
+    updateQuantityInLocalStorage,
+  } = useCartContext();
 
   const handleMinus = () => {
     if (item.quantity && item.quantity > 1) {
@@ -36,6 +41,7 @@ const CartItem: React.FC<CartItemProps> = ({
 
       setChangeQuantity(changeQuantity + 1);
       setQuantity(newQuantity);
+      updateQuantityInLocalStorage();
     }
   };
 
@@ -46,6 +52,7 @@ const CartItem: React.FC<CartItemProps> = ({
 
       setChangeQuantity(changeQuantity + 1);
       setQuantity(newQuantity);
+      updateQuantityInLocalStorage();
     }
   };
 

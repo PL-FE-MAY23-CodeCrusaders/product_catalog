@@ -36,6 +36,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCartStateAndLocalStorage(newCartState);
   };
 
+  const updateQuantityInLocalStorage = () => {
+    setCartStateAndLocalStorage(cartState);
+  };
+
   const removeFromCart = (phoneId: string) => {
     const newCartState = cartState.filter(
       (product: Phone) => product.itemId !== phoneId,
@@ -78,6 +82,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         quantitySum,
         changeQuantity,
         setChangeQuantity,
+        updateQuantityInLocalStorage,
       }}
     >
       {children}
