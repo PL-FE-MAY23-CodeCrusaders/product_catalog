@@ -15,7 +15,10 @@ import {
 } from './types';
 import { Phone } from '../../../types/Phone';
 import {
-  getDiscountPhones, getPhone, getAllPhones, API_IMG_URL,
+  getDiscountPhones,
+  getPhone,
+  getAllPhones,
+  API_IMG_URL,
 } from '../../../api';
 
 const ProductDetailsPageContext = createContext<
@@ -53,9 +56,7 @@ export const ProductDetailsProvider = ({ children }: Props) => {
           throw new Error('Error fetching phone data');
         }
 
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 1000);
+        setIsLoading(false);
       } catch (error: any) {
         if (error.response && error.response.status === 404) {
           // Handle 404 specifically (Not Found)

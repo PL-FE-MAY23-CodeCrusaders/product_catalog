@@ -1,15 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './PhonesPage.scss';
 import { Breadcrumbs } from '../../commonComponents/Breadcrumbs/Breadcrumbs';
 import { Phone } from '../../types/Phone';
 import { CardItem } from '../../commonComponents/CardItem/CardItem';
-import { getPhones } from '../../api';
+import { getAllPhones } from '../../api';
+import { Loader } from '../../commonComponents/LoadingState/Loader';
 
 export const Phones = () => {
   const [phoneData, setPhoneData] = useState<Phone[]>([]);
-  const [isError, setError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [isError, setIsError] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(4);
   const [sortByOption, setSortByOption] = useState<string>('');
@@ -17,11 +21,14 @@ export const Phones = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const phones = await getPhones();
+        setIsLoading(true);
+        const phones = await getAllPhones();
 
         setPhoneData(phones);
+        setIsLoading(false);
       } catch (e) {
-        setError(true);
+        setIsError(true);
+        setIsLoading(false);
       }
     };
 
@@ -67,7 +74,29 @@ export const Phones = () => {
   };
 
   if (isError) {
-    return <p>Error fetching data</p>;
+    return (
+      <main className="Phones__main">
+        <div className="breadcrumps_div2">
+          <Breadcrumbs />
+        </div>
+        <div className="Phones__titleWrapper">
+          <h1 className="Phones__title">Something bad happened...</h1>
+        </div>
+      </main>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <main className="Phones__main">
+        <div className="breadcrumps_div2">
+          <Breadcrumbs />
+        </div>
+        <div className="Phones__titleWrapper">
+          <Loader />
+        </div>
+      </main>
+    );
   }
 
   return (
@@ -132,7 +161,9 @@ export const Phones = () => {
               key={index}
               type="button"
               className={`Phones__pagination-button ${
-                currentPage === index + 1 ? 'active' : ''
+                currentPage === index + 1
+                  ? 'Phones__pagination-button--active'
+                  : ''
               }`}
               onClick={() => handlePageChange(index + 1)}
             >
