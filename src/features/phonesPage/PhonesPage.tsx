@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './PhonesPage.scss';
 import { Breadcrumbs } from '../../commonComponents/Breadcrumbs/Breadcrumbs';
 import { Phone } from '../../types/Phone';
 import { CardItem } from '../../commonComponents/CardItem/CardItem';
-import { getPhones } from '../../api';
+import { getAllPhones } from '../../api';
 
 export const Phones = () => {
   const [phoneData, setPhoneData] = useState<Phone[]>([]);
@@ -17,7 +18,7 @@ export const Phones = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const phones = await getPhones();
+        const phones = await getAllPhones();
 
         setPhoneData(phones);
       } catch (e) {
@@ -132,7 +133,7 @@ export const Phones = () => {
               key={index}
               type="button"
               className={`Phones__pagination-button ${
-                currentPage === index + 1 ? 'active' : ''
+                currentPage === index + 1 ? 'Phones__pagination-button--active' : ''
               }`}
               onClick={() => handlePageChange(index + 1)}
             >

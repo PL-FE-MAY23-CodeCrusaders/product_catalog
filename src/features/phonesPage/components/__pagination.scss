@@ -15,6 +15,7 @@
   }
 
   &-button {
+    font-family: 'Montserrat', sans-serif !important;
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -29,6 +30,12 @@
     letter-spacing: 0em;
     text-align: center;
     color: #0f0f11;
+
+    &--active{
+      border: 1px solid #0f0f11;
+      background-color: #0f0f11;
+      color: #ffffff;
+    }
 
     &:hover {
       cursor: pointer;
