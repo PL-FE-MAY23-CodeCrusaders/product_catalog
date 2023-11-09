@@ -129,25 +129,7 @@
   
   
   
-.SliderItem {                 // <------------- placeholder !
-width: 212px;
-height: 439px;
-min-width: 212px;
-background-color: rgb(35, 180, 206);
-border-radius: 8px;
 
-
-
-    @media (min-width: 640px) {
-    height: 512px;
-    min-width: 237px;
-    }
-
-    @media (min-width: 1200px) {
-    height: 506px;
-    min-width: 272px;
-    }
-}
 
 
 .disabled {

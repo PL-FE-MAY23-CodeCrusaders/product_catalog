@@ -16,7 +16,7 @@ export const ProductDetailsPageContent = () => {
 
   if (isLoading) {
     return (
-      <main className="main">
+      <main className="main-loader">
         <Loader />
       </main>
     );
