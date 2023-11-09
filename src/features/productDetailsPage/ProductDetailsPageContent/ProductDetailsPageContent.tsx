@@ -8,10 +8,11 @@ import { About } from './components/About';
 import { OptionSection } from './components/OptionSection';
 import { BackArrow } from './components/BackArrow';
 import { Breadcrumbs } from '../../../commonComponents/Breadcrumbs/Breadcrumbs';
+import PageNotFound from '../../pageNotFound/PageNotFound';
 import { Slider } from '../../../commonComponents/Slider/Slider';
 
 export const ProductDetailsPageContent = () => {
-  const { isLoading, phoneData, phonesData } = useProductDetailsContext();
+  const { isLoading, phoneData, sliderData } = useProductDetailsContext();
 
   if (isLoading) {
     return (
@@ -35,10 +36,10 @@ export const ProductDetailsPageContent = () => {
           <About />
           <TechSpec />
         </div>
-        <Slider title="You may also like" itemList={phonesData} />
+        <Slider title="You may also like" itemList={sliderData} />
       </main>
     );
   }
 
-  return <HeaderH2 header2="Something bad happened" />;
+  return <PageNotFound />;
 };

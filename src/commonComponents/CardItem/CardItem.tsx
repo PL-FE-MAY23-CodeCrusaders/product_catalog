@@ -1,20 +1,20 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactImageMagnify from 'react-image-magnify';
 import addToFavouritesDefault from '../../images/addToFavouritesDefault.png';
 import addToFavouritesAdded from '../../images/addToFovouritesAdded.png';
-import { useCartContext } from '../../context/cartContext';
+import { useCartContext } from '../../context/cartContext/cartContext';
 import './CardItem.scss';
 import { Phone } from '../../types/Phone';
+import { useFavContext } from '../../context/favContext/favContext';
 
 type Props = {
-  item: Phone,
+  item: Phone;
 };
 
 export const CardItem = ({ item }: Props) => {
-  const [isFavourite, setIsFavourite] = useState<boolean>(false);
   const { addToCart, isAddedToCart, removeFromCart } = useCartContext();
+  const { addToFav, isAddedToFav, removeFromFav } = useFavContext();
 
   const handleAddToCartClick = () => {
     if (isAddedToCart(item.itemId)) {
@@ -24,29 +24,28 @@ export const CardItem = ({ item }: Props) => {
     }
   };
 
-  const handleButtonClick = () => {
-    const updatedFavouriteStatus = !isFavourite;
-
-    setIsFavourite(updatedFavouriteStatus);
+  const handleAddToFavClick = () => {
+    if (isAddedToFav(item.itemId)) {
+      removeFromFav(item.phoneId);
+    } else {
+      addToFav(item);
+    }
   };
 
   return (
     <>
-
       <div className="card" key={item.id}>
         <Link to={`/phones/${item.phoneId}`} className="card__link">
-
           {/* Zawartość karty */}
           <ReactImageMagnify
             smallImage={{
               isFluidWidth: true,
-              src: item.image,
+              src: `https://crusaders.onrender.com/${item.image}`,
             }}
             largeImage={{
               width: 800,
               height: 840,
-              src: item.image, // Użyj tej samej ścieżki do dużej
-            // grafiki, jeśli jest to odpowiednie dla Twojego projektu
+              src: `https://crusaders.onrender.com/${item.image}`,
             }}
           />
         </Link>
@@ -90,20 +89,20 @@ export const CardItem = ({ item }: Props) => {
           <button
             type="button"
             className={`card__buttons-right ${
-              isFavourite ? 'added-to-favourites' : ''
+              isAddedToFav(item.phoneId) ? 'added-to-favourites' : ''
             }`}
-            onClick={() => handleButtonClick()}
+            onClick={() => handleAddToFavClick()}
           >
             <div className="favourites">
               <img
                 src={
-                  isFavourite
+                  isAddedToFav(item.phoneId)
                     ? addToFavouritesAdded
                     : addToFavouritesDefault
                 }
                 alt="Favourites"
                 title={
-                  isFavourite
+                  isAddedToFav(item.phoneId)
                     ? 'Added to favourites'
                     : 'Add to favourites'
                 }
@@ -112,7 +111,6 @@ export const CardItem = ({ item }: Props) => {
           </button>
         </div>
       </div>
-
     </>
   );
 };

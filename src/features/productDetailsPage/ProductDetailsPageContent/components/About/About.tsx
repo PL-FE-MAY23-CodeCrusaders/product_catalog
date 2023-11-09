@@ -7,21 +7,25 @@ import './About.scss';
 export const About = () => {
   const { phoneData } = useProductDetailsContext();
 
+  if (!phoneData) {
+    return null;
+  }
+
   return (
     <section>
       <HeaderH3 header3="About" />
       <div className="about__line " />
       <div>
-        <HeaderH4 header4={phoneData?.description[0].title || ''} />
-        <Paragraph text={phoneData?.description[0].text || ['']} />
+        <HeaderH4 header4={phoneData.description[0].title || ''} />
+        <Paragraph text={phoneData.description[0].text || ['']} />
       </div>
       <div>
-        <HeaderH4 header4={phoneData?.description[1].title || ''} />
-        <Paragraph text={phoneData?.description[1].text || ['']} />
+        <HeaderH4 header4={phoneData.description[1].title || ''} />
+        <Paragraph text={phoneData.description[1].text || ['']} />
       </div>
       <div>
-        <HeaderH4 header4={phoneData?.description[2].title || ''} />
-        <Paragraph text={phoneData?.description[2].text || ['']} />
+        <HeaderH4 header4={phoneData.description[2].title || ''} />
+        <Paragraph text={phoneData.description[2].text || ['']} />
       </div>
     </section>
   );

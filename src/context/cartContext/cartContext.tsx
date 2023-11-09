@@ -1,26 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, {
+import {
   createContext,
   useContext,
   ReactNode,
   useState,
 } from 'react';
-import { Phone } from '../types/Phone';
+import { Phone } from '../../types/Phone';
+import { CartContextType } from './type';
 
-interface CartContextProps {
-  cartState: Phone[];
-  addToCart: (product: Phone) => void;
-  removeFromCart: (phoneId: string) => void;
-  clearCart: () => void;
-  isAddedToCart: (phoneId: string) => boolean;
-}
-
-const CartContext = createContext<CartContextProps | undefined>(undefined);
-
-// const testValue: Phone[] = [];
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const initialCartState = JSON.parse(localStorage.getItem('cartState') || '[]');
+  const initialCartState = JSON.parse(
+    localStorage.getItem('cartState') || '[]',
+  );
   const [cartState, setCartState] = useState<Phone[]>(initialCartState);
 
   const setCartStateAndLocalStorage = (newState: Phone[]) => {
@@ -33,6 +25,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     if (!product.quantity) {
       newProduct = { ...product, quantity: 1 };
+    } else {
+      newProduct = { ...product, quantity: product.quantity + 1 };
     }
 
     const newCartState = [...cartState, newProduct];
@@ -41,7 +35,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const removeFromCart = (phoneId: string) => {
-    const newCartState = cartState.filter((product: Phone) => product.itemId !== phoneId);
+    const newCartState = cartState.filter(
+      (product: Phone) => product.itemId !== phoneId,
+    );
 
     setCartStateAndLocalStorage(newCartState);
   };
