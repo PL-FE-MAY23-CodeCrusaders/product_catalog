@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-no-comment-textnodes */
@@ -16,7 +17,7 @@ import { useCartContext } from '../../context/cartContext/cartContext';
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState('none');
-  const { cartState } = useCartContext();
+  const { quantitySum } = useCartContext();
 
   const handleNavClick = (value: string) => {
     setActiveNav(value);
@@ -105,7 +106,7 @@ function Header() {
           >
             <div className="header__cart">
               <img src={cart} alt="Cart" className="header__cart-img" />
-              <div className="header__counter">{cartState.length}</div>
+              <div className="header__counter">{quantitySum}</div>
             </div>
           </NavLink>
           <div className="header__icon-box">
