@@ -3,6 +3,8 @@ import { Phone } from './types/Phone';
 
 const API_URL = 'https://crusaders.onrender.com/products';
 
+export const API_IMG_URL = 'https://crusaders.onrender.com/';
+
 export async function getPhones(): Promise<Phone[]> {
   try {
     const response = await fetch(`${API_URL}`);
@@ -45,5 +47,17 @@ export async function getPhone(phoneId: string): Promise<PhoneDetails> {
     return await response.json();
   } catch (error) {
     throw new Error(`Failed to fetch phone with ID ${phoneId}`);
+  }
+}
+
+export async function getAllPhones(): Promise<Phone[]> {
+  try {
+    const response = await fetch(`${API_URL}?limit=71`);
+
+    const phones = await response.json();
+
+    return phones.data;
+  } catch (error) {
+    throw new Error('Failed to fetch phones');
   }
 }

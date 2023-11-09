@@ -1,3 +1,4 @@
+import { API_IMG_URL } from '../../../../../../api';
 import { useProductDetailsContext } from '../../../../context/ProductDetailsContext';
 import './Gallery.scss';
 
@@ -13,7 +14,7 @@ export const Gallery = () => {
     <div className="gallery">
       {phoneData
         && phoneData.images.map((img) => {
-          const path = `https://crusaders.onrender.com/${img}`;
+          const path = `${API_IMG_URL}${img}`;
 
           return (
             <button

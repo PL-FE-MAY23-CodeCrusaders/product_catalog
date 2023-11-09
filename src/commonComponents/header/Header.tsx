@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-no-comment-textnodes */
@@ -12,11 +14,13 @@ import close from '../../images/close.png';
 import './Header.scss';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { useCartContext } from '../../context/cartContext/cartContext';
+import { useFavContext } from '../../context/favContext/favContext';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState('none');
-  const { cartState } = useCartContext();
+  const { quantitySum } = useCartContext();
+  const { favState } = useFavContext();
 
   const handleNavClick = (value: string) => {
     setActiveNav(value);
@@ -31,7 +35,12 @@ function Header() {
       <header className="header">
         <div className="header__logo-box">
           <NavLink to="/">
-            <img src={logo} className="header__logo" alt="logo" />
+            <img
+              src={logo}
+              className="header__logo"
+              alt="logo"
+              onClick={() => handleNavClick('home')}
+            />
           </NavLink>
         </div>
         <nav className="nav">
@@ -90,11 +99,14 @@ function Header() {
               activeNav === 'fav' ? 'active-icon' : ''
             }`}
           >
-            <img
-              src={favourites}
-              alt="wishlist"
-              className="header__icon-img"
-            />
+            <div className="header__cart">
+              <img
+                src={favourites}
+                alt="wishlist"
+                className="header__icon-img"
+              />
+              <div className="header__counter">{favState.length}</div>
+            </div>
           </NavLink>
           <NavLink
             to="/cart"
@@ -105,7 +117,7 @@ function Header() {
           >
             <div className="header__cart">
               <img src={cart} alt="Cart" className="header__cart-img" />
-              <div className="header__counter">{cartState.length}</div>
+              <div className="header__counter">{quantitySum}</div>
             </div>
           </NavLink>
           <div className="header__icon-box">
