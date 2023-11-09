@@ -1,11 +1,29 @@
+.Loader__main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 42vh;
+
+  @media(min-width: 640px) {
+    height: 73vh;
+  }
+
+  @media(min-width: 1200px) {
+    height: 70vh;
+  }
+}
+
 .loader {
   margin: 0 auto;
-  width: 120px;
-  height: 120px;
+  width: 70px;
+  height: 70px;
   border: 8px solid rgba(0, 0, 0, 0.1);
   border-top: 4px solid #000;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+
+  
 
   @keyframes spin {
     0% {
