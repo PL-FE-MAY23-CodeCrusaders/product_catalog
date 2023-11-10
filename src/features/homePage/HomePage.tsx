@@ -5,7 +5,7 @@ import { BannerSlider } from './components/BannerSlider/BannerSlider';
 import { Slider } from '../../commonComponents/Slider/Slider';
 import { getDiscountPhones, getNewPhones, getPhones } from '../../api';
 import { Phone } from '../../types/Phone';
-import { Loader } from '../../commonComponents/LoadingState/Loader';
+// import { Loader } from '../../commonComponents/LoadingState/Loader';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,7 +44,7 @@ export const Home = () => {
           <h1 className="Home_sectionWelcome-title title">
             Welcome to Nice Gadgets store!
           </h1>
-          <Loader />
+          {/* <Loader /> */}
         </section>
       </main>
     );
