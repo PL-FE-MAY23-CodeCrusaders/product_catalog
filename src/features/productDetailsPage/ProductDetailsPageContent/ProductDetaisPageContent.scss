@@ -2,12 +2,8 @@
 
 .main {
   max-width: 1200px;
-  margin: 24px auto 24px;
-  padding-left: 25px;
-  padding-right: 25px;
-
-  width: 100%;
-  flex: 1;
+  margin: 0 auto;
+  padding: 25px;
 
   &__option-container {
     display: grid;

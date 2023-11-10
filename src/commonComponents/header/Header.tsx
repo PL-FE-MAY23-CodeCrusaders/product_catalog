@@ -18,13 +18,8 @@ import { useFavContext } from '../../context/favContext/favContext';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState('none');
   const { quantitySum } = useCartContext();
   const { favState } = useFavContext();
-
-  const handleNavClick = (value: string) => {
-    setActiveNav(value);
-  };
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -39,7 +34,6 @@ function Header() {
               src={logo}
               className="header__logo"
               alt="logo"
-              onClick={() => handleNavClick('home')}
             />
           </NavLink>
         </div>
@@ -48,10 +42,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/"
-                className={`nav__link ${
-                  activeNav === 'home' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('home')}
+                className="nav__link"
               >
                 Home
               </NavLink>
@@ -59,10 +50,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/phones"
-                className={`nav__link ${
-                  activeNav === 'phones' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('phones')}
+                className="nav__link"
               >
                 Phones
               </NavLink>
@@ -70,10 +58,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/tablets"
-                className={`nav__link ${
-                  activeNav === 'tablets' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('tablets')}
+                className="nav__link"
               >
                 Tablets
               </NavLink>
@@ -81,10 +66,7 @@ function Header() {
             <li className="nav__item">
               <NavLink
                 to="/accessories"
-                className={`nav__link ${
-                  activeNav === 'accessories' ? 'is-active' : ''
-                }`}
-                onClick={() => handleNavClick('accessories')}
+                className="nav__link"
               >
                 Accessories
               </NavLink>
@@ -94,10 +76,7 @@ function Header() {
         <div className="header__icon">
           <NavLink
             to="/favourites"
-            onClick={() => handleNavClick('fav')}
-            className={`header__icon-box ${
-              activeNav === 'fav' ? 'active-icon' : ''
-            }`}
+            className="header__icon-box"
           >
             <div className="header__cart">
               <img
@@ -110,10 +89,7 @@ function Header() {
           </NavLink>
           <NavLink
             to="/cart"
-            onClick={() => handleNavClick('cart')}
-            className={`header__icon-box ${
-              activeNav === 'cart' ? 'active-icon' : ''
-            }`}
+            className="header__icon-box"
           >
             <div className="header__cart">
               <img src={cart} alt="Cart" className="header__cart-img" />
