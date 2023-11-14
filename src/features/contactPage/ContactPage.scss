@@ -1,0 +1,81 @@
+// Variables
+@import '../../utils/variables.scss';
+
+$column-width: 32px;
+$gutter: 16px;
+
+// Grid
+.ContactPage {
+  padding: 32px 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(24, $column-width);
+  grid-gap: $gutter;
+
+  
+  &__header {
+    grid-column: span 24; // zajmuje 24 kolumny
+  }
+
+  &__article {
+    grid-column: span 12; // zajmuje połowę szerokości (12 kolumn)
+    padding: 0;
+  }
+
+  &__text {
+    font-size: 14px;
+    width: 100%;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  &__slider {
+    grid-column: span 24;
+    display: flex;
+  }
+
+
+  &__button-group {
+    grid-column: span 24;
+    padding: 0 22px;
+    display: flex;
+    justify-content: space-between;
+
+    .goBack {
+      display: flex;
+      align-items: center;
+      color: $accent-color;
+      text-decoration: none;
+
+      .arrow-left {
+        margin-right: 10px;
+      }
+    }
+
+    .buyCoffee {
+      width: 160px;
+      height: 40px;
+      border-radius: 8px;
+      border: none;
+      background: $accent-color;
+      background-color: #161616;
+      color: $white-color;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 21px;
+      cursor: pointer;
+      transition: box-shadow 0.35s ease-in-out;
+
+      &:hover {
+        box-shadow: 0px 3px 13px 0px rgba(0, 53, 152, 0.4);
+      }  
+    }
+  }
+
+  .accent-text {
+    display: inline-block;
+    color: $accent-color;
+    font-weight: bold;
+}
+}

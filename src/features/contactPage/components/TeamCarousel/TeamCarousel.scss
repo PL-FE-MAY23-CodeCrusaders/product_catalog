@@ -1,0 +1,58 @@
+// Variables
+$carousel-width: 100%;
+
+// Carousel Styles
+.carousel-container {
+  width: $carousel-width;
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+}
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+
+      &:hover {
+        color: #000;
+      }
+    }
+
+    button:first-child {
+      margin-bottom: 10px;
+    }
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+
+    .carousel-slide {
+      min-width: $carousel-width;
+      box-sizing: border-box;
+      padding: 0 10px;
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in-out;
+
+      &.active {
+        opacity: 1;
+      }
+
+      @media screen and (max-width: 768px) {
+        touch-action: pan-y; 
+        min-width: 100%;
+      }
+    }
+  }
+

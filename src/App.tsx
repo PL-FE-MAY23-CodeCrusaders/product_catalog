@@ -14,6 +14,7 @@ import { Footer } from './commonComponents/Footer';
 import { Cart } from './features/cart/Cart';
 import { ProductDetailsPage } from './features/productDetailsPage/ProductDetailsPage';
 import { FavProvider } from './context/favContext/favContext';
+import { ContactPage } from './features/contactPage/ContactPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/ContactPage" element={<ContactPage />} />
           </Routes>
           <Footer />
         </CartProvider>
