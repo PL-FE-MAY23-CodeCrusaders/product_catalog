@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
           </NavLink>
           <NavLink
             className="Footer__links--link"
-            to={{ pathname }}
+            to="/ContactPage"
           >
             Contact
           </NavLink>
