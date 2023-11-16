@@ -19,7 +19,7 @@
 
     @media (min-width: 640px) {
         grid-template-columns: repeat(12, 1fr); 
-        grid-template-rows: 365px 577px minmax(327px, 1fr) 577px;
+        grid-template-rows: minmax(365px, 450px) 577px minmax(327px, 1fr) 577px;
         row-gap: 64px;
         padding: 32px 24px 64px;
         }
@@ -35,22 +35,63 @@
 .Home_sectionWelcome {
   // background-color: blue;
   align-items: center;
-  height: 100%;
+  height: auto;
   box-sizing: border-box;
   grid-area: 1/1/2/5;
+  padding:0;
+  margin: 0 -16px;
+
+  @media (min-width: 640px) {
+    margin: 0 
+  }
+
+  @media (min-width: 1200px) {
+  }
+  
+
+  
+
+  background-color: aqua;
 
   &-title {
     font-size: 48px;
-  }
+    border: 1px solid red;
+    margin: 0 0 24px;
+    height: auto;
+    padding:0 16px;
+    box-sizing: border-box;
 
-  @media (max-width: 640px) {
-    margin-bottom: 40px;
+    //styleName: Mobile/H1;
 
-    h1 {
-      font-size: $mobile-h1-size;
-      letter-spacing: $mobile-h1-letter-spacing;
+font-size: 32px;
+font-weight: 800;
+line-height: 41px;
+letter-spacing: -0.01em;
+text-align: left;
+
+
+    @media (min-width: 640px) {
+      margin-bottom: 32px;
+      padding: 0;
+
+      //styleName: Desktop & Tablet/H1;
+
+font-size: 48px;
+font-weight: 800;
+line-height: 56px;
+letter-spacing: -0.01em;
+text-align: left;
+
     }
+  
+    @media (min-width: 1200px) {
+      margin-bottom: 56px;
+    }
+
+    
   }
+
+  
 
   @media (min-width: 640px) {
     grid-area: 1/1/2/14;

@@ -6,6 +6,7 @@ import { Slider } from '../../commonComponents/Slider/Slider';
 import { getDiscountPhones, getNewPhones, getPhones } from '../../api';
 import { Phone } from '../../types/Phone';
 import { Loader } from '../../commonComponents/LoadingState/Loader';
+import { Carousel } from './components/CarouselSlider/CarouselSlider';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,18 +38,18 @@ export const Home = () => {
     fetchData();
   }, []);
 
-  if (isLoading) {
-    return (
-      <main className="Home_main">
-        <section className="Home_sectionWelcome">
-          <h1 className="Home_sectionWelcome-title title">
-            Welcome to Nice Gadgets store!
-          </h1>
-          <Loader />
-        </section>
-      </main>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <main className="Home_main">
+  //       <section className="Home_sectionWelcome">
+  //         <h1 className="Home_sectionWelcome-title ">
+  //           Welcome to Nice Gadgets store!
+  //         </h1>
+  //         <Loader />
+  //       </section>
+  //     </main>
+  //   );
+  // }
 
   if (isError) {
     return (
@@ -71,7 +72,7 @@ export const Home = () => {
         <h1 className="Home_sectionWelcome-title title">
           Welcome to Nice Gadgets store!
         </h1>
-        <BannerSlider />
+        <Carousel />
       </section>
 
       <section className="slidecontainer2">
