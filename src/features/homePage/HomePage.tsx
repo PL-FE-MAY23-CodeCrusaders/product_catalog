@@ -1,7 +1,6 @@
 import './HomePage.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { BannerSlider } from './components/BannerSlider/BannerSlider';
 import { Slider } from '../../commonComponents/Slider/Slider';
 import { getDiscountPhones, getNewPhones, getPhones } from '../../api';
 import { Phone } from '../../types/Phone';
@@ -38,18 +37,18 @@ export const Home = () => {
     fetchData();
   }, []);
 
-  // if (isLoading) {
-  //   return (
-  //     <main className="Home_main">
-  //       <section className="Home_sectionWelcome">
-  //         <h1 className="Home_sectionWelcome-title ">
-  //           Welcome to Nice Gadgets store!
-  //         </h1>
-  //         <Loader />
-  //       </section>
-  //     </main>
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <main className="Home_main">
+        <section className="Home_sectionWelcome">
+          <h1 className="Home_sectionWelcome-title ">
+            Welcome to Nice Gadgets store!
+          </h1>
+          <Loader />
+        </section>
+      </main>
+    );
+  }
 
   if (isError) {
     return (

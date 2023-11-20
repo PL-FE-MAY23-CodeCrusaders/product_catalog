@@ -19,14 +19,14 @@
 
     @media (min-width: 640px) {
         grid-template-columns: repeat(12, 1fr); 
-        grid-template-rows: minmax(365px, 450px) 577px minmax(327px, 1fr) 577px;
+        grid-template-rows: minmax(365px, auto) 577px minmax(327px, 1fr) 577px;
         row-gap: 64px;
         padding: 32px 24px 64px;
         }
     
     @media (min-width: 1200px) {
       grid-template-columns: repeat(24, 32px); 
-      grid-template-rows: 544px 571px minmax(508px, 1fr) 571px;
+      grid-template-rows: minmax(544px, auto) 571px minmax(508px, 1fr) 571px;
       row-gap: 80px;
       padding: 56px 32px 80px;
       }
@@ -51,11 +51,11 @@
 
   
 
-  background-color: aqua;
+  
 
   &-title {
     font-size: 48px;
-    border: 1px solid red;
+    
     margin: 0 0 24px;
     height: auto;
     padding:0 16px;
