@@ -1,0 +1,154 @@
+.Carousel {
+    width: 100%;
+    
+   @media (min-width: 640px) {  
+     max-height: 432px;
+   }
+
+   @media (min-width: 1200px) {
+    max-height: 100%;
+   }     
+
+}
+
+.Carousel__slider {
+    display: flex; 
+    width:100%;
+    height:auto;
+    height:fit-content;
+    
+   @media (min-width: 640px) {
+       min-height: fill;
+       max-height: 100%;
+       gap: 16px;  
+   }
+  
+   @media (min-width: 1200px) {
+     height: 432px;
+   }        
+}
+
+// #region IMAGE CONTAINER
+
+ .Carousel__slider-imageContainer { 
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    position: relative;
+
+   @media (min-width: 640px) {
+      border-radius: 8px;
+      aspect-ratio: 489/189;
+      width: 100%;
+   }
+     
+   @media (min-width: 1200px) {
+      aspect-ratio:initial;
+   }    
+}
+
+.Carousel__slider-image {
+   width: 100%;
+   height:100%;                                                      
+   position:absolute;
+   top:0;
+   left: 0;
+   opacity: 0;
+   transition: opacity ease-in-out 0.5s;
+      
+   &-active {
+      opacity: 1;
+   }
+   
+   @media (min-width: 640px) {
+      margin: 0;
+      border-radius: 8px;
+   }   
+}
+
+// #endregion
+
+// #region LEFT & RIGHT BUTTONS
+
+.Carousel__slider-leftButton {
+   background: url('../../../../images/arrow-right-gray.svg') !important;
+   background-size: auto 16px !important;
+   background-position: center !important;
+   background-repeat: no-repeat !important;
+   border-radius: 48px;
+   border: 1px solid #b4bdc3;
+   cursor: pointer;
+   width: 32px;
+   height: 100%;
+   transform: rotate(180deg);
+   display: none;
+   min-height: 189px;
+   max-height: 100%;
+   
+   @media (min-width: 640px) {
+     display: initial;
+     height:auto;
+     min-height:100%;
+   }  
+}
+
+.Carousel__slider-rightButton {
+   background: url('../../../../images/arrow-right-gray.svg') !important;
+   background-size: 16px !important ;
+   background-position: center !important;
+   background-repeat: no-repeat !important;
+   border-radius: 48px;
+   border: 1px solid #b4bdc3;
+   cursor: pointer;
+   width: 32px;
+   height: 100%;
+   flex-shrink: 0;
+   display: none;
+   min-height: 189px;
+   max-height: 100%;
+
+   @media (min-width: 640px) {
+       display: initial;
+       height: auto;
+   }  
+}
+
+// #endregion
+
+// #region BOTTOM BAR WITH CONTROLS
+
+.Carousel__controls {
+   height:auto;
+   display: flex;
+   justify-content: center;
+   gap:4px;
+   box-sizing: border-box;
+}
+
+.Carousel-control {
+   height: 24px;
+   width: 24px; 
+   display: flex;
+   margin-top: 8px;
+
+   &:hover {
+   cursor: pointer;
+   }  
+}
+
+.Carousel-controlImg {
+   height: 4px;
+   width: 14px;
+   background-color: #E2E6E9 ;
+   margin: auto auto;
+
+   &-active {
+   background-color: #0F0F11;
+   }
+}
+
+// #endregion
+
+
+

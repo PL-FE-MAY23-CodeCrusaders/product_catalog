@@ -1,11 +1,11 @@
 import './HomePage.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { BannerSlider } from './components/BannerSlider/BannerSlider';
 import { Slider } from '../../commonComponents/Slider/Slider';
 import { getDiscountPhones, getNewPhones, getPhones } from '../../api';
 import { Phone } from '../../types/Phone';
 import { Loader } from '../../commonComponents/LoadingState/Loader';
+import { Carousel } from './components/CarouselSlider/CarouselSlider';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +41,7 @@ export const Home = () => {
     return (
       <main className="Home_main">
         <section className="Home_sectionWelcome">
-          <h1 className="Home_sectionWelcome-title title">
+          <h1 className="Home_sectionWelcome-title ">
             Welcome to Nice Gadgets store!
           </h1>
           <Loader />
@@ -71,7 +71,7 @@ export const Home = () => {
         <h1 className="Home_sectionWelcome-title title">
           Welcome to Nice Gadgets store!
         </h1>
-        <BannerSlider />
+        <Carousel />
       </section>
 
       <section className="slidecontainer2">
