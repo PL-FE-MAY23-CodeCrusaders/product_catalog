@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.3dd46694.css",
-    "main.js": "/product_catalog/static/js/main.87f8dbb3.js",
+    "main.css": "/product_catalog/static/css/main.a0d12041.css",
+    "main.js": "/product_catalog/static/js/main.fbc5c405.js",
     "static/js/787.067e5c75.chunk.js": "/product_catalog/static/js/787.067e5c75.chunk.js",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.5e6dd968a0d27d104ebd.svg",
-    "static/media/Banner.png": "/product_catalog/static/media/Banner.71e7e0917555f044d60b.png",
+    "static/media/img1-desktop.png": "/product_catalog/static/media/img1-desktop.71e7e0917555f044d60b.png",
+    "static/media/img2-desktop.webp": "/product_catalog/static/media/img2-desktop.331d8adb09ce64c58049.webp",
     "static/media/HomeCategoryPhones.png": "/product_catalog/static/media/HomeCategoryPhones.b914f4124f0dab3439fb.png",
     "static/media/homeTablets.png": "/product_catalog/static/media/homeTablets.ed3dd9df51129690126b.png",
-    "static/media/image16.png": "/product_catalog/static/media/image16.5ab4e0f94787219dc791.png",
-    "static/media/BannerTablet.png": "/product_catalog/static/media/BannerTablet.422c73b897ae0041c5a7.png",
+    "static/media/img1-mobile.png": "/product_catalog/static/media/img1-mobile.5ab4e0f94787219dc791.png",
     "static/media/HomeCategoryAccessories.jpg": "/product_catalog/static/media/HomeCategoryAccessories.f61e4853ce9c9b2b09d6.jpg",
-    "static/media/revicons.eot": "/product_catalog/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/product_catalog/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/product_catalog/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/img2-mobile.avif": "/product_catalog/static/media/img2-mobile.9f0e49dd91d5de15e8c4.avif",
+    "static/media/img3-desktop.avif": "/product_catalog/static/media/img3-desktop.9a2fbd3c801141e42973.avif",
+    "static/media/img3-mobile.avif": "/product_catalog/static/media/img3-mobile.762744e31dcf072136a9.avif",
     "static/media/Home.svg": "/product_catalog/static/media/Home.9a24a70540404ccecd05fd9f900ddeeb.svg",
     "static/media/heart.svg": "/product_catalog/static/media/heart.a7c6478e00809e3e66835596aad1ef23.svg",
     "static/media/pink-heart.svg": "/product_catalog/static/media/pink-heart.1ea3e8efce2178c6e2e09947fe62789c.svg",
@@ -25,12 +25,12 @@
     "static/media/phonepage__arrow.svg": "/product_catalog/static/media/phonepage__arrow.7ec4fc6dd97400e39f37.svg",
     "static/media/chevroneUp.svg": "/product_catalog/static/media/chevroneUp.c4dfed800b9d1c84cbd6.svg",
     "static/media/colors.svg": "/product_catalog/static/media/colors.d1db6a505a5b5f2aacbbd769224a0ecb.svg",
-    "main.3dd46694.css.map": "/product_catalog/static/css/main.3dd46694.css.map",
-    "main.87f8dbb3.js.map": "/product_catalog/static/js/main.87f8dbb3.js.map",
+    "main.a0d12041.css.map": "/product_catalog/static/css/main.a0d12041.css.map",
+    "main.fbc5c405.js.map": "/product_catalog/static/js/main.fbc5c405.js.map",
     "787.067e5c75.chunk.js.map": "/product_catalog/static/js/787.067e5c75.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3dd46694.css",
-    "static/js/main.87f8dbb3.js"
+    "static/css/main.a0d12041.css",
+    "static/js/main.fbc5c405.js"
   ]
 }
